@@ -108,7 +108,7 @@ es:
         
 output = 3,5,7,9
 
-## LABORATORIO 1 - CACLOLATRICE IN PYTHON 3.6
+## LABORATORIO 1 - CALCOLATRICE IN PYTHON 3.6
 
     # Calcolatrice in python
     # autore: Gianotto Roberto
