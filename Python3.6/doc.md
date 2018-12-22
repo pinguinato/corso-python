@@ -196,3 +196,6 @@ Risultato:
 
 questo codice stampa una serie di 10 numeri casuali compresi tra 1...50   
 
+Esiste poi un'altra tipologia di import che permette di importare solo una funzione:
+
+
