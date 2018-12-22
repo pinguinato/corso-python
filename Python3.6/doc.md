@@ -179,3 +179,20 @@ per fare operazioni tra le più comuni.
 
 Consultabile qui: https://docs.python.org/3/library/
 
+Prima di usare tutte le funzioni della standard library, questi vanno **importati**.
+
+Si importano con il comando **import**
+
+es:
+
+    #importa il modulo random e le sue funzionalità
+    import random 
+    
+    for numero in range(10):
+        valore = random.randint(1,50)
+        print(valore)
+        
+Risultato:
+
+questo codice stampa una serie di 10 numeri casuali compresi tra 1...50   
+
