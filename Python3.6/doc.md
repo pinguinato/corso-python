@@ -208,4 +208,50 @@ es:
     
 N.B. si possono importare moduli esterni usando **PIP**
 
+## Funzioni
 
+Servono per riutilizzo del codice, il codice dentro una funzione deve essere indentato!
+
+Sintassi:
+
+        def nomefunzione(parametri)
+        
+es:
+
+        def print3volteCiao():
+            print("Ciao")
+            print("Ciao")
+            print("Ciao")
+      
+Per eseguire la funzione la devo richiamare:
+
+        print3volteCiao()
+        
+Esempio con parametri:
+
+        # definizione
+        def sommatrice(a,b):
+            print('Questa funzione somma')
+            print('Somma due numeri passati come parametri')
+            risultato = a + b
+            print('Il risultato = ' + str(risultato))
+        
+        # richiamo funzione    
+        sommatrice(15,5)
+        
+Esempio che ritorna in forma autonoma il risultato:
+
+        def sommatrice(a,b):
+            risultato = a + b
+            return(risultato)
+            
+Altro esempio:
+
+        def laptop_nuovo(ram,cpu, antivirus = False):
+            print('Il nuovo laptop avrà le seguenti caratteristiche:')
+            print('ram: ' + ram)
+            print('cpu: ' + cpu)
+            if antivirus == True:
+                print('Hai comprato anche un antivirus')
+                
+N.B. tutte le funzioni hanno un **return** e se non visibile il risultato sarà **none**
