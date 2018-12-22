@@ -77,3 +77,33 @@ es:
             print('saltato')
             continue
             print(contatore)
+            
+- for
+
+Fintanto che la condizione di controllo resta true il ciclo esegue le istruzioni.
+
+es:
+
+    contatore = 0
+
+    while contatore <= 10:
+        print(contatore)
+        contatore = contatore + 1
+
+    # for
+
+    for contatore in range(11):
+        print(contatore)
+        
+Funzione range(): 
+
+ci possiamo passare fino a 3 parametri
+
+    range(start,stop,step)
+    
+es:
+
+    for contatore in range(3,11,2):
+        print(contatore)
+        
+output = 3,5,7,9
