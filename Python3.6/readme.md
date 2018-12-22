@@ -1,6 +1,7 @@
 # Corso di Python (v 3.6)
 
-L'indentazione in Python è obbligatoria e non rispettarl comporta errori di programmazione.
+L'indentazione in Python è obbligatoria e non rispettarla comporta
+un reato federale!
 
 ## Funzioni del linguaggio importanti
 
