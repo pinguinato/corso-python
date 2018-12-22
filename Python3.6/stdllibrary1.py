@@ -2,7 +2,7 @@
 
 # import di tutte le funzioni di random library
 import random
-# import della sola funzione sqrt della math library
+# import della sola funzione sqrt della math library, non è necessario citare la libreria di dipendenza
 from math import sqrt
 
 for numero in range(10):

@@ -198,4 +198,14 @@ questo codice stampa una serie di 10 numeri casuali compresi tra 1...50
 
 Esiste poi un'altra tipologia di import che permette di importare solo una funzione:
 
+es:
+    
+    #importa una sola funzione
+    from math import sqrt
+    
+    # importa tutte le funzioni della libraria math
+    from math import *
+    
+N.B. si possono importare moduli esterni usando **PIP**
+
 
