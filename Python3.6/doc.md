@@ -406,3 +406,104 @@ Esempio:
     False
     
 - Possiamo convertire una stringa in lista con il metodo **list()**
+
+# Paradigma Obejct Oriented
+
+# La Python Virtual Machine
+
+**Linguaggio compilato**: un compilatore traduce le istruzioni di un sorgente in un file eseguibile di codice binario. La Compilazione
+viene eseguita una volta per ogni architettura.
+
+**Linguaggio interpretato**: c'è un interprete che esegue direttamente il codice sorgente, istruzione per istruzione, ogni volta
+che il programma viene passato all'interprete ogni volta lo traduce. Lo stesso sorgente può essere eseguito però su piattaforme differenti, e non
+ha bisogno di essere ricompilato ogni volta.
+
+**Linguaggio compilato in forma intermedia (bytecode)**: viene posto il bytecode in esecuzione in una VM, una macchina ideale.
+
+Python è di fatto una VM, ciò che manda in esecuzione il nostro programma viene definito Python Virtual Machine.
+Viene generato un bytecode che viene mandato in esecuzione sulla VM.
+
+- sorgente (source.py)
+- byte codeo (source.pyc)
+- runtime (source.pyc dentro la VM Python)
+
+# Programma Python
+
+Insieme di file srogenti che contengono istruzioni, dove c'è un programma principale chiamato **script** 
+e poi ci sono gli altri secondari detti **moduli** che sono delle librerie usate dal programma principale e che
+contengono le librerie.
+
+# Oggetti in Python
+
+Tutto è un oggetto in Python. Anche se i programmi sono serie di istruzioni, la forma che Python
+assegna alle entità di un programma è quella di **oggetto**.
+Gli oggetti in Python sono strutture di dati con 3 caratteristiche:
+- identità (id) -- id numerico univoco e immutabile, che lo distingue da tutti gli altri, dato a runtime
+- tipo (type) -- una categoria che determina la natura di un oggetto (stringa, intero...)
+- valore (value) -- è un dato o insieme di dati mantenuto all'interno di un oggetto
+
+**Mutabile** cambia valore durante il ciclo di vita
+
+**Immutabile** non cambia valore dutante il ciclo di vita
+
+Mutabile ed immutabile vengono definiti dal tipo di oggetto.
+
+# Literal
+
+Fornire in Forma Letterale, che permette a Python di distinguere gli oggetti.
+
+- 20 (intero)
+- 'stringa' (stringa di testo)
+- [1,2,3] (array, lista)
+
+# Variabili
+
+Si definiscono attravero una istruzione di assegnamento:
+
+        a = 20
+        
+Nomi validi in Python:
+- contiene lettere, numeri o caratteri unicode
+- non può iniziare con un numero
+- non può essere una parola riservata
+
+In python una variabile non è un oggetto, ma un nome che punta ad un oggetto.
+
+Può riferirsi ad oggetti che puntano a tipi diversi:
+
+        a = 20
+        
+        a = 'Python'
+        
+Se assegnamo una varaibile ad un altra variabile viene considivso l'id
+
+        a = 20
+        
+        b = a
+        
+Oggetto puntato e condiviso da a e b --> **reference count** è il contatore di riferimenti che tiene traccia delle reference degli oggetti
+ce l'hanno tutti gli oggetti Python. Python libera il garbage collector quando il reference count va a 0. Python gestisce automaticamente 
+la memoria dei propri oggetti grazie a questo meccanismo.
+
+# Callable Object
+
+- Oggetti **chiamabili**: sono codice eseguibile e non dati, contengono delle istruzioni al loro interno che noi possiamo eseguire esprimendo il loro nome (invocazione), hanno anche dei parametri
+le funzioni sono l'esempio più significativo di oggetto chiamabile.
+- Oggetti **non chiamabili**: sono dati che contengono valori o gruppi di valori (tipo le liste, variabili ecc...)
+
+# Attributi
+
+Gli oggetti in Python hanno:
+- una identità (id)
+- un valore
+- **una serie di attributi** (che possono essere anche chiamabili (metodi))
+
+## Dot Notation
+
+        NomeOggetto.NomeAttributo
+        
+        NomeOggetto.NomeAttributo(Parametri)
+
+        x.y --> ritorna il valore dell'attributo
+        
+        x.y() --> callable, esegue il codice del metodo x()
