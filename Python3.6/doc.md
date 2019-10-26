@@ -407,6 +407,8 @@ Esempio:
     
 - Possiamo convertire una stringa in lista con il metodo **list()**
 
+# Corso Python (Udemy)
+
 # Paradigma Obejct Oriented
 
 # La Python Virtual Machine
@@ -507,3 +509,110 @@ Gli oggetti in Python hanno:
         x.y --> ritorna il valore dell'attributo
         
         x.y() --> callable, esegue il codice del metodo x()
+        
+# Basic Data Type
+
+Tipi di dato predefiniti più semplici che il linguaggio mette a disposizione (tipi numerici, booleani e stringhe).
+
+## None
+
+è un oggetto ed è l'unica istanza della classe NoneType, indica l'assenza di valore ed è un basic data type!
+Quando una funzione ritorna un None, ritorna un non valore, ma comunque ritorna sempre qualcosa.
+
+## Tipi Numerici
+
+- integer
+- floating point
+- boolean
+
+Tutti i tipi numeri sono **immutabili**. Il numero 3 è sempre 3, ma ciò non vuol dire che non possiamo cambiare 
+le varibiali che puntano a questi oggetti. E' il valore dell'oggetto che non cambia!
+
+Tipo integer: **int**
+
+Dalla versione 3.6 è stato introdotto anche l'underscore per rendere più leggibili numeri molto grandi.
+
+Basi di riferimento che possiamo usare:
+- binario
+- ottale
+- esadecimale
+
+Tipi booleani: **bool**
+
+Sono sottotipi degli interi (ma solo in Python), ha solo 2 oggetti, uno true e l'altro false.
+Ci consentono la rappresentazioni di oggetti a 2 stati.
+
+Tipi Floating Point: **float**
+
+La classe che li contiene si chiama **Float**.
+
+La presenza del punto di separazione decimale dice a Python che il numero è floating point.
+
+**Nota**
+
+Python fornisce anche come basic data il supporto ai numeri immaginari.
+
+Per verificare il tipo usare **type(variaible)**
+
+### Esercitazione
+
+        >>> x = 100
+        >>> print(x)
+        100
+        >>> type(x)
+        <class 'int'>
+        >>> y = 0b1100100
+        >>> type(y)
+        <class 'int'>
+        >>> f = 975.0
+        >>> type(f)
+        <class 'float'>
+        >>> f = 9.75e2
+        >>> print(f)
+        975.0
+        >>> type(f)
+        <class 'float'>
+
+## Stringhe
+
+Sono un tipo di sequenza (sequenza di caratteri), una sequenza è una struttura che ha un ordine.
+
+Il tipo = **str**
+
+Ogni carattere che appartiene ad una stringa deve appartenere al set Unicode.
+
+Sono oggetti **immutabili** come i numeri.
+
+Le stringhe si definiscono dentro una coppia di apici singoli oppure doppi (come PHP).
+
+La stringa vuota è comunque valida anche se non ha al suo interno nessun carattere. Si può scrivere una 
+stringa multiline usando il carattere backslash. Come alternativa possiamo usare triple di apici, indicando
+a Python che è una stringa multiline.
+
+Le **sequenze di escape** consentono di inserire caratteri stmapabili e non sullo schermo (tipo il rotnorno a capo ecc...).
+
+## f-string (interpolazione di stringhe dalla 3.6)
+
+Altri modi di formattazione del testo:
+
+- %-formatting (deprecata)
+- str.format()
+- f-string (dalla 3.6)
+
+f-string è da preferire visto che è nuova.
+
+Esempio:
+
+        >>> titolo = "Isola misteriosa"
+        >>> autore = "Giulio Verne"
+        >>> f"Titolo: {titolo}, Autore: {autore}"
+        'Titolo: Isola misteriosa, Autore: Giulio Verne'
+        
+Il valore delle due variabili viene inserito al posto giusto nella stringa, ciò viene detto interpolazione di stringhe.
+Si ritrova in molti linguaggi di programmazione. L'interpolazione permette di usare una qualunque
+espressione dentro le paretesi graffe, quindi possiamo metterci anche delle funzioni!
+
+## Espressioni ed operatori
+
+
+
