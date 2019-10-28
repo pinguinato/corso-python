@@ -614,5 +614,108 @@ espressione dentro le paretesi graffe, quindi possiamo metterci anche delle funz
 
 ## Espressioni ed operatori
 
+Permettono di creare espressioni complesse, un operatore è un simbolo che rappresenta una operazione. Gli operandi sono gli 
+elementi su cui può intervenire l'operatore.
+
+Esempio:
+
+        x = 10 + 5
+        
+In python abbiamo:
+
+- operatori aritmetici (+, -, *, /, //, %, **, - unario)
+- operatori assegnamento (=, +=, -=, /=, //=, %=, **=, *=)
+- operatori di confronto (>, <, ==, !=, >=, <=) ritornano sempre un valore boolean
+- operatori logici (and, or, not), a questi operatori sono associate le tavole di verità
+- operatori su sequenze (indexing, slicing, concatenazione con operatore +, lunghezza **len(stringa)**, massimo **max(stringa)**, e minimo **min(stringa)** )
+
+### Indexing
+
+        >>> s = 'ciao'
+        >>> s[0]
+        'c'
+
+### Slicing (porzione di una stringa, sottostringa)
+
+Da start a stop-1. Gli offset sono separati dai 2 punti. Gli slice ad indici negativi partono dal fondo.
+
+        >>> s = 'python programming'
+        >>> s[:]
+        'python programming'
+        >>> s[:9]
+        'python pr'
+        >>> s[9:]
+        'ogramming'
+        >>> s[0:9]
+        'python pr'
+        >>> s[9:0]
+            ''
+        >>> s[-9]
+            'o'
+        >>> s[-11]
+        'p'
+        >>> s[-12]
+        ' '
+        >>> s[-1]
+        'g'
+        >>> s[-3]
+        'i'
+        >>> s[-2] --> 2 caratteri prima della fine
+        'n'
+        >>> s[1:12:3]
+        'yopg'
+        >>> s[1:12:-3]
+        ''
+        >>> s[1:12:]
+        'ython progr'
+
+### Precendeza degli operatori
+
+Distingue con le parentesi.
+
+Esercizio valori booleani:
+
+        >>> x = 100
+        >>> y = 200
+        >>> x and True
+        True
+        >>> x = 0
+        >>> x and True
+        0
+        >>> x = 100
+        >>> y = 200
+        >>> not (x or y)
+        False
+        >>> (x < y) or (x > 2000)
+        True
+        >>> (x == 20) and (y == 200)
+        False
+
+# Importante (test dei valori di verità)
+
+Valgono sempre FALSE:
+
+- None
+- False
+- zero di qualunque tipo (0, 0.0)
+- una sequenza vuota ('', (), [])
+- un qualunque dizionario/oggeto vuoto {}
+
+Tutto il resto è considerato TRUE.
+
+# Conversioni di tipo
+
+- **integer conversion**: usiamo la funzione **int()**. Se le stringhe contengono un numero vengono convertite ad intero altrimenti 
+generano un errore
+- **float conversion**: usiamo la funzione **float()**.
+- **string conversion**: usiamo la funzione **str()**.
+- **boolean conversion**: usiamo la funzione **bool()**.
+
+# Strutture di dati
+
+- Liste
+- Tuple
+- Dizionari
+- Set
 
 
