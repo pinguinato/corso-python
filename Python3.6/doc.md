@@ -718,4 +718,165 @@ generano un errore
 - Dizionari
 - Set
 
+Sequenza: è un insieme ordinato di elementi, dove questi elementi sono indicizzati numericamente tramite la loro posizione,
+un indice che parte da zero. Python possiede 2 tipologie di sequenze: liste e tuple.
+
+Liste e tuple hanno elementi di tipo qualunque, però le liste sono mutabili(i suoi elementi possono cambiare nel corso di vita
+della lista) e le tuple invece no(gli oggetti della tupla una volta che sono inseriti sono fissi e non possono cambiare).
+
+## Le Liste
+
+Sequenza di oggetti mutabile, anche diversi tra loro. Si usa la classe **list**.
+
+        mylist = [] è una lista vuota
+        mylist = [1,2,3] è una lista con elementi dentro
+        mylist = list() è una lista vuota che sfrutta il costruttore della classe, ma ritorna sempre [] come primo esempio
+        
+        mylist = [10,20,30]
+        mylist[1] ritorna 20
+        mylist[-1] ritorna 30, ci si sposta al contrario nello scorrere la lista
+
+Le liste possono contenere altre liste:
+
+        mylist = [[1,2],[1,3],[1,4]]
+        mylist[1][1] ritorna 3
+        
+Modifica di un elemento di lista:
+
+        mylist = [10,20,30]
+        mylist[1] = 50
+        si ottiene [10,50,30]
+        
+Slice di una lista(come sulle stringhe perché sono delle sequenze):
+
+        mylist = [10,20,30]
+        mylist[:2]
+        ottieni [10,20]
+        
+Lunghezza di una lista:
+
+        usiamo la funzione len()
+        mylist = [10,20,30]
+        len(mylist)
+        ritorna 3
+
+Inserimento in una lista di un elemento:
+        
+        mylist = [10,20,30]
+        mylist.insert(2,50)
+        otteniamo [10,20,50,30]
+        ricordare in particolare la dot notation che usiamo in Python per richiamare funzioni/attributi
+        
+Appendere in coda alla lista un nuovo elemento:
+
+        usiamo il metodo append()
+        mylist = [10,20,30]
+        mylist.append(50)
+        aggiunge in coda alla lista il nuovo elemento, otteniamo
+        otteniamo [10,20,30,50]
+        
+Eliminare un elemento dalla lista(operatore **del**):
+
+        usiamo l'operatore del
+        mylist = [10,20,30]
+        del mylist[1]
+        otteniamo: [10,30]
+        
+Verifica se un elemento appartiene alla lista(operatore **in**):
+
+        mylist = [10,20,30]
+        20 in mylist
+        otteniamo true
+        
+**IMPORTANTISSIMO**
+
+Due nomi, una lista:
+
+        mylist = [10,20,30]
+        mylist2 = mylist
+        mylist2[1]  = 60 una modifica di una lista che punta assieme ad un altra stessa lista
+        in realtà si riflette ad entrambe le liste quindi:
+        mylist sarà [10,60,30] e così pure
+        mylist2 sarà [10,60,30]
+
+Soluzione: possiamo evitare questa situazione servendoci del metodo **copy()** che va a sdoppiare a tutti gli effetti le liste
+andando a copiare lemento per elemento della lista e lavorando così su due liste separate da lì in avanti:
+
+        mylist = [10,20,30]
+        mylist2 = mylist.copy()
+        mylist2[1] = 60
+        allora avrò la seguente situazione: 
+        [10,20,30] per mylist
+        [10,60,30] per mylist2
+        
+Esercizio sulle liste:
+
+        >>> myList = [1,2,3,4,5]
+        >>> print(myList)
+        [1, 2, 3, 4, 5]
+        >>> myList
+        [1, 2, 3, 4, 5]
+        >>> myList[:2]
+        [1, 2]
+        >>> myList[1:3]
+        [2, 3]
+        >>> myList[2:4]
+        [3, 4]
+        >>> myList.insert(1,6)
+        >>> myList
+        [1, 6, 2, 3, 4, 5]
+        >>> myList.append(10)
+        >>> myList
+        [1, 6, 2, 3, 4, 5, 10]
+        >>> del myList[3]
+        >>> myList
+        [1, 6, 2, 4, 5, 10]
+        
+## Le Tuple
+
+Una tupla è una sequenza immutabile, ciò vuol dire che gli elementi di una tupla, una volta inseriti, dopo non possono 
+più essere modificati. Tutte le tuple sono istanze della classe **tuple**
+
+Istanziare una tupla:
+
+        medaglie = () istanzia tupla vuota
+        medaglie = tuple() istanzia tupla vuota
+        
+        medaglie = 'oro', 'argento', 'bronzo'
+        medaglie = ('oro', 'argento', 'bronzo')
+        
+        >>> medaglie
+        stampa ('oro', 'argento', 'bronzo')
+        
+**Unpacking** di una tupla:
+
+        medaglie = ('oro', 'argento', 'bronzo')
+        o,a,b = medaglie
+        >>> o
+        'oro'
+        >>> a
+        'argento'
+        >>> b
+        'bronzo'
+        
+Le tuple sono più efficienti delle liste, perché Python sa che non si può alterare nessuna Tupla. Quindi è consigliabile,
+quando si può, usare delle tuple al posto delle liste.
+
+Esercitazione sulle tuple:
+
+        >>> t1 = (1,2)
+        >>> t1
+        (1, 2)
+        >>> t2 = (3,4)
+        >>> t2
+        (3, 4)
+        >>> myList = [t1, t2]
+        >>> myList
+        [(1, 2), (3, 4)] ho creato una lista di tuple!!
+        >>> myList.append((5,6))
+        >>> myList
+        [(1, 2), (3, 4), (5, 6)]
+        
+##Dizionari
+
 
