@@ -879,4 +879,116 @@ Esercitazione sulle tuple:
         
 ##Dizionari
 
+Simile ad una lista ma l'ordine degli elementi non è definto perché non sono sequenze. Un elemento di u dizionario
+si compone di 2 oggetti <chiave, valore>. Le chiavi, una volta associate, non possono cambiare valore, sono immutabili.
+Non ci sono limitazioni per i valori. I Dizionari però sono mutabili. In questo è come le liste.
+Quindi è un oggetto mutabile. Una istanza della classe **dict**.
 
+Esempio:
+
+        myDict = {} //formato literal
+        myDict = dict() // con costruttore
+        myDict = { "primo": 10, "secondo":20, "terzo":30}
+        
+Aggiungere un elemento:
+
+        myDict["quarto"] = 40 // lachiave si usa per accedere e cambiare il valore
+
+Se la chiave non esiste, per Python significa aggiungere una chiave.
+
+Eliminare un elemento:
+
+        del myDict["secondo"] // il secondo elemento e la sua chiave vengono cancellati
+        
+        myDict.clear() // attributo che hanno tutti i dizionari, elimina tutti gli elementi del dizionario
+        
+        myDict = {} // anche così svuoto in un colpo solo il dizionario
+        
+Verifica di un elemento:
+
+        "terzo" in myDict // si usa la chiave per la verifica --> Python ritorna True
+        
+Copia:
+
+        myDict = myDict2 // si riferiscono a myDict, come le liste
+        
+        myDict2 = myDict.copy() // sdoppiamo il dizionario, come le liste
+        
+Esercitazione:
+
+        >>> d1 = {10:"a",20:"b"}
+        >>> d1
+        {10: 'a', 20: 'b'}
+        >>> type(d1)
+        <class 'dict'>
+        >>> d2 = {30:"c"}
+        >>> type(d2)
+        <class 'dict'>
+        >>> d2
+        {30: 'c'}
+        >>> l1 = d1.items()
+        >>> l1
+        dict_items([(10, 'a'), (20, 'b')])
+        >>> type(l1)
+        <class 'dict_items'>
+        >>> l2 = d2.items()
+        >>> l2
+        dict_items([(30, 'c')])
+        >>> type(l2)
+        <class 'dict_items'>
+        >>> d3 = dict(l1)
+        >>> d3
+        {10: 'a', 20: 'b'}
+        >>> d3.update(dict(l2))
+        >>> d3
+        {10: 'a', 20: 'b', 30: 'c'}
+
+## Set
+
+Un insieme è come una specie di dizionario da cui però si eliminano tutti i valori mantenendo soltanto le chiavi. Gli elemnti 
+sono tutti univoci. Si usano le operazioni tipiche dell'insiemistica matematica.
+La classe che li identifica è **set**.
+
+Esempio:
+
+        mySet = set()
+        mySet = set([10,20,30,40])
+        mySet = {10,20,30,40} // forma literal, non crea l'insieme vuoto
+        mySet = {} // questo on è un insieme vuoto, ma un dizionario vuoto attenzione!!!
+        
+Un insieme è un oggetto mutabile. Si possono aggiungere e togliere elementi.
+
+Aggiungere:
+
+        mySet.add(50)
+        
+Creare insiemi immutabili, chiamati **frozenset**:
+
+        mySet = frozenset([10,20,30])
+        mySet.add(40) // Python va in errore!!!
+        
+Verifica di un elemento:
+
+        30 in mySet // restituisce True
+        
+Intersezione di insiemi:
+
+        mySet = {10,20,30,40}
+        mySet2 = {30,40,50,60}
+        mySet & mySet2  // ottengo {30,40}
+
+Unione di insiemi: 
+
+        mySet | mySet2 // {10,20,30,40,50,60}
+        
+Differenza insiemistica:
+
+        mySet - mySet2 // {10,20}
+        
+Xor, or esclusivo:
+
+        mySet ^ mySet2 // {10,20,50,60}
+
+# Strutture di codice in Python
+
+        
