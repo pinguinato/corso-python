@@ -991,4 +991,87 @@ Xor, or esclusivo:
 
 # Strutture di codice in Python
 
+## Linee di codice e blocchi di codice
+
+Un programma è composta da linee logiche, dove ogni liena logica è composta da una o più linee fisiche.
+
+**inea logica**: quella che vede e riassembla Python.
+
+**Linea fisica**: quella che scriviamo noi nel programma.
+
+Esempio: 2 linee fisiche di codice
+
+        s = 'Python'
+        print(s) # commento
+        
+I commenti però non fanno parte delle linee fisiche. Per Python l'esempio viene tradotto in altrettante 2 linee logiche.
+
+Altro esempio:
+
+        s = 'Python \
+            Programming \
+            Language'
+        print(s)
+
+Qui abbiamo 4 linee fisiche, ma solo 2 linee logiche che interpreta Python!!
+Quindi linee logiche possono essere composte da una o più linee fisiche.
+Il carattere Back Slash segnala a Python il multi line.
+
+## Blocco di codice
+
+Insieme di linee di codice. Vengono nidificati, creati uno dentro l'altro in forma gerarchica. Python non usa 
+delle coppie di parentesi per delimitare i suoi blocchi di codice. Python usa l'**indentazione**!!
+
+## Gli Statement
+
+Una linea fisica di codice è composta da uno statement (istruzione da eseguire).
+In Python possiamo scrivere codice sulla stessa riga separando con il punto e virgola, ma questa modalità è fortemente
+sconsigliata conviene mantenere sempre gli statement e le linee di codice su linee separate.
+
+### Statement Semplice
+
+Uno statement che non contiene altri statement, rappresenta una sola linea logica di codice.
+
+### Statement Composti
+
+Uno statement che ne contiene altri più semplici, quindi vengono scomposti da Python in una serie di linee logiche.
+Ad esempio un test condizionale.
+
+## Lo statement IF
+
+Serve per esecuzioni condizionali del codice. Eseguire test di verità.
+
+Sintassi:
+
+            if espressione:
+                suite
+            elif espressione:
+                suite
+            else:
+                suite
+
+Forma semplice:
+
+            if x < 10:
+                print("<10")
+
+Forma più complessa:
+
+            if x < 10:
+                print("<10")
+            else:
+                print(">10")
+
+Forma completa (a statement composto):
+
+            if x < 10:
+                print("<10")
+            elif x < 20:
+                print(">10 e <20")
+            elif x < 30:
+                print(">20 e <30")
+            else:
+                print(">30")
+                
+## Ciclo While
         
