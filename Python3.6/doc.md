@@ -1074,4 +1074,204 @@ Forma completa (a statement composto):
                 print(">30")
                 
 ## Ciclo While
+
+Statement composto
+
+Sintassi:
+
+        while espressione:
+            suite
+        else:
+            suite
+
+La clausola **else** spesso non è presente.
+
+Esempio (forma comune):
+
+            x = 0;
+            while x < 3:
+                print(x)
+                x += 1
+                
+Esempio (loop infinito):
+
+            while True:
+                x = input("Inserire una stringa")
+                if x == 'stop':
+                    break
+                print(x)
+                
+Esempio (loop infinito con continue)
+
+            while True:
+                x = input("Inserire una stringa")
+                if x == 'stop':
+                    break
+                if x < "b":
+                    continue
+                print(x)
         
+## Statement For
+
+Statement composto, usato per iterare gli elementi delle sequenze, e gli oggetti, purchè questi siano **iterabili**.
+
+Sintassi:
+    
+            for target in iterator:
+                suite
+            else:
+                suite
+
+Il ciclo termina quando finisce l'iterator. La clausola **else** è facoltativa e poco usato, però si può usare.
+
+Esempio (lista):
+
+            myList = [1,2,3,4]
+            for i in myList:
+                print(i)
+                
+Esempio (stringa, anche loro sono delle sequenze, un caratteere per volta):
+
+            myString = 'python'
+            for i in myString:
+                print(i)
+                
+Esempio (dizionario)
+
+            myDict = {'a':1,'b':2,'c':3}
+            for i in myDict:
+                print(i)
+
+Esempio (dizionario stampa i valori e non le chiavi):
+
+            myDict = {'a':1,'b':2,'c':3}
+            for i in myDict.values():
+                print(i)
+                
+Esempio (dizionario, stampa le coppie intere):
+
+            myDict = {'a':1,'b':2,'c':3}
+            for i in myDict.items():
+                print(i)
+                
+**Nota**
+
+Break e continue si comportano uguali come nel ciclo while.
+
+## La funzione RANGE
+
+Funzione che restituisce un oggetto iterabile, che contiene una sequenza di numeri progressiva.
+
+Sintassi:
+
+        range(start,stop,step)
+        
+Funziona simile ad uno slice.
+
+Esempio:
+
+            for i in range(10,16,2):
+                print(i)
+                
+- start non è obbligatorio, ma se non espresso si parte da 0.
+- stop è obbligatorio metterlo.
+- step non è obbligatorio e indica il passo.
+
+### Esercitazione
+
+        lista = list()
+        >>> for i in range(10,30,1):
+        ...     if i % 2 == 0:
+        ...             if i < 25:
+        ...                     lista.append(i)
+        ...
+        >>> print(lista)
+        [10, 12, 14, 16, 18, 20, 22, 24]
+        
+        lista = list()
+        >>> for i in range(10,30):
+        ...     if (i % 2 == 0) and (i < 25):
+        ...                     lista.append(i)
+        >>> print(lista)
+        [10, 12, 14, 16, 18, 20, 22, 24]
+        
+## List Comprehension
+
+Produce una lista.
+
+A partire da una lista ne produce un'altra in una sola istruzione, facendo una elaborazione sui dati della lista in origine.
+
+Sintassi:
+
+            [espressione for item in iterable if condition]
+            
+è contenuta in una coppia di parentesi quadre. Iterable è la lista di origine su cui è eseguita l'iterazione, item è il target.
+For e in fanno un loop. Quindi è un ciclo for in che scorre la lista mettendolo in un item. Inoltre viene verificata la condition.
+Expression elabora item, per produrre il valore che entra nella lista risultante.
+
+Esempio:
+            
+            >>> numbers = [1,2,3,4,5,6,7,8,9]
+            >>> newList = [n*n for n in numbers if n% 2 == 1]
+            >>> newList
+            [1, 9, 25, 49, 81]
+            
+            >>> listaDiNumeri = [10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30]
+            >>> nuovaListaNumeri = [n for n in listaDiNumeri if (n%2==0) and (n<25)]
+            >>> nuovaListaNumeri
+            [10, 12, 14, 16, 18, 20, 22, 24]
+            
+## Dict Comprehension
+
+Variante delle list comprehension. L'oggetto finale prodotto è un dizionario.
+
+Sintassi:
+        
+            {key_exp: val_exp for item in iterable if condition}
+            
+Parentesi graffe perché son dizionari. L'espressione applicata ad item se la condizione è vera, in questo caso, deve essere scomposta in parte key e parte value.
+
+Esempio:
+
+            a = 'python'
+            b = {k: ord(k) for k in a}
+            b
+            {'p': 112, 'y': 121, ....}
+            
+Ad ogni iterazione produciamo una key e un value, il value è prodotto da una chiamata alla funzione ord() di Python, che 
+ritorna il codice Unicode del carattere. La chiave è il carattere e il valore è quello numerico del carattere.
+
+## Set Comprehension
+
+Terzo tipo di comprehension. Meccanismo utilizzabile per ottenere un nuovo insieme partendo da una lista, oggetto iterabile ecc...
+
+Sintassi:
+
+            {expression for item in iterable if condition}
+            
+Esempio:
+
+        >>> a = 'doppione'
+        >>> c = {k for k in a}
+        >>> c
+        {'e', 'p', 'd', 'o', 'i', 'n'}
+        
+L'insieme non consente di avere valori dupicati!!
+
+# Funzioni in Python
+
+Insieme di istruzioni a cui diamo un nome da poter poi richiamare nei programmi. In Python le funzioni sono oggetti.
+Oggetti perticolari detti **callable**, cioè chiamabili. Due cose si fanno con una funzione:
+- definirla
+- chiamarla più volte
+
+## Definire una funzione
+
+        def nome_funzione(lista_parametri):
+            suite # insieme di statement della funzione
+
+Parametri: elenco opzionale di nomi racchiusi nelle parentesi tonde e che verranno asseganti ai valori forniti al momento della
+chiamata della funzione. Quando sono passati si chiamano poi **argomenti**.
+La suite viene eseguita quando la funzione viene chiamata.
+
+## Parametri di una funzione Python            
