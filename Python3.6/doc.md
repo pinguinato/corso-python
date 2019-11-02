@@ -1274,4 +1274,115 @@ Parametri: elenco opzionale di nomi racchiusi nelle parentesi tonde e che verran
 chiamata della funzione. Quando sono passati si chiamano poi **argomenti**.
 La suite viene eseguita quando la funzione viene chiamata.
 
-## Parametri di una funzione Python            
+## Parametri di una funzione Python
+
+### Parametri Posizionali
+
+        def myFunc(a,b,c):
+            print(a,b,c)  
+            
+### Parametri Keyword
+
+Nel momento della chiamata specifico il nome del parametro e posso usare anche un ordine diverso dei parametri.
+
+Esempio:
+
+                  def myFunc(a,b,c):
+                    print(a,b,c)
+                    
+                  myFunc(c=10,a=20,...)
+                  
+**Importante**
+
+I posizionali devono precedere sempre i keyword.
+
+### Parametri Opzionali
+
+            identifier = expression
+            
+Esempio:
+
+            def myFunc(a,b,c=3,d=4):
+                print(a,b,c,d)
+                
+            myFunc(10,20) // Python stampa 10 20 3 4
+            
+            myFunc(10,20,30,40) // Python stampa 10 20 30 40
+
+### Parametri *args
+
+Vengono esposti sotto forma di una **tupla**.
+
+            def myFunc(*args):
+                print(args) // questa funzione riceve un numero variabile di argomenti sotto forma di tupla
+
+            myFunc(1,2,3,4)
+            (1,2,3,4) // il risultato è una tupla
+
+**Nota**
+
+Se la funzione possiede dei parametri posizionali, **args** deve essere l'ultimo! Quindi i posizionali, anche qui 
+devono venire prima. I parametri args saranno stampati come tupla, gli altri no.
+
+### Parametri **kwargs (keyword args)
+
+Vengono scomposti e ricomposti all'interno di un **dizionario**.
+
+            def myFunc(**kwargs):
+                print(kwargs)
+        
+            
+            myFunc(a=1,b=2)
+            
+            {'a':1,'b':2}
+            
+# Lo statement RETURN
+
+Tutte le funzioni in Python ritonano sempre un valore in maniera implicita o esplicita.
+
+Return ritorna un valore da un funzione. Può esistere nella suite della funzione e può essere seguito da una espressione.
+
+        def sum(a,b):
+            return a + b
+            
+Se non indico nessuna espressione dopo return, Python ritorna automaticamente un oggetto predefinito che è **None**. Ciò rappresenta
+l'assenza di un valore. Non torno un valore in particolare.
+
+        def sum(a,b):
+            c = a + b
+            
+Anche in questo caso, Python ritorna un valore che è sempre **None**. Qui non c'è nemmeno return.
+
+# Chiamare una funzione
+
+Chiamare una funzione in Python:
+
+        function_name(arguments)
+        
+La presenza delle parentesi tonde denota che è una funzione!! Senza parentesi avrebbe un significato differente!
+
+Gli argomenti sono passati sempre **per riferimento**.
+
+## Tipi immutabili passati alle funzioni (esempio)
+
+            def myFunc(x):
+                x = 10
+                print(x)
+                
+            y = 20
+            myFunc(y)
+            // stampa 10
+            print(y)
+            // stampa 20, y non cambia, perché y è immutabile!!
+
+## Tipi mutabili passati alle funzioni (esempio dizionario)
+
+            def myFunc(x):
+                x['func'] = 10
+                
+            d = {'a':5}
+            myFunc(d)
+            print(d)
+            // ottengo {'a':5,'func':10}
+            
+Il dizionario è mutabile e quindi viene alterato il suo contenuto.            
