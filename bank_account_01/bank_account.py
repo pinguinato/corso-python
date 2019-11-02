@@ -4,17 +4,6 @@
 
 saldo = 0
 
-# stampa saldo del tuo CC
-def get_saldo(saldo):
-    print('Il tuo saldo attuale: ' + str(saldo))
-
-# versamento sul CC
-def versamento(saldo,versamento):
-    saldo += versamento
-
-
-def prelievo(saldo,prelievo):
-    saldo -= prelievo
 
 # menu slezione operazioni CC
 def menu_operazioni():
@@ -24,17 +13,24 @@ def menu_operazioni():
     print('|3| PRELIEVO')
     print('--------------------')
 
+
 while True:
     print('\nBANK ACCOUNT PYTHON ')
     menu_operazioni()
     scelta = input('Fai una scelta: ')
     if scelta == '1':
-        get_saldo(saldo)
-        print('\n')
+        print('Il tuo saldo attuale in Euro: ' + str(saldo) + ' €')
     elif scelta == '2':
-        print("Versamento")
+        versamento = int(input('\nCifra da aggiungere al conto corrente: '))
+        saldo += versamento
+        print('Versamento eseguito correttamente')
     elif scelta == '3':
-        print("Prelievo")
+        prelievo = int(input('\nCifra da prelevare al coonto corrente: '))
+        if prelievo > saldo:
+            print('\nNon è possibile effettuare l\'operazione poichè sul conto non ci sono abbastanza soldi.')
+        else:
+            saldo -= prelievo
+            print('Prelievo eseguito correttamente')
     else:
         print("Grazie ed arrivederci.")
         break
