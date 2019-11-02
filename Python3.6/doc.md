@@ -877,7 +877,7 @@ Esercitazione sulle tuple:
         >>> myList
         [(1, 2), (3, 4), (5, 6)]
         
-##Dizionari
+## Dizionari
 
 Simile ad una lista ma l'ordine degli elementi non è definto perché non sono sequenze. Un elemento di u dizionario
 si compone di 2 oggetti <chiave, valore>. Le chiavi, una volta associate, non possono cambiare valore, sono immutabili.
