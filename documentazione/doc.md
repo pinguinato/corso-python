@@ -1385,4 +1385,50 @@ Gli argomenti sono passati sempre **per riferimento**.
             print(d)
             // ottengo {'a':5,'func':10}
             
-Il dizionario è mutabile e quindi viene alterato il suo contenuto.            
+Il dizionario è mutabile e quindi viene alterato il suo contenuto. 
+
+# Funzioni come oggetti
+
+Esempio:
+
+        def sum(x,y):
+            print(x + y)
+            
+        sum(10, 5) # chiamata alla funzione, quando chiamo la funzione con i parametri
+        sum # funzione come oggetto           
+        type(sum) # ritorna tipo function
+        
+Le funzioni sono oggetti della classe **function**.
+
+Esempi di uso di funzioni come oggetti:
+
+- funzioni nidificate(definizione di un oggetto all'interno di un altro):
+
+        def outer(x,y):
+            def sum(a,b):
+                return a + b
+                
+        print(sum(x,y))
+        
+        outer(10,5) # ritorna 15
+        
+- funzione come valore di ritorno:
+
+        def outer(x,y):
+            def inner(a,b):
+                print(a+b)
+            return inner # ritorno la funzione usando solo il suo nome, perché è un oggetto!!
+            
+La funzione **outer** ritorna un oggetto del tipo function.
+
+- funzioni come parametro:
+
+        def sum(a,b):
+            print(a + b)
+            
+        def myFunc(f,x,y):
+            f(x,y)
+            
+        >>> myFunc(sum, 10, 5) # la funzione myFunc usa il riferimento a sum, fornendogli i parametri.
+        
+   # Namaspace e Scope
