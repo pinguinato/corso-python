@@ -1431,4 +1431,88 @@ La funzione **outer** ritorna un oggetto del tipo function.
             
         >>> myFunc(sum, 10, 5) # la funzione myFunc usa il riferimento a sum, fornendogli i parametri.
         
-   # Namaspace e Scope
+   # Namespace e Scope
+   
+   **Namaspace**: mappatura che collega nomi ad oggetti. Mantiene distinti i nomi degli oggetti in zone diverse dei programmi.
+   
+   Una volta che un programma Python va in esecuzione ci sono tanti namespace.
+   
+   **Scope**: il contesto è un'area di codice precisa, che determina a runtime quale namespace va usato per
+   risolvere i nomi degli oggetti.
+   
+   ## Gerarchia Namespace
+   
+   - **Local** (livello interno ad una funziona, local namespace, primo livello dei nomi, rimosso quando la funzione ritorna e allocato quando la funzione entra in gioco)
+   - **Enclosed** (nomi non definiti in una funzione, ma in una funzione che racchiude quella funzione, vedi funzioni annidate)
+   - **Global** (il livello globale consente a Python di accedere a tutti i nomi definiti nel sorgente main Python)
+   - **Built-in** (namespace predefinto, a livello più alto, fornito dall'ambiente di runtime di Python, contiene le funzioni predefinte del linguaggio)
+   
+   ### Local Scope
+   
+        def sum(x,y):
+            print(x + y)
+            
+   ### Enclosed Scope
+   
+        def outer(a):
+            y = 10
+            def inner():
+                print(x+y)
+            inner()
+            
+   ### Global Scope
+   
+         x = 100
+         
+         def myFunc(y):
+            print(x + y)
+            
+   ### Built In Scope
+   
+         print('python')
+   
+# Local e Non Local (alterare il livello dei namespace)
+
+**Variable Hiding**: se una funzione definisce una variabile locale che è definita già ad un livello globale, allora la 
+variabile locale **nasconde** la variabile globale!!
+
+Esempio:
+
+        x = 100
+        def myFunc():
+            x = 20
+            print(x)
+        >>> myFunc()
+            20
+        >>> print(x)
+            100
+            
+Per alterare il comportamento standard di Python mettere lo statement **global** seguito dal nome della
+variabile globale, quindi non viene creata una variabile locale, ma si usa quella globale.
+
+        x = 100
+        def myFunc():
+            global x = 20
+            print(x)
+        >>> myFunc()
+            100
+        >>> print(x)
+            100
+            
+Per alterare un comportamento enclosed, bisogna usare **nonlocal**, alterando il comportamento di 
+una funzione nidificata.
+
+# Function Decorator
+
+**Decoratore**: è una funzione che prende in input un'altra funzione, la decora, la arricchisce di istruzioni, del proprio codice e
+poi la ritorna. Serve per alterare il comportamento di una funzione che esiste, senza che noi dobbiamo andare a
+modificare il codice di questa funzione.
+
+Esempio (decorare senza decoratore):
+
+        def myFunc():
+            print("Hello World!")
+            
+        >>> myFunc()
+        Hello World!
+        
