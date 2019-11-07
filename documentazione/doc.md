@@ -1515,4 +1515,76 @@ Esempio (decorare senza decoratore):
             
         >>> myFunc()
         Hello World!
-        
+
+Definire una funzione dentro la definizione di un'altra funzione:
+
+        def myDecorator(f):
+            def decorator():
+                print("ho decorato")
+                f()
+                return decorator
+
+        def myFunc():
+            print("la funzione myFunc")
+
+Vogliamo prendere in input una funzione, ma in realtà ritornarne un'altra che è **decorator**.
+
+Questa funzione è un decoratore, cioè una funzione che ha aggiunto del codice. Che ha decorato.
+
+        >>> myFunc(myDecorator(myFunc))
+        >>> myFunc()
+        ho decorato
+        la funzione myFunc
+
+Ho quindi decorato la funzione myFunc con il contenuto di un'altra funzione.
+
+Possiamo ottenere lo stesso risultato con una **annotations**.
+
+        def myDecorator(f):
+            def decorator():
+                print("ho decorato")
+                f()
+                return decorator
+
+        @myDecorator
+        def myFunc():
+            print("la funzione myFunc")
+
+Stiamo indicando a Python, che stiamo decorando myFunc(); è una forma più compatta e leggibile.
+
+# Funzioni Lambda
+
+Altro modo di definire delle funzioni, senza usare **def**.
+
+Lambda ritorna delle funzioni anonime, quelle che negli altri linguaggi vengono definite **funzioni anonime**.
+
+        lambda arg1, arg2, .... : expression (argomenti)
+
+Esempio:
+
+        def myFunc(a,b):
+            return a**b
+
+        >>> myFunc(2,3)
+        8
+
+con Lambda:
+
+        f = lambda a, b: a**b
+        >>> f(2,3)
+        8
+
+# Object Orientation (Programmazione ad oggetti con Python)
+
+Tutto in Python è un oggetto. Un linguaggio object based, ma non vuol dire che sia per forza object oriented. Un linguaggio object oriented permette di lavorare al 100% con gli oggetti, poter creare le nostre classi e usarle per creare le nostre istanze. Organizzare
+le nostre classi in gerarchie, con l'ereditarietà. Questo fa di Python un linguaggio **object oriented** e **object based**.
+
+## Classi ed istanze
+
+2 tipi di oggetti:
+
+- **oggetti classe**: forniscono il comportamento di default, la definizione di attributi e metodi, che servono a produrre le proprie istanze.
+
+- **oggetti istanze**: sono individuali, prodotti dalla definizione degli oggetti classe.
+
+## Lo statement Class
