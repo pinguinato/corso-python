@@ -1588,3 +1588,77 @@ le nostre classi in gerarchie, con l'ereditarietà. Questo fa di Python un lingu
 - **oggetti istanze**: sono individuali, prodotti dalla definizione degli oggetti classe.
 
 ## Lo statement Class
+
+Lettera maiuscola per definire le classi (convenzione).
+
+Statement composto che ha la clausola **class**
+
+        class classname(base-classes): # header
+            statements                 # suite
+            
+Esempio (minimale):
+        
+        class MyClass:
+            pass
+            
+        >>> type(MyClass)
+        <class 'type'> # anche una classe è un oggetto, tutte le volte che creo una classe
+                        # creo una istanza della classe type.
+                        
+### Istanza di una classe
+
+        >>> myObj = MyClass()
+        
+Crea una istanza della classe MyClass.
+
+## Attributi di una classe
+
+- attributi di classe
+- attributi di istanza
+
+### Attrbuti di Classe
+
+Condivisi da tutte le istanze della classe:
+
+        class MyClass:
+            myAttr = 10
+            
+        >>> MyClass.myAttr # per accedere
+        10
+        
+Altro esempio:
+
+        m1 = MyClass()
+        m2 = MyClass()
+        
+        >>> m1.myAttr
+        10
+        >>> m2.myAttr
+        10 
+        
+**Nota** 
+
+Nel moemento in cui una istanza va a modificare l'attributo di una classe, in realtà modifica solo il suo
+e non tocca quello degli altri!
+
+Esempio:
+
+        m1.myAttr = 90
+        >>> m2.myAttr
+        10
+        >>> MyClass.myAttr
+        10
+        
+**Importante**
+
+è sempre possibile anche se sconsigliato aggiungere attributi di una classe anche dopo aver definito 
+la classe!
+
+Esempio:
+
+        class MyClass:
+            myAttr = 10
+            
+        my.myAttr2 = 100
+        
+### Attributi di istanza (metodi)
