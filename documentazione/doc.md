@@ -1661,4 +1661,99 @@ Esempio:
             
         my.myAttr2 = 100
         
-### Attributi di istanza (metodi)
+### Attributi di classe (metodi di istanza)
+
+Anche i metodi definiti nel corpo della classe sono condivisi da tutte le istanze della classe.
+
+I metodi hanno un primo parametro inserito che si chiama **self**, che rappresenta l'istanza specifica
+che invoca il metodo.
+
+        class MyClass:
+            def myMethod(self):
+                print(id(self))
+                
+        >>> m1 = MyClass()
+        >>> m1.myMethod()
+        123456789
+        
+        >>> m2 = MyClass()
+        >>> m2.myMethod()
+        23432123
+
+**Importante**
+        
+myMethod è condiviso da tutte le istanze e infatti quando lo richiamiamo sulle istanze restituisce 
+valori diversi. Manca il parametro **self** che non compare, eppure era scritto nel metodo. Questo
+perché quando usiamo la dot notation per chiamare un metodo di una classe su una istanza, viene passato
+direttamente l'argomento implicito del metodo che è proprio **self**. Non ci dobbiamo ricordare di passare
+self, lo fa Python per noi, come il **this** per Java.
+
+Passare parametri diversi da self:
+
+        class MyClass:
+            def myMethod(self, message):
+                print(message)
+                
+        >>> m1.myMethod('Python')
+        Python
+        
+## Attributi di istanza
+
+        class MyClass:
+            def setMessage(self, message):
+                self.message = message
+            def printMessage(self):
+                print(self.message)
+                
+In questo caso **message** diventa un attributo di istanza e non di classe! Quindi quando lo richiamo 
+su di una istanza lo esprimo così:
+
+        >>> m1 = MyClass()
+        >>> m2 = MyClass()
+        >>> m1.setMessage('test message')
+        >>> m2.setMessage('primo')
+        >>> m1.printMessage()
+        test message
+        >>> m2.printMessage()
+        primo
+
+**Attenzione**
+
+Se definisco il codice così:
+
+        >>> m3 = MyClass()
+        >>> m3.printMessage()
+        ERRORE!!!!
+        
+Ottengo un errore perché non ho ancora definito il metodo **printMessage()** per quella istanza, per rimediare
+a questo che è un problema **strutturale** Python introduce il metodo **__init__**, il costruttore.
+
+# Il metodo init
+
+Init è un metodo di istanza, che permette di costruire le istanze di una classe.
+
+Viene chiamato sempre appena una istanza di una classe viene creata. Costruisce le istanze di una
+classe e prende come parametro sempre **self**.
+
+Init viene richiamato sempre da Python a runtime.
+
+Riscriviamo la classe MyClass, introducendo il metodo init.
+
+        class MyClass:
+            def __init__(self, message):
+                self.message = message
+            def printMessage(self):
+                print(self.message)
+            
+        >>> m1 = MyClass()
+        
+        Se scrivo questo ottengo un errore perché Python si aspetta il message, perché lo definito
+        nel suo costruttore della classe MyClass.
+        
+Soluzione:
+
+        >>> m1 = MyClass('primo')
+        >>> m1.printMessage()
+        primo
+        
+# Metodi di classe
