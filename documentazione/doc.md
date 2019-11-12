@@ -1757,3 +1757,109 @@ Soluzione:
         primo
         
 # Metodi di classe
+
+Metodi non pensati per essere usati sulle singole istanze, ma direttamente sull'oggetto classe.
+
+        class MyClass():
+            def counter = 0
+            def __init__(self):
+                MyClass.counter += 1
+                
+            @classmethod
+            def istanze(cls):
+                print(cls.counter)
+                
+Counter è un attributo di classe. Init usa l'attributo di classe. Inoltre il decoratore **@classmethod** 
+indica a Python che istanze() è un metodo di classe, pensato per essere invocato sulla classe stessa.
+**Cls** per convenzione indica l'oggetto classe, non le istanze come self.
+
+Esempio:
+
+            >>> m1 = MyClass()
+            >>> m2 = MyClass()
+            >>> m3 = MyClass()
+            >>> MyClass.istanze()
+            3
+            
+## Metodi Statici
+
+Si definiscono usando un altro tipo di decoratore: **@staticmethod**
+
+Esempio:
+
+        class MyClass():
+            @staticmethod
+            def somma(a,b):
+                return a + b
+
+
+        >>> s = MyClass.somma(10,5)
+        >>> print(s)
+        15
+
+**Importante**
+
+Il metodo statico fornisce un servizio minimale, che non contiene nè cls, nè self, non ci sono parametri
+ particolari, ha il solo scopo di essere inserito nella classe e essere invocato in quel punto. I metodi 
+ statici non vengono usati molto frequentemente.
+ 
+ # Ereditarietà (Inheritance)
+ 
+ Python lo consente, sia dalle classi alle istanze, che dalle classi alle classi.
+ 
+ Le sottoclassi ereditano gli attributi dalle proprie superclassi, possono ridefinirli (override) e aggiungerne di nuovi.
+ 
+        class BClass:
+            pass
+            
+        class AClass(BClass):
+            pass
+            
+ Passiamo la classe da ereditare tra le parentesi!! AClass è sottoclasse di BClass. Se una classe eredita 
+ da più di una classe allora:
+ 
+        class AClass(BClass, DClass, CClass):
+            ...
+            
+## Funzione isinstance()
+
+Funzione di utilità, che serve a gestire informazione di utilità su una classe, consente di verificare 
+se un oggetto è istanza di una classe. Come instanceof di Java.
+
+        >>> m1 = AClass() 
+        >>> isinstance(m1, AClass)
+        True
+        >>> isinstance(m1, BClass)
+        True
+        >>> isinstance(m1, DClass)
+        True
+        ...
+        
+Una classe quando eredita eredita anche tutte le istanze, una istanza ereditata è anche di quella 
+classe!
+
+# Override
+
+Modo in cui ridefiniamo un attributo all'interno di una sottoclasse. Ridefiniamo un attributo di una superclasse, 
+dentro una sottoclasse.
+
+Esempio:
+
+        class BClass:
+            def setMessage(self, message):
+                self.message = message
+            def printMessage(self):
+                print(self.message)
+                
+        def AClass(BClass):
+            def printMessage(self):
+                print("A Class " + slef.message)
+                
+Abbiamo ridefinito il comportamento del metodo **printMessage()**
+
+**Importante**
+
+Se inserisco un costruttore in una sottoclasse bypasso il costruttore delle superclassi, un modo per mantenerli è 
+usare la clausola **super**.
+
+# La funzione SUPER
