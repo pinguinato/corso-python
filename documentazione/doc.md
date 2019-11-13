@@ -1863,3 +1863,45 @@ Se inserisco un costruttore in una sottoclasse bypasso il costruttore delle supe
 usare la clausola **super**.
 
 # La funzione SUPER
+
+Funzione predefinita del sistema, che ci permette di:
+
+Richiedere in modo esplicito in una sottoclasse, l'esecuzione del costruttore della superclasse.
+
+Esempio:
+
+        class BClass:
+            def __init__(self, message):
+                self.message = message
+            def printMessage(self):
+                print(self.message)
+                
+        class AClass:
+            def __init__(self, message, valore):
+                super().__init__(message)
+                self.valore = valore
+                
+Super chiamata in __init__ ottiene come valore di ritorno, quello della superclasse. Stiamo eseguendo
+di fatto il costruttore di BClass. Dopo proseguiamo con il costruttore di AClass e aggiungiamo un 
+secondo attributo specifico solo di AClass.
+
+        >>> m1 = AClass('python', 20)
+        >>> m1.valore
+        20
+        >>> m1.printMessage()
+        python
+        
+Super lo possiamo usare anche per ereditare e overridare metodi delle sopraclassi nelle rispettive sottoclassi.
+
+# Properties
+
+## Information Hiding
+
+Tipico dei linguaggi ad Oggetti. **Nascondere l'informazione**, rendere privati gli attributi che 
+presentano dati cui non si può accedere dall'esterno, ma si può solo accedere tramite metodi 
+getter/setter. E' buona norma nascondere questi attributi, per cambiarne poi la forma. I metodi
+per l'accesso agli attributi restano coerenti.
+
+Python non ha un vero e proprio supporto agli attrinuti privati, ma lo può fare attraverso le **Properties**.
+
+### Definizione di una Property
