@@ -1905,3 +1905,96 @@ per l'accesso agli attributi restano coerenti.
 Python non ha un vero e proprio supporto agli attrinuti privati, ma lo può fare attraverso le **Properties**.
 
 ### Definizione di una Property
+
+Esempio:
+
+        class MyClass():
+            def __init__(self, my_attr):
+                self.priv_attr = my_attr
+            def get_attr(self):
+                return self.priv_attr
+            def set_attr(self, attr):
+                self.priv_attr = attr
+                
+            attr = property(get_attr, set_attr)
+            
+            >>> obj = MyClass('Python')
+            >>> obj.attr
+            Python
+            >>> obj.attr = 'Prova'
+            >>> obj.attr
+            Prova
+            
+Nessuno però ci impedisce di accedere direttamente ai metodi nascosti, Python non li nasconde del tutto:
+
+            >>> obj.set_attr('python')
+            >>> obj.get_attr()
+            prova
+            
+C'è una soluzione al problema, scrivendo l'attributo da nascodere con 2 underscore! In questo modo nascondo un attributo. Lo 
+rendo inaccessibile all'esterno della classe.
+
+            class MyClass():
+                
+                def __init__(self, my_attr):
+                    self.__priv_attr = my_attr
+                
+                def get_attr(self):
+                    return self.__priv_attr
+            
+                def set_attr(self, attr):
+                    self.__priv_attr = attr
+                
+                attr = property(get_attr, set_attr)
+                
+            >>> obj = MyClass('Python')
+            
+            >>> obj.__priv_attr
+            
+            Errore AttributeError!!!
+            
+Python dice che l'attributo non esiste, in realtà non è vero. Python non rende privato il nostro 
+attributo, ne ha storpiato il nome (**Name Mangling**), l'attributo resta accessibile, passando da qui
+
+            >>> obj._MyClass__priv_attr
+            Python
+ 
+In questo modo Python realizza l'information hiding.
+
+# Property Decorators
+
+Con i decoratori, si ottiene lo stesso risultato esposto sopra:
+
+            @property (decorator del metodo getter)
+            
+            @name.setter (decorator del metodo setter)
+            
+Esempio:
+
+            class MyClass():
+                
+                def __init__(self, my_attr):
+                    self.__priv_attr = my_attr
+                
+                @property
+                def attr(self):
+                    return self.__priv_attr
+            
+                @attr.setter
+                def attr(self, attr):
+                    self.__priv_attr = attr
+              
+Definiamo 2 metodi che si chiamano nello stesso modo, ma sono diversi nella composizione dei parametri.
+
+Se usiamo questi 2 decorators, noi stiamo dichiarando a Python, che stiamo introducendo una proprietà e 
+gli diciamo quale è il metodo setter e quello getter. L'utilizzo è identico a quello soproa esposto:
+
+                 >>> obj = MyClass('python')   
+                 >>> obj.attr
+                 python
+                 
+# Esercitazione Object Oriented
+
+La classe Conto Corrente.
+
+# Eccezioni in Python
