@@ -2068,6 +2068,22 @@ Usando i property decorators.
         
 ## Terza Versione del progetto (la superclasse Conto)
 
+Modifiche sostanziali alla classe ContoCorrente:
 
+        class Conto:
+            def __init__(self, nome, conto):
+                self.nome = nome
+                self.conto = conto
+
+        class ContoCorrente(Conto):
+            # inizializzatore
+            def __init__(self, nome, conto, importo):
+                # dalla superclasse
+                super().__init__(nome, conto)
+                self.__priv_saldo = importo
+                
+Il resto del codice non cambia rispetto alla seconda versione.
+                
+# Quarta versione del progetto (la classe Gestione di conti correnti)
 
 # Eccezioni in Python
