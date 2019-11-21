@@ -1,10 +1,15 @@
 # La Classe ContoCorrente
 
-class ContoCorrente:
-    # inizializzatore
-    def __init__(self, nome, conto, importo):
+class Conto:
+    def __init__(self, nome, conto):
         self.nome = nome
         self.conto = conto
+
+class ContoCorrente(Conto):
+    # inizializzatore
+    def __init__(self, nome, conto, importo):
+        # dalla superclasse
+        super().__init__(nome, conto)
         self.__priv_saldo = importo
 
     # getter
@@ -40,5 +45,3 @@ class ContoCorrente:
 
 c1 = ContoCorrente('Roberto', '123456', 1000)
 c1.descrizione()
-c1.saldo = 1000000
-print(c1.saldo)
