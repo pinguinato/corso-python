@@ -2086,4 +2086,14 @@ Il resto del codice non cambia rispetto alla seconda versione.
                 
 # Quarta versione del progetto (la classe Gestione di conti correnti)
 
+        class GestoreContiCorrenti():
+            @staticmethod
+            def bonifico(sorgente, destinazione, importo):
+                print("\nEffettua un bonifico di € " + str(importo))
+                sorgente.preleva(importo)
+                destinazione.deposita(importo)
+
 # Eccezioni in Python
+
+Le eccezioni comunicano e gestiscono gli errori e le anomalie che si verificano nell'esecuzione dei programmi. 
+Le eccezioni sono oggetti in Python. Possiamo crearne di nostre personali.

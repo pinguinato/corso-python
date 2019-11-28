@@ -41,7 +41,25 @@ class ContoCorrente(Conto):
         print("Conto Corrente: " + str(self.conto))
         print("Saldo Conto: " + str(self.__priv_saldo))
 
+
+# Gestore di Conti Conrrenti - classe chd non istanzia
+class GestoreContiCorrenti():
+    @staticmethod
+    def bonifico(sorgente, destinazione, importo):
+        print("\nEffettua un bonifico di € " + str(importo))
+        sorgente.preleva(importo)
+        destinazione.deposita(importo)
+
 # testing
 
 c1 = ContoCorrente('Roberto', '123456', 1000)
 c1.descrizione()
+
+c2 = ContoCorrente('Stefania', '4567', 2500)
+c2.descrizione()
+
+GestoreContiCorrenti.bonifico(c1, c2, 500)
+
+c1.descrizione()
+
+c2.descrizione()
