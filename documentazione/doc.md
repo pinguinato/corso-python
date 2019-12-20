@@ -2097,3 +2097,16 @@ Il resto del codice non cambia rispetto alla seconda versione.
 
 Le eccezioni comunicano e gestiscono gli errori e le anomalie che si verificano nell'esecuzione dei programmi. 
 Le eccezioni sono oggetti in Python. Possiamo crearne di nostre personali.
+
+        def myFunc(a,b):
+            return a // b
+            
+Se passo 0 a questa funzione si genera un errore, si dice che si solleva una eccezione! Python in terrompe l'esecuzione del programma anche perché nessuno gli ha 
+detto come gestire questa eccezione.
+Praticamente se l'eccezione non viene gestita Python risale sempre più verso l'alto nella pila dello stack fino a quando viene interrotto il programma.
+
+Le eccezioni sono oggetti. Tutte le eccezioni sono istanze di classi che sono sottoclassi di **BaseException**. Nel nostro esempio
+abbiamo una eccezione **ZeroDivisionError** che è sottoclasse di **ArithmeticError** che a sua volta è una sottoclasse di **Exception** che a sua volta
+è sottoclasse di **BaseException**. BaseException non deriva da nessuno e quindi implicitamente deriva di **object**.
+
+## Lo Statement try/except
