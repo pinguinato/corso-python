@@ -2110,3 +2110,96 @@ abbiamo una eccezione **ZeroDivisionError** che è sottoclasse di **ArithmeticEr
 è sottoclasse di **BaseException**. BaseException non deriva da nessuno e quindi implicitamente deriva di **object**.
 
 ## Lo Statement try/except
+
+        try:
+            suite
+        except:
+            suite
+            
+è uno statement composto. Se si verifica una eccezione il flusso del programma si sposta all'interno della clausola **except**.
+
+Scriviamo un blocco di codice che vogliamo sorvegliare all'interno della clausola **try**, se viene sollevata l'eccezione, il programma
+non risale verso l'alto, non si interrompe e gestisce l'eccezione nel blocco **except**.
+
+Esempio:
+
+        def myFunc(a,b):
+            return a // b
+            
+        try:
+            c = myFunc(4,0)
+        except:
+            print("Errore")
+            
+Il corpo della clausola **except** viene chiamato in Python **Exception Handler**.
+
+Esempio:
+
+        try:
+            suite
+        except:
+            suite
+        except:
+            suite
+            
+Più precisione:
+
+        try:
+            c = myFunc(4,0)
+        except ZeroDivisionError:
+            print("Errore")
+        except IndexError:
+            print("Errore")
+            
+Alternativa:
+
+        try:
+            c = myFunc(4,0)
+        except (ZeroDivisionError, ValueError): // se si verifica almeno una delle due eccezioni
+            print("Errore")
+
+## Lo statement try/except/as
+
+**as** permette di assegnare un valore all'eccezione in modo da richiamarlo dentro la suite di except.
+
+        try:
+            suite
+        except expression as target:
+            suite
+            
+Perché? In questo modo posso richiamare il nome dell'eccezione quando la invoco.
+
+        try:
+            c = myFunc(4,0)
+        except ZeroDivisionError as e:
+            print(e.args)
+            
+## Le clausole finally ed else
+
+**finally** assicura di esguire sempre le azioni dentro la sua suite, sia che venga sollevata o meno una eccezione. Anche se ci 
+fosse except Python esegue comunque la finally.
+
+Esempio:
+
+        try:
+            c = myFunc(4,0)
+        except ZeroDivisionError as e:
+            print(e.args)
+        finally:
+            print("Finally")
+            
+**else** si deve inserire solo dopo tutte le clausole except, quindi al fondo. Viene eseguita soltanto se non vengono 
+sollevate nessuna delle eccezioni associate al try.
+
+        try:
+            suite
+        except:
+            suite
+        else:
+            suite        
+
+**IMPORTANTE**
+
+Finally ed else non sono mutuamente esclusive, si possono usare insieme, solo che finally deve essere messa dopo else!
+
+## Gli statement Raise ed Assert
