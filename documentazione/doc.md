@@ -2203,3 +2203,73 @@ sollevate nessuna delle eccezioni associate al try.
 Finally ed else non sono mutuamente esclusive, si possono usare insieme, solo che finally deve essere messa dopo else!
 
 ## Gli statement Raise ed Assert
+
+**Raise**: si usa per sollevare esplicitmanete una eccezione. Di solito è Python che solleva le eccezioni. Anche noi possiamo creare e sollevare eccezioni
+nei nostri programmmi.
+
+        raise exception # exception può essere una Classe di eccezione o una isanza di eccezione
+        
+Esempio:
+
+        for i in range(50):
+            print(i)
+            raise IndexError # sollevo la classe di Eccezione
+            
+Così Python esce dal programma mostrandoci la classe di Eccezione e risalendo lo stack.
+
+        for i in range(50):
+            print(i)
+            raise IndexError("Errore nel loop") # così ho creato una istanza di eccezione
+            
+Così Python mostra un messaggio di errore.
+
+Se uso solo **raise** senza niente va bene se voglio risollevare una eccezione che avevo già trattato in precedenza:
+
+Esempio:
+
+        try:
+            c = f(4,0)
+        except ZeroDivisionError:
+            print("Errore!")
+            raise
+
+All'interno di except viene intercettata l'eccezione, non conclude, ma bensì risolleva l'eccezione ZeroDivisionError, quindi raise risolleva l'eccezione.
+
+**Assert**: valuta una espressione per vedere se la valutazione dell'espressione è vera o false.
+Se falsa, viene sollevata una eccezione AssertionError.
+
+        assert expression, argument
+        
+Esempio:
+
+        x = 10
+        
+        assert x == 5, "Valori diversi" # AssertionError con argomento "Valori diversi"
+        
+# Moduli e Package
+
+è il livello più alto possibile dell'organizzazione del codice in Python. I moduli sono i veri e propri programmi in Python.
+
+## Moduli
+
+Unità più alta a livello di organizzazione di un programma in Python, un modulo contiene la definizione di codice e di dati, funzioni, classi...
+
+Sono predisposti in modo da poter essere usati altrove. Un modulo genera una **spazio di nomi**. I moduli sono a livello Global.
+
+Due moduli diversi anche se contengono nomi di classi uguali vengono considerati attributi diversi perché appartengono a moduli diversi.
+
+Di solito in Python c'è uno **script** principale e poi i **moduli** che fannno da libreria:
+
+        script1.py
+        module2.py
+        module3.py ecc...
+        
+I moduli in generale sono considerati come **librerie di oggetti e classi**. Possono essere riutilizzati
+tramite **importazione** nello script principale.
+
+        import module2
+        import module3
+        
+        obj = module2.myFunc(x) # per usare una funzione di module2 dentro lo script principale!!
+        
+        module2.myFunc(x) # per usare una funzione di module2 importata
