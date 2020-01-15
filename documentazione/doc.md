@@ -2273,3 +2273,75 @@ tramite **importazione** nello script principale.
         obj = module2.myFunc(x) # per usare una funzione di module2 dentro lo script principale!!
         
         module2.myFunc(x) # per usare una funzione di module2 importata
+        
+## Importazione di un modulo
+
+        import modulo1
+        
+Nome del file privo del suffisso **py**.
+
+Fasi dell'importazione di un moduo in Python:
+
+- individuazione del modulo
+- compilazione bytecode del modulo
+- esecuzione del modulo
+
+### Modalità di ricerca di un modulo
+
+Priorità nella ricerca:
+
+Python guarda la directory corrente se contiene il modulo da importare, se non lo trova li dentro va a vedere le directory
+di una variabile di ambiente **PYTHONPATH**, se non è settata allora si prosegue la ricerca nella libreria standard di Python, che
+contiene molti moduli e infine come ultima possibilità si ricerca nella directory **site-packages**, che contiene framework o moduli
+di terze parti.
+
+### Traduzione in Bytecode
+
+I moduli, ma non gli script che devono essere importati producono, la prima volta un bytecode, viene fatto per risparmiare
+tempo dopo. Vale solo per i moduli importati. E' il nome del modulo originario più estensione **pyc**.
+
+        modulo.py
+        
+        modulo.cpython-36.pyc
+        
+Sono archiviati dentro la **__pycache__**
+
+## Lo statement IMPORT
+
+Come si usa:
+
+        import modulo1
+
+se chiediamo a Python cosa sia il modulo importato, Python ci dice che modulo è un oggetto e una 
+istanza della classe **module**.
+
+Quindi tutti gli oggetti definiti dentro il modulo che importiamo saranno attributi dell'oggetto module. Si può accedere
+soltanto a questi.
+
+Dentro script.py:
+
+        import module1
+        
+        module1.myFunc(10) # uso la funzione del modulo importato!!!
+        
+Dentro module1.py:
+
+        def myFunc(x):
+            print(x)
+            
+Si possono indicare più moduli con una sola import:
+
+        import module1, module2, ....
+        
+        import module1
+        import module2
+        ....
+        
+Definire un **alias** per accorciare il nome del modulo:
+
+        import module1 as m
+        
+        m.myFunc(x) 
+        
+## Lo statement FROM
+
