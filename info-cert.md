@@ -89,3 +89,94 @@ Non esiste una risposta ovvia, se ci fosse stata allora un modello avrebbe preva
 programmare in python hai bisogno di un interprete per eseguire i suoi programmi. Di solito i linguaggi
 progettati per essere interpretati sono detti **linguaggi di scripting** e i programi sorgenti codificati
 che li usano si chiamano **script**.
+
+## 0.2.1 Che cosa è Python?
+
+L'origine è Monthy Python. Il linguaggio è stato chiamato così in onore dello show televisivo.
+Python è stato creato da Guido Von Rossum.
+
+Obiettivi di Python (1999):
+- semplice ed intuitivo
+- open source
+- comprensibile
+- adatto per le attività quotidiane e brevi tempi di sviluppo
+
+## 0.2.4 Perché Python?
+
+### Vantaggi
+
+- è facile da imparare in tempi brevi
+- è facile da insegnare
+- è facile da usare per scrivere nuovi software
+- è facile da capire
+- è facile da mantenere, installare e distribuire, è gratuito, aperto e multipiattaforma.
+
+### Svantaggi
+
+- non è veloce, non ha prestazioni eccezionali
+- debug un pò complesso, però è più facile non commettere errori
+- Python ha due concorrenti diretti: Perl e Ruby
+
+Perl è più classico e vicino al C, Ruby è molto originale ed innovativo.
+
+## 0.2.5 Perchè non Python?
+
+Dove viene usato Python:
+
+- servizi internet e motori di ricerca, cloud storage e social media.
+- strumenti di sviuppo sono scritti in Python
+- tester di sviluppo IT
+
+Dove è assente:
+
+- driver a basso livello
+- motori grafici
+- applicazioni per dispositivi mobili
+
+## 0.3.1 Python 2 VS Python 3
+
+**Python 2**: vecchia versione (termina aprile 2020), lo sviluppo è ad un vicolo cieco.
+
+**Python 3**: nuova versione di Python, anzi la versione attuale del linguaggio.
+
+Le versioni non sono compatibili! Gli script Python 2 non si possono eseguire su interprete Python 3  e viceversa.
+Il programma va riscritto da zero!! E' troppo costoso migrare una vecchia applicazione Python 2, su una
+piattaforma Python 3.
+
+Python 3 oltre che ad essere migliore di Python 2 e proprio un altro linguaggio.
+
+Per avviare nuovi progetti conviene usare Python 3, anche se ci sono ancora molte app in Python 2 e questo è il 
+motivi oprincipale per cui è ancora abbastanza diffuso.
+
+## 0.3.2 Python aka CPython
+
+Python 2 e 3 hanno poi delle loro **derivate**.
+
+- versioni di Python della Python Software Foudation (PSF)
+- sono definiti Python canonici
+
+Il presidente della PSF è Guido Von Rossum e ha usato il **linguaggio C** per scrivere la prima versione di Python.
+
+Tutti i Python della PSF sono scritti in C.
+
+L'implementazione PSF di Python viene definita **CPython**, il linguaggio C è anche il motivo per cui
+quando si migra al C un Python è più facile.
+
+## 0.3.3 Cython
+
+Rimedia all'ineficcienza di Python, aumentadone le performance soprattutto nei calcoli matematici complessi, se da un certo lato
+è molto meglio fare calcoli con Python, poi eseguirli è un problema di performance. Cython supplisce a questo problema.
+Cython permette di scrivere i calcoli usando Python, ma poi traduce il tutto in codice C.
+
+## 0.3.4 Jython
+
+Jython permette di usare Python in ambienti Java. Al momento non esiste una versione conforme al Python 3, quella
+attuale segue standard Python 2.
+
+## 0.3.5 PyPy e RPython
+
+PyPy è conforme Python 3, è uno strumento per coloro che sviluppano il linguaggio Python. RPython è
+restricted Python.PyPy viene tradotto in C e non eseguito interpretativamente. Sviluppare una nuova funzionalità del codice
+Python è più facile farla usando PyPy che CPython e questo è il motivo per cui viene usato dai creatori di Python.
+
+## 0.4.1
