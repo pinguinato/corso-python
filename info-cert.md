@@ -179,4 +179,67 @@ PyPy è conforme Python 3, è uno strumento per coloro che sviluppano il linguag
 restricted Python.PyPy viene tradotto in C e non eseguito interpretativamente. Sviluppare una nuova funzionalità del codice
 Python è più facile farla usando PyPy che CPython e questo è il motivo per cui viene usato dai creatori di Python.
 
-## 0.4.1
+## 0.4.1 Come ottenere Python e come usarlo
+
+- **Linux**: dovrebbe già essere installato, perché è usato da componenti del sistema operativo. Se sei
+utente Linux apri un terminale e digita:
+
+        python3 
+        
+se c'è vedrai una cosa simile:
+
+        Python 3.4.5 (impostazione predefinita, 12 gennaio 2017, 02:28:40)
+        [Clang 3.7.1 compatibile GCC 4.2.1 (tag / RELEASE_371 / final)] su Linux
+        Digita "aiuto", "copyright", "crediti" o "licenza" per ulteriori informazioni.
+        >>>
+        
+Se Python 3 è assente, fai riferimento alla documentazione di Linux per scoprire come utilizzare il gestore pacchetti per scaricare e installare un nuovo pacchetto: quello di cui hai bisogno si chiama "python3" o il suo nome inizia con quello.
+
+Tutti gli utenti non Linux possono scaricare una copia qui:
+
+https://www.python.org/downloads/
+
+- **Windows**: scarica dal sito il file installer e procedi seguendo le indicazioni di installazione
+- **MAC**: dovrebbe esserci Python2 di default, per installare il 3 bisogna scaricare ed eseguire il file **.pkg**
+
+Python contiene **IDLE**:
+IDLE è l'acronimo: Integrated Development and Learning Environment.
+
+Avviando IDLE, si avvia la Python Shell: la finestra che appare sullo schermo è la 
+console Python (o solo console o shell Python o shell). Lo userai per eseguire semplici 
+comandi Python e per vedere gli effetti delle esecuzioni dei tuoi programmi.
+
+## 0.4.4 Il primo prgramma Python
+
+Apri IDLE, poi clicca il menù File e poi la voce New, per lanciare l'editor e iniziare a scrivere il
+primo programma.
+
+Non confondere l'editor di IDLE con la Python Shell, svolgono 2 compiti differenti!!
+
+Python necessita che i file di codice sorgente abbiano estensione **.py**.
+
+Per eseguire il codice scritto nell'editor di IDLE, scegli la voce **run module**. Ora si apre
+la python shell che esegue il codice.
+
+IDLE contiene strumenti per analisi degli errori del codice che si digitano nell'editor.
+
+## 0.4.11 Fixing del codice
+
+La finestra di editor di IDLE non fornisce indicazioni utili sugli errori, ma lo fa la shell.
+
+- **traceback**: percorso che fa il codice del programma
+- **location error**: posizione dell'errore (riga)
+- contenuto della riga errata
+- nome dell'errore e breve spiegazione
+
+## 0.5.1 Edube Sandbox
+
+https://edube.org/sandbox?language=python
+
+Strumento online per sviluppare con Python, non comporta l'installzione di Python sulla propria macchina.
+L'interfaccia di Edube si compone di:
+- finestra di editor
+- finestra console
+- barraa dei pulsanti azione (per eseguire il codice)
+
+## 0.5.2
