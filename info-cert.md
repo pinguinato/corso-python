@@ -242,4 +242,139 @@ L'interfaccia di Edube si compone di:
 - finestra console
 - barraa dei pulsanti azione (per eseguire il codice)
 
-## 0.5.2
+## 0.5.2 Edube LABS
+
+Serve per i laboratori.
+
+## 1.1.1 Primo programma e funzione print()
+
+        print("Hello World!")
+        
+**print** è una funzione di Python. Una funzione è una parte separata del codice che può:
+- **causare degli effetti (un effetto)** (scrivere sul terminale, inviare un file ecc...)
+- **valutare dei valori o più e darne un risultato (un risultato)**
+
+Molte funzioni di Python sono in grado di fare insieme tutte e due le cose precedenti.
+
+Da dove vengono le funzioni?
+- dal Python stesso, dal linguaggio
+- da moduli esterni o librerie di terze parti
+- le possiamo scrivere noi
+
+**Importante** 
+
+Le funzioni devono sempre avere dei nomi significativi.
+
+## 1.1.3 la funzione print()
+
+Abbiamo capito che le funzioni possono avere:
+- un effetto
+- un risultato
+
+Un altro importante componente di una funzione sono gli **argomenti**, di solito le funzioni
+matematiche ricevono un solo argomento, le funzioni in Python riescono ad essere un pò più versatili e
+sono in grado di accettare svariato numero di argomenti. Ci sono funzioni in Python che non 
+accettano nessun argomento.
+In Python per esprimere una funzione sono necessarie una coppia di parentesi subito dopo il nome della funzione.
+Come si vede dalla funzione **print**.
+
+        print(...)
+        
+Nell'esempio l'unico argomento fornito dalla funzione print è una **stringa**.
+
+        print("Hello")
+        
+## 1.1.5 Invacazione di funzione
+
+        function(argument)
+        
+Cosa fa Python dopo l'invocazione di una funzione?
+- verifica che il nome sia legale
+- verifica che i requistiti della funzione corrispondano al numero di argomenti passati
+- Python lascia il nostro codice verifica la funzione da invocare e i suoi argomenti e li passa 
+alla funzione
+- la funzione esegue il codice e provoca l'effetto atteso
+- Python ritorna al nostro codice
+
+## 1.1.6 Ancora su print()
+
+Tre domande:
+- **Effetto della funzione print()?** invia su schermo una stringa di testo, converte il nostro argomento in 
+una forma umana leggibile.
+- **Quali argomenti/o si aspetta print()?** virtualmente tutti i tipi di dati Python. Stringhe, numeri,
+caratteri ecc...
+- **Quali risultati restituisce print()?** in effetti nessuno, non restituisce nessun risultato nè li valuta,
+riporta solo testo su schermo.
+
+## 1.1.7
+
+Python richiede che non ci possano essere più di una istruzione per riga (perchè manca il separatore come il **;**).
+
+Una riga può essere vuota (non contenere istruzioni), ma **non deve contenere** due o tre più istruzioni.
+
+Es.
+
+        print("bla bla") print("hello") # errore!!!
+        
+## 1.1.11 Modi di scrivere il testo su schermo - Escape characters \n
+
+Modo semplice per fare un salto di riga:
+
+        print('Roberto') 
+        print()
+        print("sadsa")
+
+**Escape \n**
+
+Usare il carattere \n per mandare il testo a capo:
+
+        print('Robe\nrto') 
+        print()
+        print("sa\ndsa")
+
+**Escape \\**
+
+Se voglio usare lo \ nel testo:
+
+        print("Roberto \\") # scrive Roberto \
+        
+Usare la funzione print con più argomenti, separandoli con la virgola:
+
+        print("Roberto", " Gianotto")
+        
+I modi visti di passare argomenti alla funzione print() di Python si definiscono **posizionali**.
+
+Il codice viene stampato nell'ordine in cui viene scritto nel file.
+
+## 1.1.16 Cambiare il comportamento di print() uso di end=
+
+Esempio:
+    
+        print("My name is", "Python", end=" ")
+        print("Monty Python")
+        
+        >>> My name is Python Monty Python
+
+Cosa fa il carattere **end=**?
+
+Riflette il carattere " " alla fine degli argomenti posizionali, cioè le stringhe, sovrascrivendo
+la print() che va a capo.
+
+Invece così:
+
+        print("My name is", "Python", end="")
+        print("Monty Python")
+        
+        >>> My name is PythonMonty Python
+
+Si perde uno spazio, quello che avrebbe dato la funzione print() usata di default.
+
+## 1.1.20 Usare un separatore di stringa sep=
+
+Esempio:
+
+        print("My name is", "Python", sep="-")
+
+
+
+        
