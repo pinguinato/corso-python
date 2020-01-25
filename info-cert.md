@@ -375,6 +375,96 @@ Esempio:
 
         print("My name is", "Python", sep="-")
 
+## Laboratorio
 
-
+        print("Programming","Essentials","in",sep="***")
         
+        print("Python",end="...")
+        
+## 1.2.1 Literals
+
+**Literals**: è un valore che è determinato dal letterale stesso.
+
+        print(2)
+        
+        print("2")
+        
+## 1.2.3 Integer
+
+I numeri gestiti dai calcolatori sono di 2 tipi:
+- interi (integer)
+- virgola mobile (float)
+
+Per esprimere un numero negativo ci metto il **-** davanti. I numeri positivi non hanno bisogno di essere
+preceduti dal simbolo **+**.
+
+Ci sono altre 2 rappresentazioni:
+- ottale
+- esadecimale
+
+entrambe supportate da Python.
+
+## 1.2.8 Floats
+
+Sono numeri che hanno una frazione decimale non vuota. Sono i numeri che hanno una parte
+frazionaria dopo il punto decimale. I numeri **float** si esprimono con il carattere **.**.
+
+        2.5
+
+Se usiamo la virgola come carattere abbiamo un errore perché in Python ha un altro significato.
+
+In Python posso omettere lo 0 quando scrivo i numeri con virgola.
+
+Es:
+
+        invece di  0.4 posso scrivere .4
+        
+        oppure 4.0 lo posso scrivere come 4.
+
+**Importante**
+
+4 è un numero **integer**
+4.0 è un numero **float**
+
+## 1.2.12 Notazione scientifica
+
+Si usa con i numeri molto grandi:
+
+    se devo scrivere un numero così 300000000 lo posso scrivere 3E8
+    
+Es.
+
+    Costante di Plank: 6.62607E-34
+    
+## 1.2.15 Letterali Stringhe
+
+Necessitano delle **quotes** che sono gli apici.
+
+Stampare una stringa con le quotes, si può:
+- mettendo uno slash prima della virgoletta **\\"**
+- usare gli apici singoli
+
+Per scrivere il carattere apostrofo
+
+        print('I\'m Monthy Python')
+        
+        print("I'm Monthy Python")
+        
+Per scrivere una stringa **vuota**
+
+- ""
+- ''
+
+Esempio:
+
+        print("I'm")
+        print('learning')
+        print("\"Python\"")
+
+## 1.3.1 Operatori
+
+
+
+    
+        
+       
