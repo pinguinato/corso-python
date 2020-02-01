@@ -246,6 +246,8 @@ L'interfaccia di Edube si compone di:
 
 Serve per i laboratori.
 
+# PARTE 1
+
 ## 1.1.1 Primo programma e funzione print()
 
         print("Hello World!")
@@ -738,7 +740,7 @@ ecc...
 
 ### La funzione input()
 
-Questa funzione legge dai di input dell'utente.
+Questa funzione legge dati di input dell'utente.
 
 Es.
 
@@ -751,13 +753,122 @@ Es.
 
 Es. ERRORE
 
-        >>> anything = input("Give me a number: ")
-        Give me a number: 10
-        >>> something = anything ** 2.0
+        >>> var = 1
+        >>> print ("il valore di var è = " + var)
         Traceback (most recent call last):
-            File "<pyshell#55>", line 1, in <module>
-            something = anything ** 2.0
-            TypeError: unsupported operand type(s) for ** or pow(): 'str' and 'float'
+            File "<pyshell#58>", line 1, in <module>
+            print ("il valore di var è = " + var)
+            TypeError: can only concatenate str (not "int") to str
 
+Soluzione: la funzione **str()**, permette di stampare un numeero come stringa!
+
+         >>> print ("il valore di var è = " + str(var))
+         il valore di var è = 1
+         
+         #input a float value for variable a here
+        a = 10.0
+        #input a float value for variable b here
+        b = 15.5
+        #output the results of addition, subtraction, multiplication and division
+        print("Addizione = " + str(a + b))
+        print("Sottrazione = " + str(a -b))
+        print("Moltiplicazione = " + str(a * b))
+        print("Divisione = " + str(a / b))
+        print("That's all, folks!")
+         
+### 1.5.6 Funzioni int() e float()
+
+Si possono combinare con la funzione **input()** per convertire in intero(int()) o float(float()),
+l'input du numeri.
+
+Es.
+
+        >>> var = float(input("Inseirire un numenro con virgola: "))
+	    Inseirire un numenro con virgola: 10.5
+        >>> print(var)   
+        10.5
+
+### 1.5.11 Concatenazione di stringhe
+
+Si usa l'operatore **+**.
+
+### 1.5.13 Replication Operator
+
+Si usa l'operatore della moltiplicazione.
+
+Es.
+
+        print("2" * 5)
         
+Disegnare una rettangolo:
 
+        print("+" + 10 * '-' + '+')
+        print(("|" + ' ' * 10 + '|\n') * 5, end='')
+        print("+" + 10 * '-' + '+')
+
+# PARTE 2
+
+## 2.1.1 Domande e Risposte
+
+I computer hanno solo 2 risposte: vero e falso.
+
+Per rispondere alle domande Python usa degli operatori molto poarticolari.
+
+## 2.1.2 Verifica se due valori sono uguali
+
+Python usa l'operatore **==**, è un operatore binario a left-sided binding.
+
+## Operatori >, >=, <, <=, !=
+
+## Ordine degli operatori
+
+| Operatore  | Nome |
+|------------|------|
+|  +-  | unari      |
+|  **  | esponente  |
+|  */% | molt. div. mod.  |
+|  +-  | binari|
+|  <<=>>=||
+|  != ==||
+
+## 2.1.13 Statement IF
+
+        if condizione:
+            espressione
+            
+## 2.1.17 Statement IF ... ELSE
+
+        if condizione:
+            espressione
+        else:
+            espressione
+
+## 2.1.21 Statement IF ... ELIF ... ELSE
+
+       if theWeatherIsGood:
+          goForAWalk()
+       elif TicketsAvailable:
+          goToTheTheatre()
+       elif TableAvailable:
+          goForLunch()
+       else:
+          playChessAtHome()
+          
+- non possiamo usare else senza prima usare un if
+- else è sempre l'ultimo statement
+- else è opzionale e può essere ommesso
+- se c'è un ramo else nella cascata di statement solo uno dei ramis viene eseguito
+- se non c'è else è possibile che non venga eseguito nessun ramo                               
+
+**Nota**
+
+Se if o else contengono una sola istruzione li puoi scrivere in linea.
+Es:
+
+        if number1 > number2: max = number1
+        else: max = number2
+        
+*Pseudocodice*: è un linguaggio con cui definiamo gli algoritmi, è conciso, leggibile.
+
+## 2.2.1 Ciclo While
+        
