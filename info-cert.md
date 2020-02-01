@@ -463,8 +463,212 @@ Esempio:
 
 ## 1.3.1 Operatori
 
+Python può essere usato come una calcolatrice, la sua shell permette la manipolazione dei dati.
 
+Un **operatore** è un simbolo del linguaggio di programmazione che serve ad operare su di un valore.
 
+I dati e gli operatori quando vengono usati insieme formano le **espressioni**.
     
+### 1.3.2 Operatori Aritmetici
+
+        + - * / // % **
         
+### 1.3.3 Esponente (**)
+
+Es. 2**3 è come 2 elevato alla terza.
+
+        print(2**3)
+
+        >>> print(2**3)
+        8
+        >>> print(2 ** 3)
+        8
+        >>> print(2. ** 3)
+        8.0
+        >>> print(2. ** 3.)
+        8.0
+
+**Importante**        
+Quando entrambi gli argomenti sono interi il risultato è un **intero**.
+Quando almeno uno è un float allora il risultato è un **float**.        
        
+### 1.3.5 Moltiplicazione (*)
+
+Es.
+
+        >>> print(2 * 3)
+        6
+        >>> print(2 * 3.)
+        6.0
+        >>> print(2. * 3)
+        6.0
+        >>> print(2. * 3.)
+        6.0
+        
+**Nota**
+Valgono le stesse regole per gli argomenti espressi sopra.
+
+### 1.3.7 Divisione (/)
+
+Es.
+
+        >>> print(6/3)
+        2.0
+        >>> print(6/3.)
+        2.0
+        >>> print(6./3)
+        2.0
+        >>> print(6./3.)
+        2.0
+        
+6 è un **dividendo** e 3 è un **divisore**.
+
+**Importante** 
+Il risultato prodotto dall'operatore della divisione è sempre un **float**.
+
+### 1.3.9 Divisione Intera (//)
+
+Il risultato nella divisione intera è conforme alle regole di integer/float viste sopra.
+
+Es.
+
+        >>> print(6//3)
+        2
+        >>> print(6//3.)
+        2.0
+        >>>  print(6.//3)
+        2.0
+        >>> print(6.//3.)
+        2.0
+        
+**Attenzione**
+
+Il risultato di una divisione intera è sempre arrotondato all'intero più vicino. Il 4 nel 6 ci sta
+una volta soltanto.
+
+Es.
+
+        >>> print(6//4)
+        1
+        >>> print(6.//4)
+        1.0
+        
+**Attenzione**
+
+Es. 
+        
+        >>> print(-6//4)
+        -2
+        >>> print(6. // -4)
+        -2.0
+        
+In questo caso il risultato giusto sarebbe -1.5, però siccome -1.5 è vicino a -2 allora la divisione
+intera riporta -2.
+
+### 1.3.15 Operatore Modulo (%)
+
+Es.
+
+        >>> print(14%4)
+        2 
+        
+è l'operazione di divisione che ritorna come risultato il resto. 14 modulo 4 vuol dire che
+il 4*3 = 12 e 14 - 12 = 2
+
+Es. 
+
+        >>> print(12%4.5)
+        3.0
+        
+Vengono mantenute le regole espresse sopra per interi/float.
+
+### 1.3.19 La divisione per 0
+
+- Non funziona la divisione per 0
+- Non funziona la divisione intera per 0
+- Non funzione il modulo per 0
+
+### 1.3.20 Addizione(+)
+
+Es.
+
+        >>> print(-4+4)
+        0
+        >>> print(-4. +8)
+        4.0
+        
+### 1.3.22 Sottrazione (-)
+
+Es.
+
+        >>> print(-4 -4)
+        -8
+        >>> print(4. - 8)
+        -4.0
+        >>> print(-1.1)
+        -1.1
+        
+Il segno meno cambia il segno al numero, c'è un modo per preservare il segno è anteporre 
+l'operatore **unario**.
+
+Es.
+
+        >>> print(+2)
+        2
+
+### 1.3.24 Precedenza degli operatori
+
+Es.
+
+        2 + 3 * 5
+        
+è ovvio che la moltiplicazione precede l'addizione. Python definisce la priorità di tutti gli operatori 
+rispetto a priorità alte o basse, ovviamente gli operatori a priorità alta vengono prima di quelli 
+a priorità bassa.
+
+### 1.3.25 Bindging degli operatori
+
+Il binding degli operatori determina l'ordine delle computazioni degli operatori. In Python la 
+maggior parte degli operatori esegue binding da sinistra verso destra (**left-sided binding**).
+
+Es.
+
+        >>> print(9%6%3)
+        0
+        >>> print(9%6%2)
+        1
+        
+**Attenzione**
+
+L'operatore esponente usa il **right-side binding**
+
+Es.
+
+        >>> print(2**2**3)
+        256
+        
+viene fatta prima 2^3 = 8 e poi 2^8 = 256
+
+### 1.3.29 Lista della priorità
+
+1) Unario + e -
+2) ** esponente
+3) moltiplicazione, divisione e modulo
+4) Binario + e -
+
+### 1.3.30 Operatori che hanno stessa priorità
+
+Es.
+
+        >>> print(2*3%5)
+        1
+        
+Possiamo usare le parentesi per imporre un ordine dei calcoli.
+
+Es.
+
+        >>> print(5*((25%13) + 100) / (2*13) //2)
+        10.0
+        
+## 1.4.1 Le variabili
+
