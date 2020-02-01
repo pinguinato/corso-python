@@ -672,3 +672,92 @@ Es.
         
 ## 1.4.1 Le variabili
 
+Dentro ci possiamo mettere quello che vogliamo.
+
+Hanno un **nome** e un **valore**.
+
+Regole per nomi delle variabili in Python:
+- un nome di una varibile si compone di lettere maiuscole/minuscole/numeri/underscore
+- underscore è una lettera
+- una variabile deve iniziare con una lettera
+- maiuscolo e minuscolo vengono trattati in maniera differente
+- non possiamo usare come nomi delle variabili le parole riservate del linguaggio
+
+Sintassi:
+
+        nomevariabile = valore
+        
+Es.
+
+        >>> var = 1
+        >>> print(var)
+        1
+
+Es.
+
+        >>> var = 1
+        >>> account_balance = 1000.0
+        >>> ClientName = 'John Doe'
+        >>> print(var,account_balance, ClientName)
+        1 1000.0 John Doe        
+
+Se uso delle varibli che non esistono ottengo un errore!!
+
+L'operatore **=** viene detto **operatore di assegnamento**.
+
+Es.
+
+        >>> var = 1
+        >>> print(var)
+        1
+        >>> var = var+1
+        >>> print(var)
+        2
+        
+## 1.4.10 Commenti
+
+Quando Python incontra un commento lo ignora.
+
+Per inserire commenti anteposse il segno **#** al testo.
+
+Es.
+
+        # commento in Python
+        
+## 1.4.13 Operatori Shorcut
+
+        var = var op exp ==> var op=exp
+
+- var = var +1 diventa var += 1
+- var = var *2 diventa var *= 2
+- var = var ** 2 diventa var **=2
+
+ecc...
+
+## 1.5.1 Come parlare ad un computer?
+
+### La funzione input()
+
+Questa funzione legge dai di input dell'utente.
+
+Es.
+
+        >>> var = input("Inserire qualcosa")
+        Inserire qualcosa10
+        >>> print(var)
+        10
+        
+### 1.5.4 la funzione str()
+
+Es. ERRORE
+
+        >>> anything = input("Give me a number: ")
+        Give me a number: 10
+        >>> something = anything ** 2.0
+        Traceback (most recent call last):
+            File "<pyshell#55>", line 1, in <module>
+            something = anything ** 2.0
+            TypeError: unsupported operand type(s) for ** or pow(): 'str' and 'float'
+
+        
+
