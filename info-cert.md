@@ -871,4 +871,138 @@ Es:
 *Pseudocodice*: è un linguaggio con cui definiamo gli algoritmi, è conciso, leggibile.
 
 ## 2.2.1 Ciclo While
+
+        while condition:
+            expression
+
+Se si vogliono usare più istruzioni nello stesso while, il codice va identato!
+
+        while condition:
+            instruction_1
+            instruction_2
+            ...
+            instruction_n
+            
+Le istruzioni dentro il ciclo while vengono definite **loop body**.
+
+**Importante**
+
+- Se la condizione è **False** il body non viene eseguito nemmeno una volta.
+- Se la condizione è **True** il body si esegue all'infinito.
+
+## 2.2.4 Looping your code
+
+        while True:
+            print("I'm stuck inside a loop")
+            
+Esempio:
+
+        max = -999999999
+        number = int(input("Enter the value or -1 to stop while: "))
+        while number != -1 :
+            if number > max :
+                max = number
+            number = int(input("Enter the value or -1 to stop while: "))
+        print("The largest number is ", max)    
+
+Esempio (algoritmo pari e dispari)
+
+        Evens = 0 # quanti pari
+        Odds = 0 # quanti dispari
+        Number = int(input("Enter the value or 0 to stop: "))
+        while Number != 0:
+            if Number % 2 == 1: # dispari
+                Odds += 1
+            else:
+                Evens += 1
+            Number = int(input("Enter the value or 0 to stop: "))
+        print("\nI numeri pari sono: ", Evens)
+        print("\nI numeri dispari sono: ", Odds)
         
+Esempio (numero magico)
+
+        secret_number = 8
+        print("Welcome to my game, muggle!\nEnter an integer number and guess what number I've picked for you!\nI'll give you a hint: it's an integer number from 0 to 10.")
+        my_number = int(input("Enter a number: "))
+        while my_number != secret_number:
+            my_number = int(input("No, that's not the number I've picked for you. Try again! Enter a number: "))
+        print("Well done! That's the number I've chosen for you! You are free now.")
+        
+**Importante**
+
+Condizioni equivalenti che si comportano allo stesso modo(algoritmo dei pari e dispari):
+
+           while Number != 0:
+           
+           while Number:
+           
+           if Number % 2 == 1:
+           
+           if Number % 2:        
+           
+## 2.2.9 Fermarsi nel While
+
+            counter = 5
+            while counter != 0:
+                print("My name is ...")
+                counter -= 1
+                
+Quando counter arriva a 0 il programma esce dal while.
+
+Potevo anche scrivere nella condizione di while:
+
+            while counter:
+            
+# 2.2.12 Il ciclo For
+
+Per certi compiti risulta essere più comodo del while, soprattutto quando dobbiamo
+ripetere tante volte una specifica istruzione.
+
+Es.
+        
+        for i in range(100):
+            istruzione
+            
+- la parola chiave for apre il llop for
+- la variaible **i** viene detta variabile di controllo e conta i giri del ciclo
+- la parola chiave **in** introduce il range dei possibili valori di **i**
+- la funzione **range()** genera tutti i possibili valori di i.
+
+Es.
+
+        for i in range(10):
+            print("Hello ", i)
+            
+Stampa Hello da 0 a 9.
+
+## 2.2.15
+
+**Importante**
+
+La funzione range() può avere più parametri:
+
+        for i in range(2,8):
+            print("Hello ", i)
+            
+Stampa Hello da 2 a 7, 8 escluso!
+- range() accetta **solo interi come argomenti**.
+- range() può accettare anche **3 argomenti** dove il terzo argomento è l'incremento
+del range.
+
+Es:
+
+        for i in range(2,8,3):
+            print("Hello ", i)
+            
+Stampa Hello di 2 e Hello di 5.
+
+Esercizio:
+        
+        for i in range(1,11):
+            print(i, "Mississippi")
+            
+## 2.2.22 Break e Continue
+
+
+   
+    
