@@ -1003,6 +1003,127 @@ Esercizio:
             
 ## 2.2.22 Break e Continue
 
+Puoi anche farne a meno, sono chiamati **zucchero sintattico**.
 
-   
-    
+- **break**: esce dal loop immediatamente, termina le operazioni del loop, il programma
+riprende dalla più prossima operazione dopo il loop
+- **continue**: si comporta come se il programma avesse raggiunto la fine del corpo, il turno
+successivo viene avviato e l'espressione della condizione viene testata immediatamente.
+
+Sono entrambi parolo chiavi del linguaggio Python.
+
+Es.
+
+        while True:
+            secret = input("You're stuck in an infinite loop! Enter a secret word to leave the loop:")
+            if secret == "chupacabra":
+                print("You've successfully left the loop")
+                break
+            else:
+                secret = input("You're stuck in an infinite loop! Enter a secret word to leave the loop:")
+
+## 2.2.24 Loop e Else
+
+Entrambi i loop **while** e **for** possono essere arricchiti da una interessante
+opzione **else**.
+
+Il ramo finale **else** dei loops viene eseguito sempre almeno una volta, indipendentemente
+che il loop sia entrato o no nel suo corpo.
+
+Es.
+
+        i = 1
+        while i < 5:
+            print(i)
+            i = i + 1
+        else:
+            print("else: ", i)
+            
+        Viene stampato:
+        1
+        2
+        3
+        4
+        else: 5
+        
+Es.
+
+        i = 5
+        while i < 5:
+            print(i)
+            i = i + 1
+        else:
+            print("else:",i)
+            
+        Risultato:
+        else:5
+        
+Es. 
+
+        for i in range(5):
+            print(i)
+        else:
+            print("else:",i)
+            
+        Risultato:
+        0
+        1
+        2
+        3
+        4
+        else:4
+        
+Es.
+
+        i = 111
+        for i in range(2,1):
+            print(i)
+        else:
+            print("else:",i)
+            
+        Risultato:
+        else:111 # attenzione abbiamo inizializzato i prima del ciclo!! Il for non parte nemmeno
+        
+## 2.3.1 Logica del computer (gli operatori logici)
+
+Questi operatori seguono le **tavole di verità**
+
+## 2.3.2 And
+
+Es. 
+
+        Counter > 0 and value == 100
+        
+Validità di and:
+
+        è True solo se entrambi sono veri, altrimenti è sempre False
+        
+## 2.3.4 Or
+
+Validità di or:
+
+        è True se almeno uno dei due lo è o entrambi lo sono, se entrambi False allora
+        è False
+        
+## 2.3.6 Not
+
+Validità di not:
+
+        not nega l'espressione che segue, se True diventa False e viceversa
+        
+Es.
+
+        not (var > 0)
+        
+        not var == 0
+        
+Es. 
+
+        i = 1
+        j = not not i
+        
+        i vale 1, mentre j vale True, il not tasforma j in un valore booleano!!
+
+
+
+        
