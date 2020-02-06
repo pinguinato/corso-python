@@ -1124,6 +1124,77 @@ Es.
         
         i vale 1, mentre j vale True, il not tasforma j in un valore booleano!!
 
+## 2.3.7 De Morgan
+
+La negazione di una congiunzione è la disgiunzione delle negazioni.
+
+La negazione di una disgiunzione è la congiunzione delle negazioni.
+
+In Python:
+
+        not (p and q) == (not p) or (not q)
+        
+        not (p or q) == (not p) and (not q)
+        
+**Importante**
+
+Gli operatori logici prendono i loro argomenti nel loro insieme 
+indipendentemente da quanti bit contengono. Gli operatori sono consapevoli 
+solo del valore: zero (quando tutti i bit sono resettati) significa Falso; 
+non zero (quando è impostato almeno un bit) significa True. 
+Il risultato delle loro operazioni è uno di questi valori: Falso o Vero. 
+Ciò significa che questo frammento assegnerà 
+il valore True alla variabile j se i non è zero; altrimenti, sarà falso.
+
+Es.
+
+        i = 1
+        
+        j = not not i
+        
+## 2.3.9 Bitwise Operatori
+
+Operatori in grado di manipolare i singoli bit di dati.
+
+- Xor si indica con ^
+- & ampersand
+- | bar
+- tilde (bitwise negation)
+
+Gli argomenti di questi operatori devono essere interi!!!
+
+## 2.3.21 Shifting Operator
+
+- operazione sempre relativa ai singoli bit, si chiama spostamento
+- si indica con il simbolo >> oppure <<
+- si applica solo ai valori interi
+
+Es.
+
+        >>> var = 17
+        >>> var_right = var >> 1
+        >>> var_left = var << 2
+        >>> print(var, var_right, var_left)
+        17 8 68
+
+- Lo spostamento a destra di 1 BIT equivale alla **divisione intera per 2**
+- Lo spostamento a sinistra di 2 BIT equivale alla **moltiplicazione per 4**
+- quindi: 17 // 2 = 8 e 17 * 4 = 68
+        
+## 2.3.22 Tabella riassuntiva precedenza degli operatori
+
+| Operatore  | Nome |
+|------------|------|
+|  ++,--,!,tilde,+-  | unari      |
+|  **  | esponente  |
+|  */% | molt. div. mod.  | 
+|  +-  | binari|
+| <<, >> ||
+|  <,<=,>,>=||
+|  != ==||
+| =, +=, -=, *=, >>=, <<=||
+
+# 2.4 Le Liste
 
 
         
