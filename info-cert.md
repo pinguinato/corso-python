@@ -1196,5 +1196,217 @@ Es.
 
 # 2.4 Le Liste
 
+# 3.1.1 Scrivere le proprie funzioni
 
+Usiamo le funzioni per semplificarci la vita ed evitare di ripetere il codice più volte.
+Ad esempio se vediamo che il codice inizia a ripetersi in più posti conviene scrivere una funzione.
+Oppure se un frammento di codice diventa complesso da leggere conviene usare una funzione.
+Dobbiamo decomporre i problemi per arrivare al prodotto finale. Soprattutto quando si lavora in team.
+
+Da dove provengono le funzioni:
+
+- da Python (quelle proprie del linguaggio tipo print(), int(), float() ecc...)
+- dai moduli preinstallati in Python
+- dal proprie codice
+
+## 3.1.6 La tua prima funzione
+
+Esempio:
+
+        print("Enter next value: ")
+        a = int(input())
+        print("Enter next value: ")
+        b = int(input())
+        print("Enter next value: ")
+        c = int(input())
         
+il codice si ripete più volte, possiamo scrivere una funzione che semplifica il codice, in modo
+che se dobbiamo intervenire lo andiamo a cambiare in un solo punto del codice una volta
+soltanto.
+
+Sintassi di una funzione:
+
+        def nome_funzione():
+            body_funzione
+            
+Le funzioni iniziano sempre con la parola chiave **def**, poi segue il nome di funzione seguita
+da una coppia di parentesi dove mettiamo la nostra lista di **parametri**. La linea deve terminare
+con i due punti. Andiamo a capo e iniziamo il **body** della funzione stessa.
+
+Esempio:
+
+        def message():
+            print("Enter next value: ")
+            
+La richiamo nel mio codice in questo modo:
+
+        message()
+        a = int(input())
+        message()
+        b = int(input())
+        .....
+        
+Quando si invoca una funzione, Python ricorda il luogo in cui è avvenuta e salta nella
+funzione invocata. Viene eseguito il corpo della funzione, quando la funzione arriva alla fine 
+Python ritorna al corpo del codice dove era rimasto.
+
+**Importante**
+
+- Non puoi invocare una funzione che non è nota al momento dell'invocazione!! Python 
+legge il codice dall'alto verso il basso, non guarderà una funzione definita più avanti.
+
+Esempio:
+
+        print("We start here")
+        message()
+        print("End here")
+        
+        def message():
+            print("Enter next value: ")
+            
+Questa situazione produce un errore.
+
+- Non possiamo avere una funzione e una variabile che portano lo stesso nome!!
+
+Esempio:
+
+        def message():
+            print("Enter next value: ")
+            
+        message = 1
+        
+- Però possiamo mescolare il nostro codice con tutte le funzioni nel nostro file sorgente
+
+Esempio:
+
+            print("We start here")
+            
+            def message():
+                print("Enter next value: ")
+            
+            message()
+            
+            print("End here")
+            
+## 3.2.1 Funzioni parametrizzate
+
+Come le funzioni comunicano con il loro ambiente? 
+
+Attraverso l'uso dei parametri. Un parametro è una variabile.
+
+Il parametro:
+- esistono soltanto all'interno di funzioni in cui sono stati definiti e l'unico posto in cui si possono
+definire è una coppia di parentesi nell'istruzione **def**.
+-  l'assegnazione di un valore al parametro viene eseguita al momento dell'invocazione della funzione,
+specificando l'argomento corrispondente.
+
+**Importante**
+
+- Parametri: vivino all'interno di una funzione
+- Argomenti: vivino al di fuori delle funzioni e sono portatori di valori passati
+ai parametri corrispondenti
+
+Esempio:
+
+        def message(no):
+            print("Enter value number ", no)
+            
+**Attenzione**: non abbiamo assegnato alcun valore al parametro perché arriverà dall'
+ambiente della funzione, se si specficano parametri nella funzione e non si invocano poi quando
+si richiama la funzione, otteniamo un errore!!
+
+Es:
+            
+          def message(no):
+            print("Enter value number ", no)
+          
+          message() # questo produce errore!! Manca il parametro!!
+          
+Una funzione può ospitare quanti parametri vogliamo.
+
+## 3.2.9 Passaggio di parametri posizionali
+
+Tecnica che assegna il primo, secondo e terzo parametro secondo l'ordine di definizione
+nella funzione stessa. Gli argomenti vengono definiti **argomenti posizionali**.
+
+Es:
+
+        def introduction(givenname, surname):
+            print("Hello, my is ", givenname, surname, ".")
+            
+        introduction("Pippo", "Pallino")
+        
+        >>> Hello, my name is Pippo Pallino.
+        
+## 3.2.12 Passaggio dell'argomento della parola chiave
+
+Modo alternativo di passare i parametri ad una funzione:
+
+Es:
+
+        def introduction(givenname, surname):
+            print("Hello, my is ", givenname, surname, ".")
+          
+        introduction(givenname="Pippo", surname="Pallino")
+        
+**Attenzione**
+
+Non possiamo usare un nome di un parametro che non esiste nella funzione!!
+
+**REGOLA**
+
+Devi mettere sempre gli argomenti **posizionali** prima di quelli di parola **chiave**.
+
+Es:
+
+        def sum(a,b,c):
+            print(a,"+",b,"+",c,"=",a+b+c)
+            
+        sum(1,2,3)
+        
+        >>> 1 + 2 + 3 = 6
+        
+è un tipico esempio di passaggio posiazionale di parametri.
+
+Es: variante per parola chiave
+
+        sum(c=1,a=2,b=3)
+        
+        >>> 2 + 3 + 1 = 6
+        
+Es di errore:
+        
+        sum(3, c=1, b=2)
+        
+        >>> errore TypeError
+        
+Es che invece funziona:
+
+        sum(3, 4, c=3)
+        
+        >>> 3 + 4 + 3 = 10
+        
+## 3.2.20 Funzioni con valori di parametri di default
+        
+Es (**valore di default**):
+
+                
+       def introduction(givenname, surname="Smith"):
+            print("Hello, my is ", givenname, surname, ".")
+        
+
+       introduction("Robert") # Non produce alcun errore
+       
+       >>> Hello, my name is Roberto Smith.
+       
+Es:
+        
+        def introduction(givenname="John", surname="Smith"):
+            print("Hello, my is ", givenname, surname, ".")
+      
+        introduction(surname="Foo")
+        
+        >>> Hello, my name is John Foo,
+        
+## 3.3.1 Effetti e risultati (valori di ritorno di una funzione)
+
