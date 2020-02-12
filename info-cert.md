@@ -1410,3 +1410,249 @@ Es:
         
 ## 3.3.1 Effetti e risultati (valori di ritorno di una funzione)
 
+            return
+            
+Parola chiave di Python, permette di restituire un valore nella funzione.
+
+Ha una doppia funzionalità:
+
+1) **se usata da sola all'interno della funzione ne causa l'immediata terminazione
+e un ritorno immediato al punto di invocazione**
+
+**Importante**
+
+Se una funzione non è destinata a restituire valori, return viene usata implicitamente
+alla fine della stessa. Allo stesso modo si può usare in un punto della funzione 
+per terminarne l'esecuzione.
+
+2) **usata per ritornare un'espressione finale e valutarne il risultato**
+
+Il risultato dell'espressione ritornata viene trasportato al punto di invocazione della funzione e
+volendo può essere salvato all'interno di una variabile.
+
+## 3.3.8 Il valore NONE (nessun valore)
+
+In realtà è l'assenza di valore, non va usato per calcolare espressioni perché
+genera errore a runtime TypeError. **None** è una parola chiave. Esistono solo 2 situazioni 
+in cui ha senso usarlo:
+
+- quando lo si confronta con una variaibile per verificarne il suo valore interno
+- quando lo si assegna ad una varibile e lo si restituisce come risultato
+
+## 3.3.9 Importante
+
+Se una funzione non restituisce alcun valore, utilizzando l'espressione return si intende
+in realtà **return none**.
+
+Es.
+
+        def strange(n):
+            if(n % 2 == 0):
+                return True
+                
+Questa funzione se n=2 stampa True, se n=1 stampa None.
+
+## 3.3.11 Passare un array/lista ad una funzione?
+
+Es.
+
+        def sumoflist(l):
+            sum = 0
+            for el in l:
+                sum += el
+            return sum
+            
+**Importante**
+
+        print(sumoflist([5,4,3])
+        
+Ci restituisce 12 come risultato finale. Ma se passo:
+
+        print(sumoflist(5))
+        
+Mi viene restituito un errore!! TypeError "Int object is not iterable".
+
+##3.3.12 Può un elenco essere il risultato di una funzione?
+
+Si perché qualsiasi entità può essere il risultato di una funzione in Python.
+
+Es.
+        
+        def strngeList(n):
+            list = [ ]
+            for i in range(0,n):
+                list.insert(0,i)
+            return list
+        
+        print strngeList(5)
+        
+        >>> [4,3,2,1,0]
+        
+## 3.4 Funzioni e Scope
+
+**Scope**: l'mabito di un nome (di una varibiale ead esempio) è la parte dove questa
+e riconoscibile. Ad esempio l'ambito di un parametro di una funzione è la funzione stessa.
+
+Es.
+
+        def scope():
+            x = 123
+            
+        scope()
+        print(x)
+        
+        >>> errore NameError "x is not defined"
+        
+## 3.4.3 Varibile che esiste al di fuori delle funzioni
+
+**Caso particolare**
+
+Es. 
+
+        def function():
+            print("Conosci quella var?", variabile)
+            
+        variabile = 1
+        function()
+        print(variabile)
+        
+        >>> Conosci quella var? 1
+        >>> 1
+
+**Attenzione**
+
+Però la variabile definita all'interno della funzione non è la stessa definita
+all'esterno della funzione!!
+     
+Modifichiamo il codice così e ce ne accorgeremo:
+
+Es.
+
+        def function():
+            variabile = 2
+            print("Conosci quella var?", variabile)
+            
+        variabile = 1
+        function()
+        print(variabile)
+        
+        >>> Conosci quella var? 2
+        >>> 1        
+
+**REGOLA**
+
+Una variabile esistente al di fuori di una funzione ha un ambito 
+all'interno dei corpi delle funzioni, 
+escluse quelle che definiscono una variabile con lo stesso nome.
+Significa anche che **l'ambito di una variabile esistente 
+all'esterno di una funzione è supportato solo quando si 
+ottiene il suo valore (lettura)**. L'assegnazione di 
+un valore forza la creazione della variabile propria della funzione.
+ 
+Quindi **l'ambito interno ad una funzione va a sovrascrivere l'ambito esterno se 
+questa viene riassegnata internamente**.
+
+## 3.4.5 La praola chiave global
+
+Ma quindi una funzione non è in grado di definire una variabile al di fuori di essa?
+
+Non è vero, possiamo farlo estendendo lo scope di una variabile anche dentro le funzioni 
+utilizzando una parola del linguaggio:
+
+        global noma_var
+        
+Permette ad una variabile di estendere il proprio scope anche dentro le funzioni. Quindi 
+posso assegnare valori a questa variabile anche da dentro le funzioni.
+
+Quindi se una variaibile viene definita global allora Python bypassa il comportamento 
+incontrato prima.
+
+Es.
+
+        def function():
+            global variabile = 2
+            print("Conosci quella var?", variabile)
+            
+        variabile = 1
+        function()
+        print(variabile)
+        
+        >>> Conosci quella var? 2
+        >>> 2
+        
+Ecco fatto, abbiamo aggiunto global al nome della variabile dentro la funzione, e vediamo 
+così che questa rimane la stessa variabile e non viene alterata dalla presenza di una altra
+variabile "esterna" alla funzione, è sempre la stessa.
+
+## 3.4.7 Come le funzioni interagiscono con gli argomenti
+
+Es.
+
+        def function(n):
+            print("Adesso ho: ", n)
+            n += 1
+            print("Adesso ho: ", n)
+            
+        variabile = 1
+        function(variabile)
+        print(variabile)
+        
+        >>> Adesso ho: 1
+        >>> Adesso ho: 2
+        >>> 1
+        
+**Importante**
+
+La modifica del parametro di una funzione, non si propaga al di fuori della funzione stessa.
+Questo vuol dire che una funzione riceve il valore di un argomento, non l'argomento stesso! Questo
+**vale per gli scalari**.
+
+## 3.4.8 Se ho un elenco?
+
+Es. 
+
+        def function(list):
+            print(list)
+            list = [0,1]
+            
+        L = [2,3]
+        function(L)
+        print(L)
+        
+        >>> [2,3]
+        >>> [2,3]
+        
+Viene stampato prima che sia modificato, quindi il risultato non varia! Se l'avessi stampata
+dopo nell'ordine della funzione, avrebbe modificato il risultato.
+
+**Attenzione**
+
+Es.
+
+        def function(list):
+            print(list)
+            del list[0]
+            
+        L = [2,3]
+        function(L)
+        print(L)
+        
+        >>> [2,3]
+        >>> [3]
+        
+Il meccanismo visto prima sopra non vale con **del**. Questo perché:
+
+- Non modifichiamo il valore dell'elenco dei parametri perché non ha nessuna alterazione
+sul risultato finale
+- ma se modifichiamo l'elenco identificato da questo(list), ha effetto sul risultato finale!!
+
+**REGOLA**
+
+Se l'argomento è un elenco, la modifica del valore del parametro corrispondente non influisce
+sull'elenco, ma se si modifica un elenco identificato dal parametro (quindi l'elenco e non il parametro), 
+l'elenco rifletterà la modifica!!
+
+
+        
+
+
