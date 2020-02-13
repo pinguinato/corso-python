@@ -1652,7 +1652,145 @@ Se l'argomento è un elenco, la modifica del valore del parametro corrispondente
 sull'elenco, ma se si modifica un elenco identificato dal parametro (quindi l'elenco e non il parametro), 
 l'elenco rifletterà la modifica!!
 
+## 3.5 (esercizi - vedi cartella /esercizi)
 
+## 3.6 Tuple e Dizionari
+
+Un tipo **sequenza** in Python è un tipo dato in grado di memorizzare 
+più di un valore, oppure anche nessuno e questi valori possono essere sfogliati in 
+sequenza, da qui deriva il nome.
+
+Il ciclo **for** è stato progettato per scorrer le sequenze e fino ad ora abbiamo 
+affrontato una sola sequenza le **liste**.
+
+**Dati Mutabili**
+
+E' una proprietà di quei dati che in Python ci danno la possibilità di poterli
+alterare/modificare a piacimento durante l'esecuzione del programma.
+I dati mutabili possono essere modificati liberamente e chiamiamo questo tipo di 
+operazione **in situ**.
+
+        list.append(1)
+        
+**Dati Immutabili**
+
+I dati immutabili non possono essere modificati in questo modo. 
+Immagina che un elenco possa essere solo assegnato e letto. 
+Non potresti né aggiungere un elemento ad esso né rimuovere alcun 
+elemento da esso. Ciò significa che l'aggiunta di un elemento alla 
+fine dell'elenco richiederebbe la ricreazione dell'elenco da zero. 
+Dovresti creare un elenco completamente nuovo, composto 
+da tutti gli elementi dell'elenco già esistente, più il nuovo elemento.
+
+Un esempio di questo tipo di dati sono le **tuple**, loro non possono essere
+modificate in situ.
+
+## 3.6.2 Tuple
+
+La prima differenza rispetto alle liste è nel modo in cui si possono creare:
+
+Modi in cui posso creare una tupla:
+
+        tupla = (1,2,3,4)
+        >>> (1,2,3,4)
+                
+        tupla = 1,2,3,4
+        >>> (1,2,3,4)
+        
+        tupla = 1.,.5,.25
+        >>> (1.0,0.5,0.25)
+        
+Si può creare anche una **tupla vuota**:
+
+        tupla_vuota = ()
+        
+Si può creare una tupla ad **1 solo elemento**:
+
+        t = (1,)
+        
+        >>> (1)
+        
+        t = 1,
+        
+        >>> (1)
+        
+Le tuple si possono leggere allo stesso modo in cui si leggono le liste:
+
+        t = (1,10,100,1000)
+        
+        print(t[0])
+        
+        >>> 1
+        
+        print(t[-1])
+        
+        >>> 1000
+        
+        print(t[1:])
+        
+        >>> (10,100,1000)
+        
+        print(t[-2])
+        
+        >>> (10,100)
+        
+        for el in t:
+            print(el)
+            
+        >>> 1
+        >>> 10
+        >>> 100
+        >>> 1000
+
+**Importante**
+
+Non si può modificare il contenuto di una tupla, non è una lista e si ottiene un errore
+a runtime!
+
+Es.
+        
+        t.append(10)
+        
+        del t[1]
+
+        t[0] = -1
+
+Tutte queste istruzioni causeranno un **runtime error**.
+
+## 3.6.7 Join di tuple con +
+
+L'operatore **+** permette di concatenare tuple:
+
+Es. 
+
+        t1 = (10,100)
+        t2 = (100,1000)
+        print(t1 + t2)
+        >>> (10,100,100,1000)
+        
+## 3.6.9 Come usare le tuple
+
+- **len()** questa funzione accetta le tuple e ne ritorna il numero di elementi contenuti
+in essa
+- **+** può concatenare tuple (tuple join)
+- l'operatore di moltiplicazione moltiplica le tuple 
+
+Es. 
+
+        print(t1 * 3)
+        
+        >>> (10,100,10,100,10,100)
+        
+- **in** e **not in** funzionano come sulle liste.
+
+Es. 
+
+        print(10 in t1)
+        >>> True
+        print(100000 not in t2)
+        >>> True
+        
+## 3.6.11 I Dizionari
         
 
 
