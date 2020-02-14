@@ -24,3 +24,5 @@ H
 .gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
 H
 tkinter/hello_grafico.py,8\1\817255d335eddea885ab5ec01bce145496b46a88
+D
+esercizi/bodymass.py,f\d\fd62f5b8e73839f6ab9fab2ca156ea3c4133eca7

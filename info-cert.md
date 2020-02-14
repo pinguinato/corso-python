@@ -1792,5 +1792,140 @@ Es.
         
 ## 3.6.11 I Dizionari
         
+Il dizionario è un'altra struttura dati di Python, non è un tipo sequenza, è **mutabile**.
 
+        <k,v> k = chiave v = valore
+        
+Nel modo Python la parola che cerchi è chiamata **chiave**, la parola che ottieni è 
+chiamata **valore**, è quindi una coppia <chiave,valore>.
 
+Ogni **chiave** deve essere unica e non si può avere delle chiavi ripetute.
+
+Un dizionario non è un elenco, perché un elenco contiene un insieme di valori 
+numerati, mentre un dizionario contiene **coppie di valori**.
+
+La funzione **len()** è valida anche per i dizionari e restituisce il numeri di 
+coppie chiave/valore presenti.
+
+Un dizionario **vuoto** è costituito da una coppia di parentesi graffe: { }
+
+Es. di dizionario:
+
+        dict = {'cat':'chat','dog':'chien'}
+        
+        phones = {'boss': 333444555, 'mom': 44455666}
+        
+        empty = {}
+        
+I dizionari, non essendo elenchi non conservano l'ordine dei loro dati.
+
+Per ottenere un valore dal dizionario dobbiamo fornire un **valore chiave valido**.
+
+Es. 
+
+        print(phones['boss'])
+        
+Se la chiave è una stringa è necessario specificarla come tale. Se usiamo una chiave
+inesistente provochiamo un **errore a Runtime**.
+
+Cercare in un dizionario:
+
+Es.
+
+        dict = {'cat':'chat','dog':'chien'}
+        
+        words = ['cat', 'lion', 'horse']
+        
+        for word in words:
+            if word in dict:
+                print("Success")
+            else:
+                print("Nope")
+                
+**Nota**
+
+Posso sfogliare i dizionari come fossero elenchi o tuple?
+
+Si e no. No perché il dizionario non è un tipo sequenza e il for è inutile con esso.
+Si perché posso adattare un dizionario ad un ciclo for. Usando ad esempio **keys()**:
+
+Es. 
+
+        dict = {'cat':'chat','dog':'chien'}
+        
+        for key in dict.keys():
+            print(key, "--->", dict[key])
+
+**keys()** restituisce con il for l'elenco composto da **tutte le chiavi** del dizionario.
+
+Avere un elenco di chiavi ci permette di accedere in modo sempice al dizionario.
+
+Per **ordinare** un dizionario:
+
+Es.
+
+        for key in sorted(dict.keys()):
+            ....
+
+**sorted()** permette di ordinare il dizionario!!
+
+Possiamo scorrere un dizionario mostrandolo come un **elenco di tuple** e peer farlo
+usiamo il metodo **items()**:
+
+Es.
+
+        for el in dict.items():
+            ....
+            
+        >>> (cat, chat)
+        >>> (dog, chien)
+        
+Oppure mostrarne solo i valori delle chivi usando **values()**:
+
+Es.
+
+        for val in dict.values():
+            print(val)
+            
+        >>> chat
+        >>> chien
+        >>> ....
+
+**Importante**
+
+Siccome i dizionari sono mutabili posso modificarli:
+
+Es.
+         
+         dict = {'cat':'chat','dog':'chien'}
+         
+         dict['cat'] = 'minou'
+         
+         print(dict)
+         
+         >>> {'dog':'chien','cat':'minou'}
+         
+## 3.6.19 Aggiungere una nuova coppia chiave-valore al dizionario
+
+Es.
+
+        dict['lion'] = 'lion'
+        
+        print(dict)
+        
+        >>> {'lion':'lion','dog':'chien','cat':'minou'}
+        
+## 3.6.20 Rimuovere elementi dal dizionario
+
+**del** rimuove l'intera coppia <k,v> dal dizionario.
+
+Es.
+
+        del dict['cat']
+        
+        print(dict)
+        
+        >>> {'lion':'lion','dog':'chien'}
+        
+
+         
