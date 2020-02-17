@@ -1196,6 +1196,200 @@ Es.
 
 # 2.4 Le Liste
 
+Es.
+
+        numbers = [10,5,7,2,1]
+        
+Cambio valore:
+
+        numbers[0] = 111
+        
+        >>> [111,5,7,2,1]
+        
+Copia valore:
+
+        numbers[0] = number[4]
+        
+Scrivere il valore su schermo:
+
+        print(numbers[0])
+        
+Scrivere una lista su schermo:
+
+        print(numbers)
+        
+Scrivere la lunghezza di una lista (il numero degli elementi):
+
+        print(len(numbers)
+        
+        >>> 5
+        
+Cancellare elementi da una lista:
+
+        del numbers[1]
+        print(len(numbers))
+        print(numbers)
+        
+        >>> 4
+        >>> [111, 7, 2, 1]
+        
+Errore se si accede ad elementi inesistenti:
+
+        numbers[4] = 1
+        
+        Errore!!!
+        
+Sono consentiti indici negativi su una lista:
+
+        print(numbers[-1])
+        
+        >>> 1
+        
+        print(numbers[-2])
+        
+        >>> 2
+        
+## 2.4.12 Metodi vs Funzioni
+
+**Metodo**: è un tipo di funzione, sembra una funzione, ma differisce per il modo in cui viene 
+invocato. Un metodo è in grado di cambiare stato dell'entità selezionata.
+
+Es.
+
+        result = data.method(args)
+
+**Funzione**: non appartiene a nessun dato, ottiene dei dati in input e fornisce un risultato. La funzione
+accetta un argomento, fa qualcosa e restituisce sempre un risultato.
+
+Es. 
+
+        result = function(args)
+        
+## 2.4.14 Aggiungere elementi ad una lista
+
+Usiamo un metodo:
+
+        numbers.append(4)
+        
+        >>> [111,7,2,1,4]
+
+Mette in fondo alla lista un nuovo elemento.
+
+## 2.4.15 Inserire un elemento in un punto specifico
+
+Usiamo il metodo **insert(dove,cosa)**:
+
+        numbers(0,222)
+        
+        print(numbers)
+        
+        >>> [222,111,7,2,1,4]
+        
+Aggiungere elementi con un ciclo:
+
+        list = []
+        for i in range(5):
+            list.append(i + 1)
+        print(list)
+        
+        >>> [1, 2, 3, 4, 5]
+        
+Aggiungere elementi al contrario:
+
+        list = []
+        for i in range(5):
+            list.insert(0, i + 1)
+        print(list)
+        
+        >>> [5, 4, 3, 2, 1]
+        
+## 2.4.22 Variante del ciclo FOR
+
+Es.
+
+        list = [10,1,8,3,5]
+        sum = 0
+        for i in range(len(list)):
+            sum += list[i]
+        print(sum)
+        
+        >>> 27
+
+## 2.4.26 Un modo efficiente per ffettuare uno SWAP
+
+Es.
+
+        variabile1 = 1
+        variabile2 = 2
+        variabile1, variabile2 = variabile2 , variabile1
+        
+Es.
+
+        x = 1
+        y =2
+        print(x)
+        print(y)
+        x,y = y,x
+        print(x)
+        print(y)
+        >>> 1
+        >>> 2
+        >>> 2
+        >>> 1
+        
+Es. (liste):
+
+        list = [10,1,8,3,5]
+        list[0],list[4] = list[4],list[0]
+        list[1],list[3] = list[3],list[1]
+        print(list)
+        
+        >>> [5,3,8,1,10]
+
+Es. (liste)
+
+        list = [10,1,8,3,5]
+        l = len(list)
+        for i in range(l // 2):
+            list[i], list[l-i-1] = list[l-i-1],list[i]
+        print(list)
+        
+        >>> [5, 3, 8, 1, 10]
+        
+## 2.5.1 Sorting di liste
+
+## Bubble Sort per le liste
+
+Es.
+
+        # bubble sort per le liste
+
+        list = []
+        swapped = True
+        num = int(input("How many element do you want to sort?: "))
+
+        for i in range(num):
+            val = float(input("Enter next element: "))
+            list.append(val)
+        while swapped:
+            swapped = False
+            for i in range(len(list)-1):
+                if list[i] > list[i+1]:
+                    swapped = True
+                    list[i],list[i+1] = list[i+1],list[i]
+        print("Sorted: ")
+        print(list)
+
+## 2.5.14 Metodo sort()
+
+Possiamo ordinare le liste con il metodo **sort()**:
+
+Es.
+
+        list = [8,10,6,2,4]
+        list.sort()
+        print(list)        
+        
 # 3.1.1 Scrivere le proprie funzioni
 
 Usiamo le funzioni per semplificarci la vita ed evitare di ripetere il codice più volte.
