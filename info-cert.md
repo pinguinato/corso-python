@@ -1654,6 +1654,66 @@ l'elenco rifletterà la modifica!!
 
 ## 3.5 (esercizi - vedi cartella /esercizi)
 
+### Esercizio 1 (indice di massa corporea)
+
+        def BMI(weight, height):
+            return weight / height**2
+
+        print(BMI(80.8, 1.83))
+
+### Esercizio 2 (modifica funzione BMI)
+
+        def BMI2(weight, height):
+            if height < 1.0 or height > 2.5 or weight < 20 or weight > 200:
+                return None
+            return weight / height**2
+
+        print(BMI2(80.8,1.83))
+
+### esercizio 3
+
+Utilizzando delle funzioni helpers per le cifre Anglosassoni:
+
+        def ftintom(ft, inch=0.0):
+            return ft * 0.3048 + inch * 0.0254
+
+
+        def lbtokg(lb):
+            return lb * 0.45359237
+
+        def bmi(weight, height):
+            if height < 1.0 or height > 2.5 or weight < 20 or weight > 200:
+                return None
+            return weight / height**2
+
+
+        print(bmi(height=ftintom(5,7),weight=lbtokg(176)))
+        
+### Fibonacci (Ricorsione 1)
+
+        def Fib(n):
+            if n < 1:
+                return None
+            if n < 3:
+                return 1
+            return Fib(n -1) + Fib(n - 2)
+
+        print("Serie Fibonacci del numero 6:\n")
+        print(Fib(6))
+        
+### Fattoriale (Ricorsione 2)
+
+        def factorial(n):
+            if n < 0:
+                return None
+            if n < 2:
+                return 1
+            return n * factorial(n - 1)
+
+
+        print("Fattoriale di 5:\n");
+        print(factorial(5))
+
 ## 3.6 Tuple e Dizionari
 
 Un tipo **sequenza** in Python è un tipo dato in grado di memorizzare 

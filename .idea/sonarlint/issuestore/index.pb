@@ -26,3 +26,7 @@ H
 tkinter/hello_grafico.py,8\1\817255d335eddea885ab5ec01bce145496b46a88
 D
 esercizi/bodymass.py,f\d\fd62f5b8e73839f6ab9fab2ca156ea3c4133eca7
+?
+esercizi/bmi.py,8\7\87016a8253d01d898d20d44ef79ecf78cd3d7746
+@
+esercizi/bmi2.py,1\9\19d2d1f05d20ca46c91dfe256363f70f7e88bcb7
