@@ -2345,3 +2345,123 @@ Definire un **alias** per accorciare il nome del modulo:
         
 ## Lo statement FROM
 
+Si vogliono importare solo alcuni attributi da un modulo:
+
+Es.
+
+        from modulo1 import myFunc()
+        
+        >>> myFundc(20)
+        20
+        
+Quindi usiamo la parola chiave **from** seguita dal nome del modulo, poi la parola chiave
+**import** seguita dal nome dell'attributo che vogliamo importare. Importa solo ciò che io richiedo e 
+inoltre possiamo accedere direttamente all'attributo con il suo nome senza anteporre la **dot notations**, Python
+lo risolve attraverso lo statement from.
+
+Esiste inoltre la possibilità di importare con la clausola **star**, cioè usando
+l'operatore asterisco non per importare l'intero modulo, ma tutti gli attributi del modulo singolarmente:
+
+Es.
+
+        from modulo1 import *
+        
+        >>>myFunc(20)
+        20
+        
+Vengono importati tutti gli attributi e poi usati con il loro nome, **questa pratica è
+fortemente sconsigliata** anche se possbili in Python!!
+
+Possiamo usare ancora insieme a from e import anche lo statement **as**:
+
+Es.
+
+        from modulo1 import myFunc() as f1
+        from modulo2 import myFunc() as f3
+        from modulo3 import myFunc() as f4
+        
+        >>>f1(20)
+        20
+        
+Può servire per eseguire la **disambiguazione** degli attributi! Una sorta di ridenomina, sfruttando
+le funzionalità dell'alias as. Attributi con lo stesso nome all'interno dello stesso modulo
+non vanno in conflitto di nomi, ma se vengono importati tutti insieme fuori dallo stesso 
+modulo si possono distinguere così.
+
+## L'attributo __name__ attributo predefinito dei moduli Python (eseguire modulo come script)
+
+A volte può essere utile eseguire un modulo di libreria direttamente dalla linea di comando.
+
+Tutti i moduli in Python possiedono un attributo chiamato:
+
+        __name__
+        
+        modulo1.__name__
+        
+Come funziona?
+
+A runtime Python di default assegna il nome del modulo all'attributo name, quindi
+il valore di name è **il nome del modulo**: nel nostro caso modulo1.
+
+Però se il modulo viene eseguito in uno script il suo nome specifico non è il suo nome,
+bensì:
+
+        __main__
+        
+perché diventa lo **script principale**.
+
+Come trasformiamo un modulo che può essere importato anche in uno script?
+
+Possiamo fare un controllo condizionale di questo tipo:
+
+        def myFunc(x):
+            print(x)
+            
+        if __name__ == '__main__':
+            myFunc(150)
+
+## I Package
+
+Un modulo è un file che contiene del codice Python. Python consente di strutturare questi moduli.
+Una directory che contiene un insieme di moduli è un **package**. Questo può contenere una struttura gerarchica, quindi
+possono essere inseriti all'interno di alberi di directory, che ne loro complesso diventano un package.
+
+
+Come si usano?
+
+Es.
+
+        Immaginiamo di inserire modulo1 e modulo2 all'interno di una cartella dir_c
+        
+        dir_c è a sua volta una sottocartella di dir_b
+        
+        Se inseriamo dentro queste due cartelle un file __init__.py, Python considera
+        queste due cartelle un package
+        
+        La presenza di questo file in entrambe le cartelle è obbligatoria se vogliamo
+        rendere questa struttura gerarchica un package.
+        
+        A sua volta questa struttura deve essere contenuta dentro una directory
+        che chiamiamo dir_a presente nel module serach path.
+  
+        dir_a è la radice (non fa parte del package e non ha il file __init__.py)
+        però Python è in grado di risolvere per capire dove importare il nostro package
+        
+        Come si importa un package?
+        
+        Si importano come i moduli, ma si separano con il punto terminando con il nome del
+        modulo del package che si vuole importare
+        
+        Es.
+        
+                import dir_b.dir_c.modulo1
+                
+                from dir_b.dir_c import modulo1
+                
+# Advanced Python
+        
+## Multiple Inheritance
+
+          
+        
+                    

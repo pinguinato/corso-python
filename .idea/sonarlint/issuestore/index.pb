@@ -30,3 +30,13 @@ D
 esercizi/bmi.py,8\7\87016a8253d01d898d20d44ef79ecf78cd3d7746
 @
 esercizi/bmi2.py,1\9\19d2d1f05d20ca46c91dfe256363f70f7e88bcb7
+@
+esercizi/bmi3.py,c\d\cddf7e79b1cbb82123658d6583019439183c08e5
+E
+esercizi/fibonacci.py,1\1\1151d97c7b4e38df55b49a942ba708ef7ec68825
+F
+esercizi/fattoriale.py,5\d\5d7aa2ea4518ea00b516772e8261605363f3e05a
+F
+esercizi/bubbleSort.py,c\a\ca0adc40312d124bec8a36c44a9f567c8656460c
+G
+esercizi/ordinamento.py,6\7\677212f8752cc8276e18f49ac82fa752c708e680
