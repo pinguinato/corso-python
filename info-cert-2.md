@@ -149,3 +149,111 @@ Da come si può vedere dall'output le entità non vanno in conflitto!
 
 ## 4.1.12 Importazione di un modulo: la clausola FROM
 
+Viene usata per importare selettivamente un modulo Python.
+
+Es.
+
+        from math import pi
+        
+In questo modo non vengono importate altre entità eccetto **pi**.
+
+Es.
+
+        print(math.e)
+        
+Causa un errore!
+
+Es. 
+
+Se riscriviamo il seno di pi/2 rispetto a prima avremo:
+
+        from math import sin,pi
+        
+        print(sin(pi/2))
+        
+        >>> 1.0
+        
+Es.
+
+        from math import sin,pi
+        
+        print(sin(pi/2))
+        pi=3.14
+        def sin(x):
+            if 2 * x == pi:
+                return 0.99999999
+            else:
+                return None
+        print(sin(p/2))
+        
+        >>> 1.0
+        >>> 0.99999999
+        
+Es.
+        
+        pi = 3.14
+        def sin(x):
+            if 2 * x == pi:
+                return 0.99999999
+            else:
+                return None
+
+        print(sin(pi / 2))
+        from math import sin, pi
+        print(sin(pi / 2))
+        
+        >>> 0.99999999
+        >>> 1.0
+        
+## 4.1.16 Forma aggressiva di import from
+
+Es.
+        
+        from module import *
+        
+I nomi delle entità vengono rimpazzati dal carattere asterisco. Questo permette di 
+importare tutte le entità di un modulo, è conveniente, ma è rischiosa per il fatto
+che espone lo script a conflitti di nomi. Non conviene usarla.
+
+## 4.1.17 Ancora sull'import, aliasing
+
+Se usi la variante del modulo di importazione e non ti piace il nome di un determinato 
+modulo, ad esempio è lo stesso di uno già definito, quindi la qualificazione diventa 
+problematica, allora puoi usare **l'aliasing**.
+
+Es.
+
+        import module as alias
+        
+Identifica l'importazione di un modulo con un nome diverso dall'originale. **Alias** è il 
+nome che si desidera utilizzare rispetto all'originale. **As** è una parola chiave!
+
+Es.
+
+        import math as M
+        
+        print(M.sin(M.pi/2))
+        
+        >>> 1.0
+        
+## 4.1.19 Ancora sull'importazione di moduli, alias con from
+
+Un altro esempio di eseguire l'import con from usando l'alias.
+
+Es.
+
+        from module import name as alias
+        
+        from module import n as a, m as b, o as c
+        
+        from math import pi as PI, sin as sine
+        
+Es.
+
+        from math import pi as PI, sin as sine
+
+        print(sine(PI/2))
+        
+        >>> 1.0
+        
+## 4.2.1 Lavorare con i moduli Standard (della libreria standard Python)

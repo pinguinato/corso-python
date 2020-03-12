@@ -40,3 +40,9 @@ F
 esercizi/bubbleSort.py,c\a\ca0adc40312d124bec8a36c44a9f567c8656460c
 G
 esercizi/ordinamento.py,6\7\677212f8752cc8276e18f49ac82fa752c708e680
+J
+esercizi/esempio_import.py,6\3\632aaa3e9843dd4bdb4e7a128c5dff36b918d7fb
+L
+esercizi/esempio_import_2.py,a\e\aedaf40179fe4ac9573d03d4cc535f7c8a8cef5c
+>
+info-cert-2.md,0\1\012c2990028f542939748da75f6dad8c08145f3b
