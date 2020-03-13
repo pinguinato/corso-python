@@ -257,3 +257,138 @@ Es.
         >>> 1.0
         
 ## 4.2.1 Lavorare con i moduli Standard (della libreria standard Python)
+
+### La funzione dir()
+
+Non ha la caratteristica della funzionalità **dir** di Windows/Unix, però permette 
+di fare il listing di tutte le entità contenute all'interno di un modulo specifico. 
+Per porterla usare su di un modulo, quest'ultimo deve essere prima importato.
+
+Es. 
+
+        import math as M
+
+        print(dir(M))
+        
+        >>> [....., 'asin', 'atan',..., 'e', ...., 'log'....]
+        
+La funzione **dir()** restituisce un elenco in ordine alfabetico di tutte le entità 
+disponibili. Se il nome del modulo è stato modiificato, dobbiamo usare l'**alias**.
+L'uso della funzione in unoscript è disponibile anche se non ha molto senso.
+
+Es.
+
+        import math
+        for name in dir(math):
+            print(name, end='\t')
+
+**Importante**
+
+La funzione dir() può venir usata anche nella Python Shell per conoscere il contenuto 
+di un modulo.
+
+## 4.2.4 Alcune funzioni della libreria Math
+
+Funzioni **trigonometriche**:
+
+- sin(x)
+- cos(x)
+- tan(x)
+
+e le loro inverse:
+
+- asin(x)
+- acos(x)
+- atan(x)
+
+Entità matematiche:
+
+- pi
+- radians(x)
+- degrees(x)
+
+Iperboliche:
+
+- sinh(x)
+- cosh(x)
+- tanh(x)
+- asinh(x)
+- acosh(x)
+- atanh(x)
+
+Es.
+
+        from math import pi, radians, degrees, sin, cos, tan, asin
+
+        ad = 90
+        ar = radians(ad)
+        ad = degrees(ar)
+        print(ad == 90.)
+        print(ar == pi/2.)
+        print(sin(ar) / cos(ar) == tan(ar))
+        print(asin(sin(ar)) == ar)
+        
+        >>> True
+        >>> True
+        >>> True
+        >>> True
+        
+Ancora altre funzioni del modulo math:
+
+Esponenziali:
+
+- e
+- exp(x)
+- log(x)
+- log(x b)
+- log10(x)
+- log2(x)
+
+Non deve essere importata ed è una funzione **built-in**:
+
+- pox(x,y)
+
+Es.
+
+    from math import e, exp, log
+
+    print(pow(e,1) == exp(log(e)))
+    print(pow(2,2) == exp(2 * log(2)))
+    print(log(e,e) == exp(0))
+    
+    >>> True
+    >>> True
+    >>> True
+    
+Ancora funzioni di math definite di **general purpose**:
+
+- ceil(x)
+- floor(x)
+- trunc(x)
+- factorial(x)
+- hypot(x,y)
+
+Es.
+
+    from math import ceil, floor, trunc
+
+    x = 1.4
+    y = 2.6
+
+    print(floor(x), floor(y)) # arrotondamento per difettos 
+    print(floor(-x), floor(-y)) 
+    print(ceil(x), ceil(y)) # arrotondamento per eccesso
+    print(ceil(-x), ceil(-y))
+    print(trunc(x), trunc(y)) # tronca la virgola
+    print(trunc(-x), trunc(-y))
+    
+    >>> 1 2
+        -2 -3
+        2 3
+        -1 -2
+        1 2
+        -1 -2
+        
+## 4.2.9 Funzioni RANDOM
+
+

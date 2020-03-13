@@ -46,3 +46,17 @@ L
 esercizi/esempio_import_2.py,a\e\aedaf40179fe4ac9573d03d4cc535f7c8a8cef5c
 >
 info-cert-2.md,0\1\012c2990028f542939748da75f6dad8c08145f3b
+L
+esercizi/esempio_import_3.py,a\f\af9157a23968764505510f46a9a65cca3b9353c7
+L
+esercizi/esempio_import_4.py,2\8\28d1e6f08fd7d3f6cd2b63f9426f3d92b94968fe
+K
+esercizi/esmpio_import_5.py,f\5\f55f1828b1d772ddc7296d23121e7a74e4cdc277
+L
+esercizi/esempio_import_5.py,0\b\0b3416c902ebb50144b3a0eeaa3f2fce8e483340
+L
+esercizi/esempio_import_6.py,e\1\e1fbcd5965e8ee9ea939095e3699b384f153d68a
+H
+esercizi/funzione_dir.py,1\2\12f1254c1eef75ad0b7d2a7ed765b104d7f35178
+J
+esercizi/funzione_dir_2.py,0\5\05c740071c774012eed70596563ab3cd5f9c8e8f
