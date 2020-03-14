@@ -2652,6 +2652,28 @@ una istanza di se stessa.
 - type è una classe e anche un oggetto, quindi è una istanza di object
 - in quanto type è una classe è anche una istanza di se stessa, quindi è una istanza di type!!
 
+### Esercitazione
 
+        >>> class MyClass:
+	            pass
+        >>> myObj = MyClass()
+        >>> isinstance(myObj,MyClass)
+        True
+        >>> isinstance(MyClass,object)
+        True
+        >>> isinstance(myObj,object)
+        True
+        >>> isinstance(MyClass,type)
+        True
+        >>> isinstance(myObj,type)
+        False
+        >>> isinstance(object,object)
+        True
+        >>> isinstance(type,type)
+        True
+        >>> isinstance(type,object)
+        True
+        >>> isinstance(object,type)
+        True
 
 
