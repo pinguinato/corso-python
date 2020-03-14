@@ -60,3 +60,9 @@ H
 esercizi/funzione_dir.py,1\2\12f1254c1eef75ad0b7d2a7ed765b104d7f35178
 J
 esercizi/funzione_dir_2.py,0\5\05c740071c774012eed70596563ab3cd5f9c8e8f
+I
+esercizi/funzioni_math.py,e\e\eea4b9790d7f347386ea372da632825d7adeb3b5
+K
+esercizi/funzioni_math_2.py,e\8\e84cf3dfac1339faf9d7d1211fa9c3600b36ac1a
+K
+esercizi/funzioni_math_3.py,e\2\e2d19fec550b8727d864cdb4891085798c35377e

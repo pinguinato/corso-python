@@ -2462,6 +2462,196 @@ Es.
         
 ## Multiple Inheritance
 
-          
+Python supporta il concetto di ereditarietà, estendiamo ancora il concetto attraverso
+ l'ereditarietà multipla, cioè derivare una sottoclasse da più superclassi.
+ 
+Ripasso **ereditarietà singola**:
+
+Es. 
+
+        class BClass:
+            pass
+            
+        class AClass(BClass):
+            pass
+            
+AClass deriva da BClass, AClass deriva da BClass, in questo caso parliamo di ereditarietà 
+singola.
+
+Es.
+
+        class SuperClasse:
+            a = 10
+
+        class SottoClasse(SuperClasse):
+            print("Sono la SottoClasse e stampo a che ho ereditato da SuperClasse => ", SuperClasse.a)
+
+        prova = SottoClasse()
+        print("Sono la SottoClasse, ho creato una istanza prova e richiamo a  ==> ", prova.a)
+
+Python ci permette anche l'**ereditarietà multipla** in questo modo:
+
+Es.
+
+        class BClass:
+            b = 10
+            
+        class CClass:
+            c = 20
+            
+        class AClass(BClass,CClass):
+            pass
+            
+Le classi da cui ereditare vanno passate tutte quante nella firma iniziale della classe, che è la 
+sottoclasse.
+
+Se definiamo una istanza di AClass, possiamo accedere ai due attributi presenti nelle
+ due superclassi BClass e CClass:
+ 
+Es.
+
+        a = AClass()
+        print(a.b) # 10
+        print(a.c) # 20
         
-                    
+Es. 
+
+        class BClass:
+            def funcBClass(self):
+                print("Sono un metodo di BClass")
+
+
+        class CClass:
+            def funcCClass(self):
+                print("Son un metodo di CClass")
+
+
+        class AClass(BClass, CClass):
+            pass
+
+
+        istanzaAClass = AClass()
+        istanzaAClass.funcBClass()
+        istanzaAClass.funcCClass()
+        
+**Importante**
+
+Che cosa succede se entrambi le superclassi definiscono lo stesso attributo, la stessa funzione?
+Quale delle implementazioni verrà scelta? Potrebbe generare un errore?
+
+Es.
+
+        class BClass:
+            def funcBClass(self):
+                print("Sono un metodo di BClass")
+            def xFunc(self):
+                print("Sono xFunc di BClass")
+
+        class CClass:
+            def funcCClass(self):
+                print("Son un metodo di CClass")
+            def xFunc(self):
+                print("Sono xFunc di CClass")
+
+        class AClass(BClass, CClass):
+            pass
+
+
+        istanzaAClass = AClass()
+        istanzaAClass.funcBClass()
+        istanzaAClass.funcCClass()
+        istanzaAClass.xFunc() 
+        
+## Method Resolution Order
+
+è la risposta alla problematica esposta sopra. Viene abbreviato con un sigla 
+**MRO** ed è la regola che usa Python per eseguire situazioni di ereditarietà multipla di 
+classi che hanno nomi di metodi o attrbuti identici.
+
+Come funziona MRO?
+
+- prima di tutto l'attributo viene ricercato nella sottoclasse stessa, perché potrebbe 
+essere ridefinito li dentro, se viene trovato li dentro viene direttamente utilizzato.
+- se l'attributo non viene trovato nella sottoclasse allora il meccanismo di MRO risale di un 
+livello nella gerarchia delle Superclassi e va a cerca l'attributo nell'ordine in cui ho definito 
+le sopraclassi nella firma della sottoclasse, nel nostro caso (BClass, CClass) ecco perché viene 
+selezionato il metodo di xFunc() di BClass e non quello di CClass. La ricerca quindi si interrompe una 
+volta trovato l'attributo di riferimento. Se non l'avesse trovato in BClass, lo avrebbe cercato in CClass.
+Voendo poteva salire a livelli di gerarchie superiori seguendo sempre un ragionamento da sinistra verso destra.
+
+Es. definizione a più livelli di ereditarietà, meccanismo MRO
+
+
+        class DClass:
+            def xFunc(self):
+                print("Sono metodo xFunc definito dentro DClass")
+
+
+        class BClass(DClass):
+            pass
+
+
+        class CClass:
+            pass
+
+
+        class AClass(CClass, BClass):
+            pass
+
+
+        a = AClass()
+        a.xFunc()
+
+Se nemmeno in DClass ci fosse la definizione di xFunc, allora riceviamo da Python 
+una eccezione **Attribute Error**, però attenzione potrebbe essere contenuto nella 
+superclasse Object, la più generale di tutte!! Ricordiamoci che Python quando dichiariamo 
+una nuova classe in realtà fa questo ragionamento:
+
+Es.
+
+        class MiaClasse:
+            pass
+            
+ma è come se fosse in realtà:
+
+        class MiaClasse(object):
+            pass
+            
+## La classe object e type
+
+Sono classi **sorelle**. Sono situate entrambe in cima alla gerarchia delle classi Python.
+
+In Python tutto è oggetto anche le classi.
+
+**object** è classe base in Python e tutti gli oggetti in Python sono istanze di object.
+Quindi se faccio:
+
+        class MyClass:
+            pass
+          
+        myInstace = MyClass()
+        
+            
+- **MyClass**, che è una classe, è anche una **istanza di object** (is a)!!
+- **myInstance** è una istanza di MyClass, questo è sicuro, però siccome tutti gli oggetti 
+sono istanze di object, allora anche myInstance è un oggetto di object!! Come del resto tutti
+gli oggetti in Python.
+
+Adesso spendiamo due parole per la classe **type**: è una classe che contiene come istanze 
+solo come istanze **solo degli oggetti che sono a loro volta delle classi**!!!
+Quindi le nostre classi, i dizionari, tutti i type, sono istanze di type!!
+- **MyClass** è quindi una istanza della classe type
+- **myInstance** non è una istanza della classe type, myInstance non è una classe!
+
+### Rapporto che sussiste tra object e type
+
+- object è una classe, ma anche un oggetto e questo vuol dire che **object è una istanza di object**, 
+una istanza di se stessa.
+- object è anche una classe e quindi **è anche istanza della classe type**
+
+- type è una classe e anche un oggetto, quindi è una istanza di object
+- in quanto type è una classe è anche una istanza di se stessa, quindi è una istanza di type!!
+
+
+
+
