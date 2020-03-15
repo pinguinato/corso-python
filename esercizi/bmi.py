@@ -1,4 +1,4 @@
-def BMI(weight, height):
+def bmi(weight, height):
     return weight / height**2
 
-print(BMI(80.8, 1.83))
+print(bmi(80.8, 1.83))

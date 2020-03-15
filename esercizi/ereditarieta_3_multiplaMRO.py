@@ -1,5 +1,5 @@
 class DClass:
-    def xFunc(self):
+    def xfunc(self):
         print("Sono metodo xFunc definito dentro DClass")
 
 

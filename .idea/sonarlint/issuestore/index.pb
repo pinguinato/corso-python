@@ -66,3 +66,9 @@ K
 esercizi/funzioni_math_2.py,e\8\e84cf3dfac1339faf9d7d1211fa9c3600b36ac1a
 K
 esercizi/funzioni_math_3.py,e\2\e2d19fec550b8727d864cdb4891085798c35377e
+J
+esercizi/ereditarieta_1.py,2\7\279ea2e82d8f28af51cfa408cb0ce9a8ce2bdff5
+T
+$esercizi/ereditarietà_2_multipla.py,f\8\f8d74024c56773f59eda9967fb80668395709fff
+V
+&esercizi/ereditarieta_3_multiplaMRO.py,8\e\8e1b8d19b987bbb2758404001c7c2e9d14e7315b
