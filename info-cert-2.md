@@ -390,3 +390,91 @@ Es.
         -1 -2
         
 ## 4.2.9 Funzioni RANDOM
+
+Altro modulo degno di nota in Python è **random**. Fornisce meccanismi in grado di operare su numeri pseudocasuali.
+
+**Nota**: i numeri generati dai moduli possono apparire casuali (prefisso pseudo), nel senso che non puoi prevedere i loro valori successivi, però va ricordato che vengono 
+calcolati attraverso argoritmi raffinati e non sono quindi effettivamente casuali. Gli algoritmi stessi non sono casuali, sono deterministici e prevedibili. I dati prodotti 
+dai computer deterministici non possono essere casuali in alcun modo. Solo ciò che sfugge al nostro controllo, tipo l'intensità della radiazione cosmica, è effettivamente casuale. 
+
+Un generatore di numeri casuali prevede un valore noto come **seed** (seme), che viene dato in input e viene calcolato su di esso un numero casuale e produce un nuovo valore di seed. La durata di un ciclo si basa sul valore di seed, non è infinita e prima o poi torna a ripetersi.
+
+## 4.2.10 Funzioni del modulo random
+
+### funzione random
+
+                from random import random
+
+è la funzione più famosa del modulo. Produce un numero float nel range [0.0 ... 1.0]
+
+                from random import random
+                for i in range(5):
+                        print(random())
+
+
+                0.25719090407949696
+                0.2466298423547747
+                0.8709344043104064
+                0.24521970019158656
+                0.928175848095429
+
+### funzione seed
+
+è in grado di impostare direttamente il seed del generatore:
+
+- seed() imposta il seed con l'ora corrente
+- seed(i) imposta il seed con il valore intero i
+
+Es.
+
+        from random import random, seed
+        
+        seed(0)
+        
+        for i in range(5):
+            print(random())
+            
+        0.8444218515250481
+        0.7579544029403025
+        0.420571580830845
+        0.25891675029296335
+        0.5112747213686085    
+        
+### funzioni per valori casuali interi
+
+
+        randrange(end)
+        randrange(beg,end)
+        randrange(beg, end, step)
+        randint(left, right)
+
+Le prime tre funzioni generano un numero casuale intero preso dall'intervallo.
+
+Es.
+
+        from random import randint, randrange
+        print(randrange(1), end=' ')
+        print(randrange(0, 1), end=' ')
+        print(randrange(0, 1, 1), end=' ')
+        print(randint(0, 1))
+        
+        >>> 0 0 0 1
+        
+Notare l'esclusione implicita sul lato destro, end è sempre escluso.
+
+### Svantaggi
+
+Le funzioni precedenti possono produrre valori ripetitivi.
+
+Es.
+
+        from random import randint
+
+        for i in range(10):
+            print(randint(1, 10), end=',')
+            
+        >>> 2,6,5,6,5,7,6,6,5,1,
+        
+Quindi diciamo che non è un buon sistema per generare dei numeri per una lotteria,
+ma per fortuna esistono soluzioni a questi problemi.
+
