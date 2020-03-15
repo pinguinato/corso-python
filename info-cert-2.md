@@ -478,3 +478,111 @@ Es.
 Quindi diciamo che non è un buon sistema per generare dei numeri per una lotteria,
 ma per fortuna esistono soluzioni a questi problemi.
 
+## 4.2.14 Altr funzioni randomiche
+
+- choice(sequence)
+- sample(sequence, element_to_choice=1)
+
+Choice scegli un elemento random dalla sequenza e lo ritorna, sample invece crea una sequenza 
+di numeri non ripetuti sulla base dell'element_to_choice, che non può essere più grande 
+della lunghezza della sequenza di input.
+
+Es. 
+
+        from random import choice, sample
+        lst = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+        print(choice(lst))
+        print(sample(lst, 5))
+        print(sample(lst, 10))
+        
+        >>> 5
+        >>> [5, 8, 3, 7, 9]
+        >>> [8, 9, 7, 3, 10, 2, 5, 6, 4, 1]
+        
+## 4.2.15 Conoscere dove si è
+
+L'ambiente Python può fornire informazioni sul sistema interrogando con delle specifiche 
+funzioni i servizi del sistema operativo sottostante. I livello più basso è l'hardware, sul quale 
+poggia il sistema operativo, poi Python stesso e per fninire il nostro codice Python.
+Per interrogare il sistema cè un modulo Python che si occpua di tutte queste informazioni.
+
+## 4.2.16 Funzioni del modulo platform
+
+Es. **platform**
+
+platform(aliased=se impostato presenta nome alternativo, terse=parametro che se 1(True) abbrevia il risultato)
+
+        from platform import platform
+        
+        print(platform())
+        print(platform(1))
+        print(platform(0,1))
+        
+        >>> Windows-10-10.0.18362-SP0
+        >>> Windows-10-10.0.18362-SP0
+        >>> Windows-10
+
+Es. **machine**
+
+        from platform import machine
+        
+        print(machine())
+        
+        >>> AMD64
+        
+Viene stampato il nome generico dell'architettura della macchina fisica (nel nostro caso 64 bit)
+
+Es. **processor**
+
+        from platform import processor
+        
+        print(processor())
+        
+        >>> Intel64 Family 6 Model 142 Stepping 10, GenuineIntel
+        
+Questa funzione stampa il nome del vero processore fisico sulla macchina fisica.
+
+Es. **system**
+
+        from platform import system
+        
+        print(system())
+        
+        >>> Windows
+        
+System stampa il nome del sistema operativo installato sulla macchina fisica.
+
+Es. **version**
+
+        from platform import version
+        print(version())
+        
+        >>> 10.0.18362
+        
+## 4.2.21 Ancora funzioni del modulo platform
+
+- python_implementation(): ritorna una stringa che evidenzia la versione di python che
+esegue il nostro codice.
+- python_version_tuple(): ritorna una tupla con 3 valori numerici nell'ordine: **major** python version,
+**minor** part, **patch** level number.
+
+Es. (nel mio caso)
+
+    from platform import python_implementation, python_version_tuple, python_version
+
+    print(python_implementation())
+    print(python_version_tuple())
+    print(python_version())
+    
+    >>> CPython
+    >>> ('3', '7', '1')
+    >>> 3.7.1
+    
+## 4.2.22 Module Index per Python
+
+https://docs.python.org/3/py-modindex.html
+
+## 4.3.1 Modules and Packages
+
+
+        
