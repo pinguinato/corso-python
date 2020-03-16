@@ -584,5 +584,60 @@ https://docs.python.org/3/py-modindex.html
 
 ## 4.3.1 Modules and Packages
 
+- **modulo**: contenitore di funzioni, si possono racchiudere tutte le funzioni che voglio e può essere distribuito ovunque,
+è buona norma non mescolare funzioni di contensto diverso all'interno dello stesso modulo.
+- **fare tanti moduli** crea confuzione ed esiste un contenitore al di sopra dei moduli, questo si chiama **package** e si può 
+vendere esattamente come una **cartella** (o contenitore di moduli).
+
+## 4.3.2 Il nostro primo modulo da zero
+
+- crea un file **module.py** vuoto
+- ci vogliono 2 file per creare questo processo
+- crea un file **main.py** che importa il module.py
+
+            
+            import module.py # dentro main.py
+            
+- i file devono trovarsi nella stessa locazione(cartella), compilo main.py, non vedo nulla vuol dire che va bene perché è stato importato 
+dentro module.py
+- anche se non notiamo nulla dentro la nostra cartella si sono creati dei nuovi elementi "nascosti":
+    - una cartella __pycache__
+    - dentro pycache un file **module.cpython-37.pyc** che ripporta il nome del nostro modulo custom, questo
+    è un file destinato esclusivamente all'uso di python e il suo contenuto è illeggibile è un codice semi compilato, che permette
+    di velocizzare le importazioni successive, serve all'interprete di Python.
+    
+- quando un modulo viene importato, il suo contenuto **viene eseguito implicitamente da Python**.
+- le assegnazioni avvengono una volta soltanto come le importazioni, queste non vengono inutilmente ripetute se sono già state fatte.
+- adesso inserisco dentro module.py:
+
+        print(__name__)
+        
+- se eseguo module.py ottengo:
 
         
+            >>> I like to be a module
+                __main__
+                
+- se eseguo main.py:
+
+            
+            >>> I like to be a module
+                module
+                
+Possiamo affermare che:
+- quando si esegue direttamente un file, la sua variabile __name__ è impostata su __main__
+- quando un file viene importato come modulo, la sua variabile __name__ è impostata sul nome del file (escluso .py)
+
+Es. (dentro module.py)
+
+
+        if __name__ == "__main__":
+            print("I prefer to be a module")
+        else:
+            print("I like to be a module")
+            
+è un modo per verificare in quale contesto è eseguita la variabile **name**.
+
+- nel caso eseguo module l'output sarà: "I prefer to be a module"
+- nel caso eseguo main l'output sarà: "I like to be a module"
+
