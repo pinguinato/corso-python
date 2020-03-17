@@ -641,3 +641,76 @@ Es. (dentro module.py)
 - nel caso eseguo module l'output sarà: "I prefer to be a module"
 - nel caso eseguo main l'output sarà: "I like to be a module"
 
+Es. (di modulo)
+
+        #!/usr/bin/env python3 # shebang, su alcuni sistemi è fondamentali
+
+        """ module.py - an example of Python module """ # questa si chiama doc-string
+
+        __counter = 0
+
+        def suml(list): # funzione pronta per l'importazione
+	        global __counter
+	        __counter += 1
+	        sum = 0
+	        for el in list:
+		        sum += el
+	        return sum
+
+        def prodl(list): # funzione pronta per l'importazione
+	        global __counter	
+	        __counter += 1
+	        prod = 1
+	        for el in list:
+		        prod *= el
+	        return prod
+
+        if __name__ == "__main__": # evidenzia quando viene eseguito il modulo
+	        print("I prefer to be a module, but I can do some tests for you")
+	        l = [i+1 for i in range(5)]
+	        print(suml(l) == 15)
+	        print(prodl(l) == 120)
+	        
+	       
+## 4.3.12 Un esempio più complesso
+
+Come funziona se devo importare dei moduli che si trovano in percorsi differenti rispetto 
+al file che li deve utilizzare, fino ad adesso abbiamo sempre disposto il file del modulo 
+da importare dentro la stessa directory del file che lo importa.
+
+Vediamo come Python ricerca i moduli.
+
+In realtà esiste una variabile di Python chiamata **path** e raggiungibile con il modulo 
+**sys**, che contiene tutti i percorsi di sistema, se il modulo non rientra in quel percorso, 
+Python non riesce a trovarlo.
+
+Es. 
+
+        from sys import path
+        
+Supponiamo questa disposizione di file e cartelle(con Windows):
+
+- il nostro file **main.py** si trova in C:\Users\user\py\progs\main.py
+- il nostro modulo **module.py** si trova in C:\Users\user\py\modules\module.py
+
+Es.
+
+        from sys import path
+        
+        path.append('..\\modules')
+        
+        import module
+        
+        ....
+        
+Abbiamo usato un **path relativo** che parte dalla cartella dove è contenuto il programma main.py, 
+nulla vieta di usare un percorso **assoluto** come: 
+
+        path.append('C:\\Users\\user\\py\\modules')
+        
+**Nota**
+
+Se voglio usare un solo backslash nel percorso devo farne l'escape.
+
+## 4.3.13 Il tuo primo package
+
