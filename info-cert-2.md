@@ -714,3 +714,18 @@ Se voglio usare un solo backslash nel percorso devo farne l'escape.
 
 ## 4.3.13 Il tuo primo package
 
+- Come dire a Python che una struttura complessa di cartelle è un **package**?
+Risposta: devo predisporre uno speciale file __init__.py
+
+- Dove metto questa struttura per renderla accessibile a Python? 
+Risposta: lo posso mettere ovunque
+
+## 4.3.18 __init__.py
+
+- In ogni package c'è un file __init__.py, se non sono richieste inizializzazioni speciali il file può essere lasciato vuoto, ma ci deve essere!
+Questo permette a Python di localizzare la struttura come package.
+
+- init.py va messo nella root del package, oppure in altre sottocartelle del package.
+
+- i moduli non hanno bisogno di un file init.py, ne hanno uno messo da Python implicitamente.
+

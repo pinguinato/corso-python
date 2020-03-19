@@ -96,3 +96,5 @@ d
 4esercizi/esercitazione_modulo/PCA_4_3_10_(module).py,d\2\d298103703c92d97666e433ccc732ed591d4d76e
 W
 'esercizi/esercitazione_modulo/module.py,c\d\cd4a0b6952c62581b9dd64bde133e79e35ef328f
+H
+esercizi/esempio_path.py,3\b\3b29a28fe07e233a6371516fbee683429cfc18ad
