@@ -2675,5 +2675,146 @@ una istanza di se stessa.
         True
         >>> isinstance(object,type)
         True
+        
+## Il costruttore __new__
 
+**Init**
+
+è un metodo usato durante la fase di costruzione di un oggetto. L'abbiamo chiamato 
+costruttore di un oggetto, ma in realtà lo inizializza soltanto, non è un costruttore di una 
+istanza, nè è soltanto l'inizializzatore, come dice il suo nome stesso. Il vero costruttore 
+si chiama **new** in Python, è new che fabbrica l'istanza di una classe.
+Init la inizializza una volta che però è già stata costruita.
+
+Prima viene invocato **new** e poi dopo **init**
+
+Es.
+
+        __new__(cls [...])
+        
+new è un metodo statico, ma non è necessario decorarlo con **static**.
+
+Andiamo con ordine:
+
+Es.
+        
+        class MyClass():
+            def __new__(cls):
+                print("istanza creata")
+            def __init__(self):
+                print("istanza inizializzata")
+                
+        mc = MyClass()
+        
+Il metodo **new** viene chiamato, mentre **init** no.
+Vedremo:
+
+        >>> istanza creata
+        
+Questo perché **dobbiamo creare una istanza e ritornarla**.
+
+        class MyClass():
+            def __new__(cls):
+                istanza = super.__new__(cls) 
+                print("istanza creata")
+                return istanza
+            ...
+            
+Qui risaliamo fino alla classe object, con super e lasciamo a object il compito di creare l'instanza.
+A questo punto, siccome ritorniamo l'istanza creata, il flusso del programma prosegue e 
+verrà stampata anche "istanza inizializzata", che prima veniva ignorata.
+
+Es.
+
+        class MyClass:
+            def __new__(cls, message):
+                istanza = super(MyClass, cls).__new__(cls)
+                print("++++ Creata istanza e ritorno ++++")
+                return istanza
+
+            def __init__(self, message):
+                self.message = message
+                print("++++ Sono in INIT ++++")
+                print(self.message)
+
+
+        mc = MyClass("Python")
+
+        class MyClassSenzaMessage:
+            def __new__(cls):
+                istanza = super(MyClassSenzaMessage, cls).__new__(cls)
+                return istanza
+
+            def __init__(self):
+                print("Init senza message")
+
+
+        mcsm = MyClassSenzaMessage()
+        
+
+## Iterabili e iteratori
+
+Piccola digressione su cosa erano i **Contenitori** in Python:
+
+supponiamo una **lista** (che è un contenitore)
+
+        >>> ls = [1,2,3,4,5,6,7]
+        >>> e = 3 in ls
+        >>> e
+        True
+        
+Un contenitore è anche un **oggetto iterabile**. Non tutti gli iterabili però 
+sono contenitori, un file ad esempio non lo è.
+
+### Iterabile
+
+Quando è un oggetto (iterabile) in grado di ritornare un altro oggetto (l'iteratore) che 
+consente di eseguire una **iterazione sugli oggetti dell'oggetto di partenza**.
+
+Per fare questo si chiama un metodo **__iter__**, che ritorna gli oggetti, 
+dentro l'oggetto.
+
+        __iter()__
+        
+### Iteratore
+
+è un oggetto che produce il prossimo elemento di un iterabile, attraverso il 
+metodo **next()**
+
+
+        __next()__
+        
+**Ricorda**
+
+Un solo oggetto può essere sia iterabile che iteratore. In questo caso un iteratore di se stesso.
+
+Es.
+
+        la lista
+        
+        >>> myList = ["primo", "secondo", "terzo"]
+        >>> it1 = iter(myList)
+        >>> type(myList)
+        <class 'list'>
+        >>> type(it1)
+        <class 'list_iterator'>
+        >>> next(it1)
+        'primo'
+        >>> next(it1)
+        'secondo'
+        >>> next(it1)
+        'terzo'
+        >>> next(it1)
+        Traceback (most recent call last):
+        File "<pyshell#10>", line 1, in <module>
+            next(it1)
+        StopIteration
+        >>> for e in myList:
+	        print(e)
+
+        primo
+        secondo
+        terzo
+
+Quando eseguo un for l'eccezione StopIteration è gestita da Python stesso.
 

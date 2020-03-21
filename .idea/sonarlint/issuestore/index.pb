@@ -98,3 +98,23 @@ W
 'esercizi/esercitazione_modulo/module.py,c\d\cd4a0b6952c62581b9dd64bde133e79e35ef328f
 H
 esercizi/esempio_path.py,3\b\3b29a28fe07e233a6371516fbee683429cfc18ad
+S
+#esercizi/packages/extra/__init__.py,c\e\ce39c70cdc7683c446d0bd4b50ab4ce7411ade2b
+S
+#esercizi/packages/extra/ugly/psi.py,d\2\d2fae42e0e0031aea25ea6170986a0f8d77ac4e2
+U
+%esercizi/packages/extra/ugly/omega.py,0\1\0190114af77336c22ef891a3cfda7ffcad3b4cf8
+J
+esercizi/progs/__init__.py,e\a\eacb7aae0c39791811bd47726e00217dbf6ba9f1
+X
+(esercizi/packages/extra/ugly/__init__.py,0\3\031273a1a38192441eccc7c00adaf10d35b5b7cd
+]
+-esercizi/packages/extra/good/best/__init__.py,3\3\33d524b3eded858cfd9f12cb73248cdf41a6233d
+X
+(esercizi/packages/extra/good/__init__.py,4\3\43ccb70f101426c55dd49fae1074337d769cacb2
+M
+esercizi/packages/__init__.py,5\2\52c8e01ac9e03f1c968a081b3d48ab1e6504cbeb
+O
+esercizi/packages/extra/iota.py,4\4\44028b40dbd2bfb9974f7e68e3bab2639ad6aec9
+W
+'esercizi/progs/PCA_4_3_20_(main2_py).py,f\b\fb9113807fd1909112b0b8307179b66c8fef2245
