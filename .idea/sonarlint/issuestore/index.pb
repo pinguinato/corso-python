@@ -118,3 +118,5 @@ O
 esercizi/packages/extra/iota.py,4\4\44028b40dbd2bfb9974f7e68e3bab2639ad6aec9
 W
 'esercizi/progs/PCA_4_3_20_(main2_py).py,f\b\fb9113807fd1909112b0b8307179b66c8fef2245
+K
+esercizi/costruttore_new.py,8\b\8be6a8c9fcdb6c693b925b1d6a1252ab6c910406
