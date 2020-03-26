@@ -729,3 +729,125 @@ Questo permette a Python di localizzare la struttura come package.
 
 - i moduli non hanno bisogno di un file init.py, ne hanno uno messo da Python implicitamente.
 
+
+
+
+## 5.1.1 Concetti base della programmazione ad oggetti
+
+Il paradigma ad oggetti è utile su progetti di grandi dimensioni. Python può essere utilizzato sia per programmare in forma 
+procedurale, sia ad oggetti. Lo sviluppo di interfacce grafiche però richiede una rigorosa conoscenza della programmazione ad oggetti.
+
+Nel paradigmi ad oggetti dati e codice stanno insieme e vengono suddivisi in **classi**, ogni classe è come una ricetta che viene usata 
+quando si desidera creare un **oggetto** utile. Ogni oggetto ha una serie di tratti chiamati **attributi** o **proprietà** ed è in grado di 
+eseguire una serie di **attività** o **operazioni** chiamati più comunemente **metodi**.
+
+Gli oggetti sono incarnazioni di idee espresse in classi, gli oggetti interagiscono tra di loro scambiando i loro dati attraverso l'uso dei 
+metodi.
+
+Una classe ben costruita è in grado di proteggere l'accesso ai suoi dati e nasconderli quindi da modifiche non autorizzate.
+
+Il paradigma ad oggetti riflette esperienze di vita reale.
+
+La parola classe è come una **categoria**:
+
+Es. (di gerarchia)
+
+- Veicoli
+    -   Veicoli terrestri
+        -   Veicoli su gomma
+        -   Veicoli su binari
+        -   Hovercraft
+    -   Veicoli marini
+    -   Veicoli spaziali
+    -   Veicoli aerei
+    
+Es. (di gerarchia)
+
+- Animali
+    - Mammiferi
+        - Domestici
+        - Selvaggi
+    - Rettili
+    - Uccelli
+    - Pesci
+    - Anfibi
+    
+## 5.1.15 Classi e oggetti
+
+**Classe**
+
+è un insieme di oggetti
+
+**Oggetto**
+
+insieme dei requisiti e caratteristiche di una specifica classe.
+
+- le classi formano una gerarchia
+- un oggetto appartenente ad una classe specifica appartiene a tutte le superclassi contemporaneamente, ma non 
+alle sue sottoclassi.
+- le sottoclassi sono più specializzate delle superclassi.
+
+Ogni sottoclasse è più specializzata (o più specifica) della sua superclasse. Al contrario, ogni superclasse è più generale (più astratta) di qualsiasi sua sottoclasse. 
+
+**Eredità**
+
+Qualsiasi oggetto vincolato a un livello specifico di una gerarchia
+ di classi eredita tutti i tratti (nonché i requisiti e le qualità) definiti 
+ all'interno di una delle superclassi.
+ 
+Ogni oggetto eredità tutte le peculiarità delle superclassi.
+
+3 gruppi di attributi:
+
+- un oggetto ha un nome che lo identifica in modo univoco nel suo spazio dei nomi di casa (anche se potrebbero esserci anche alcuni oggetti anonimi)
+- un oggetto ha una serie di proprietà individuali che lo rendono originale, unico o eccezionale (anche se è possibile che alcuni oggetti non abbiano alcuna proprietà)
+- un oggetto ha una serie di abilità per svolgere attività specifiche, in grado di cambiare l'oggetto stesso o alcuni degli altri oggetti.
+
+C'è un suggerimento (anche se non sempre funziona) che può aiutarti a identificare una delle tre sfere sopra. Ogni volta che descrivi un oggetto e usi:
+
+    un nome - probabilmente definisci il nome dell'oggetto;
+    un aggettivo: probabilmente definisci la proprietà dell'oggetto;
+    un verbo: probabilmente definisci l'attività dell'oggetto.
+    
+Due frasi di esempio dovrebbero servire da buon esempio:
+
+
+        Max è un grosso gatto che dorme tutto il giorno.
+
+        Nome oggetto = max
+
+        Classe casa = Cat
+
+        Proprietà = Dimensione (grande)
+
+        Attività = Sonno (tutto il giorno)
+        
+## 5.1.8 La tua prima classe
+
+
+        class OurClass:
+            pass
+            
+La programmazione degli oggetti è l'arte di definire ed espandere le classi. Una classe è un 
+modello di una parte molto specifica della realtà, che riflette le proprietà e le attività che si trovano nel mondo reale.
+
+Le classi definite all'inizio sono troppo generali e imprecise per coprire il maggior numero possibile di casi reali.
+Non ci sono ostacoli alla definizione di nuove sottoclassi più precise. Erediteranno tutto dalla loro superclasse, quindi il lavoro che è andato alla sua creazione non è sprecato.
+La nuova classe può aggiungere nuove proprietà e nuove attività e pertanto può essere più utile in applicazioni specifiche. Ovviamente, può essere utilizzato come superclasse per qualsiasi numero di sottoclassi appena create.
+Non è necessario che il processo abbia fine. Puoi creare tutte le classi di cui hai bisogno.
+
+La classe definita non ha nulla a che fare con l'oggetto: l'esistenza di una classe non significa che nessuno degli oggetti compatibili verrà creato automaticamente. 
+La classe stessa non è in grado di creare un oggetto: devi crearlo tu stesso e Python ti consente di farlo.
+
+La classe si crea con la parola chiave **class** seguita dal nome della classe e poi mettiamo i due punti, per iniziare la classe. La parola 
+chiave pass riempie la classe di nulla, senza proprietà o metodi.
+
+La classe appena definita diventa uno strumento in grado di creare nuovi oggetti. Lo strumento deve essere utilizzato esplicitamente, su richiesta. 
+Immagina di voler creare un (esattamente uno) oggetto della classe OurClass.
+
+Es.
+
+        ourobject = OurClass()
+        
+## 5.2.1 Che cosa è uno STACK
+
