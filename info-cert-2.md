@@ -851,3 +851,35 @@ Es.
         
 ## 5.2.1 Che cosa è uno STACK
 
+Lo stack è una struttura per lo storing dei dati. Il nome alternativo per lo stack è LIFO.
+Lo stack viene usato per implementare tantissimi algoritmi.
+
+Es. Implementazione di uno stack (procedurale)
+
+        stack = []
+        
+        def push(val):
+            stack.append(val)
+            
+        def pop():
+            val = stack[-1]
+            del stack[-1]
+            return val
+        
+        push(3)
+        push(2)
+        push(1)
+        print(pop())
+        print(pop())
+        print(pop())
+
+Una implementazione di questo tipo è molto pratica e funziona, però è anche molto vulnerabile perché si può accedere alle variabili,
+non c'è protezione e si può alterare la struttura della pila senza controllo. L'approccio ad oggetti impedisce, grazie al metodo 
+dell'**incapsulamento** di intervenire direttamente sulle variabili, ma le nasconde dall'esterno. Inoltre se ho una classe che produce stack,
+io posso fare tutti gli stack che voglio e in più posso arricchire questa classe creando delle nuove funzionalità o estensioni di questa classe.
+
+Es. implementazione di uno stack (approccio ad oggetti)
+
+        class Stack:
+        
+        

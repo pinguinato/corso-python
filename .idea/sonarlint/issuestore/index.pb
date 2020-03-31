@@ -120,3 +120,5 @@ W
 'esercizi/progs/PCA_4_3_20_(main2_py).py,f\b\fb9113807fd1909112b0b8307179b66c8fef2245
 K
 esercizi/costruttore_new.py,8\b\8be6a8c9fcdb6c693b925b1d6a1252ab6c910406
+M
+esercizi/stack_procedurale.py,1\e\1efb1074b89db5fa3526dddb82769aa2bf0ba411
