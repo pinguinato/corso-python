@@ -122,3 +122,7 @@ K
 esercizi/costruttore_new.py,8\b\8be6a8c9fcdb6c693b925b1d6a1252ab6c910406
 M
 esercizi/stack_procedurale.py,1\e\1efb1074b89db5fa3526dddb82769aa2bf0ba411
+L
+tiny_contact_app/BTCInput.py,c\a\cacb50d497aa732b817e46e5aed0ffb82e278181
+M
+tiny_contact_app/prototype.py,3\9\39836cc6ba3e5f5c89c29768bbbd23e574c47c05
