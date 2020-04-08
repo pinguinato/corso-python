@@ -732,6 +732,8 @@ Questo permette a Python di localizzare la struttura come package.
 
 
 
+
+
 ## 5.1.1 Concetti base della programmazione ad oggetti
 
 Il paradigma ad oggetti è utile su progetti di grandi dimensioni. Python può essere utilizzato sia per programmare in forma 
@@ -880,6 +882,77 @@ io posso fare tutti gli stack che voglio e in più posso arricchire questa class
 
 Es. implementazione di uno stack (approccio ad oggetti)
 
+Primo passo:
+
         class Stack:
+            def __init__(self):
+                print('Hi')
+                
+        stack = Stack()
+        
+Obiettivi:
+- gli stack che definiamo devono essere indipendenti e i loro elementi nascosti
+- ci vuole un elenco per ogni stack
+
+Python non ha costrutti come altri linguaggi di programmazione per fare queste cose, è necessario equipaggiare la nostra classe
+di una funzionalità in grado di garantirci questo comportamento: il **Costruttore**. Questo ci permette:
+- di essere invocato solo quando viene creato un nuovo oggetto
+- è nominato in modo rigoroso
+- il costruttore sa tutto sulla natura dell'oggetto da creare
+- il nome del costruttore è sempre __init__
+- ha un parametro obbligatorio chiamato **self**, è una convenzione e semplifica la lettura del codice
+
+Eseguendo il codice sopra l'output che si ottiene è:
+
+        >>> Hi
+        
+Non c'è nessuna invocazione esplicita del costruttore, in realtà è stato invocato implicitamente nell'atto di creazione
+dello **stack**. Qualsiasi modifica apportata all'interno del costruttore che modifica lo stato del parametro self, si riflette 
+sull'oggetto creato, questo vuol dire che posso aggiungere proprietà all'oggetto che rimangono lì fino a quando l'oggetto non viene
+ rimosso.
+ 
+Es.
+
+Secondo Passo(definizione di proprietà e accesso ad esse):
+
+        class Stack:
+            def __init__(self):
+                self.stk = []
+                
+        stack = Stack()
+        print(len(stack.stk))
+        
+Da come si vede usiamo la **dotted notation** per accedere alla proprietà **stk** dell'oggetto stack. Si accede alle proprietà 
+degli oggetti in Python allo stesso modo di come si invocano i metodi. In questo modo, dall'esempio si vede che possiamo 
+verificare la lunghezza dello stack però noi non vogliamo questa cosa, vorremmo nasconderla e adesso vediamo come si fa:
+
+Es.
+
+Terzo Passo (come Python implementa l'incapsulamento negli oggetti)
+
+        class Stack:
+            def __init__(self):
+                self.__stk = []
+                
+        stack = Stack()
+        print(len(stack.__stk))
+        
+Anteporre due underscore al nome della proprietà di un oggetto, vuol dire renderla **privata**, questo è il modo in cui Python
+interpreta l'incapsulamento. Se una proprietà è privata allora è possibile solo accedervi dall'interno di una classe.
+
+## 5.2.11 Classe Stack (Approccio ad oggetti)
+
+Es.
+
+Quarto Passo(implementiamo la pop e la push):
+
+
+
+
+
+
+
+
+
         
         

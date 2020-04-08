@@ -122,7 +122,15 @@ K
 esercizi/costruttore_new.py,8\b\8be6a8c9fcdb6c693b925b1d6a1252ab6c910406
 M
 esercizi/stack_procedurale.py,1\e\1efb1074b89db5fa3526dddb82769aa2bf0ba411
-L
-tiny_contact_app/BTCInput.py,c\a\cacb50d497aa732b817e46e5aed0ffb82e278181
-M
-tiny_contact_app/prototype.py,3\9\39836cc6ba3e5f5c89c29768bbbd23e574c47c05
+?
+todoapp/main.py,f\8\f8d8b9c78b5c67e4c4f46d037b574dff4d6f9282
+C
+todoapp/show_all.py,d\e\de0c8c0c242c4e591bee9707513920057ff2352a
+C
+todoapp/app_menu.py,4\e\4e46532144b7bb0f162dd06b8799fd0aeda52b19
+C
+todoapp/__init__.py,c\3\c32ead16c8b700425962dc44bb6add10ffac1644
+B
+todoapp/credits.py,1\6\169173c5445ad351e05dbb034e5d8a93a3d56d89
+E
+todoapp/task_list.txt,6\1\61315733eca3fcac02c1a436a9f094caddeb24b9
