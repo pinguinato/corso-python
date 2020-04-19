@@ -134,3 +134,9 @@ B
 todoapp/credits.py,1\6\169173c5445ad351e05dbb034e5d8a93a3d56d89
 E
 todoapp/task_list.txt,6\1\61315733eca3fcac02c1a436a9f094caddeb24b9
+a
+1esercizi/list_comprehension/list-comprehension.py,5\a\5ad24c626cdf46889a37a906052b1de016199449
+O
+esercizi/iteratore/iteratore.py,f\a\fad2af2fdb18ff81dad9b023ae6160f1f0f32956
+V
+&esercizi/generator_function/esempio.py,0\7\073cc642d799bf9ae3837aff46f87f6c54f11815

@@ -2816,5 +2816,137 @@ Es.
         secondo
         terzo
 
-Quando eseguo un for l'eccezione StopIteration è gestita da Python stesso.
+Quando eseguo un for l'eccezione StopIteration
+ è gestita da Python stesso.
+ 
+### Creazione di un iteratore (un oggetto iterabile)
 
+Es.
+
+        # un iteratore ha sempre metodo iter e metodo next
+
+        class MyIterator:
+            def __iter__(self):
+                self.myattr = 2
+                return self
+
+            def __next__(self):
+                if self.myattr < 300:
+                    n = self.myattr
+                    self.myattr *= 2
+                    return n
+                else:
+                    raise StopIteration
+
+
+        iteratore = MyIterator()
+        testIter = iter(iteratore)
+
+        # usando print se ne metto ancora una ottengo l'eccezione StopIteration
+        print(next(testIter))
+        print(next(testIter))
+        print(next(testIter))
+        print(next(testIter))
+        print(next(testIter))
+        print(next(testIter))
+        print(next(testIter))
+        print(next(testIter))
+
+        # con il for l'eccezione è controllata e non si presenta
+        for i in testIter:
+            print(i)
+            
+## Generator Functions
+
+Normale funzione python, ma con una particolarità: se all'interno della funzione compare
+la parola chiave **yield** (cedere) allora l'intera funzione viene trasformata automaticamente
+in un iteratore e l'iterazione avviene nel punto in cui compare yield. Se viene poi invocata nuovamente 
+riparte dall'istruzione successiva alla yield.
+
+Es.
+           
+        def get_doppio_gen():
+           e = 2
+            while (e < 300):
+                yield e # e contiene valore dell'iterazione
+                e *= 2
+                
+        gen = get_doppio_gen()
+        print(gen)
+        print(next(gen))  # 2
+        print(next(gen))  # 4
+        
+Quando produciamo una funzione generatore Python dietro le quinte produce un oggetto analogo
+ad un iteratore. Questo vuol dire che quando chiamo **next(gen)** vuol dire in realtà che sto facendo 
+una chiamata al metodo speciale next esattamente come nel caso di un normale iteratore: posso verificarlo 
+in questo modo:
+
+        print(gen.__next__()) # produrrà lo stesso identico risultato di print(next(gen))
+
+Esempio completo:
+
+        def get_doppio_gen():
+            e = 2
+            while (e < 300):
+                yield e
+                e *= 2
+
+
+        testgen = get_doppio_gen()
+        print(testgen)
+        print(next(testgen))
+        print(next(testgen))
+        print(next(testgen))
+        print(next(testgen))
+        print(next(testgen))
+        print(next(testgen))
+        print(next(testgen))
+        print(next(testgen))
+
+        testgen2 = get_doppio_gen()
+        print(testgen2)
+        print(testgen2.__next__())
+        print(testgen2.__next__())
+        print(testgen2.__next__())
+        print(testgen2.__next__())
+        print(testgen2.__next__())
+        print(testgen2.__next__())
+        print(testgen2.__next__())  
+        print(testgen2.__next__())
+
+### return nelle Generator Functions
+
+All'interno di una funzione generatore possiamo usare anche l'espressione **return** per
+interrompere l'iterazione, per fermarla. Se lo facciamo viene sollevata una StopIteration.
+Proviamo a riscrivere la funzione nel nuovo modo usando return:
+
+
+        def get_doppio_gen2():
+            e = 2
+            while (True):
+                yield e
+                e *= 2
+                if (e >= 300):
+                    return
+
+
+        testgen3 = get_doppio_gen2()
+        for el in testgen3:
+            print(el)
+
+## Generator Expression
+
+è equivalente ad una List Comprehension
+
+Es. (list comprehension)
+
+
+        numbers = [1,2,3,4,5,6,7,8,9,10,11,12]
+        newlist = [n * n for n in numbers if n % 2 == 1]
+        print(newlist)
+        
+        >>> [1, 9, 25, 49, 81, 121]
+        
+
+        
+        
