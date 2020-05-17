@@ -2947,6 +2947,245 @@ Es. (list comprehension)
         
         >>> [1, 9, 25, 49, 81, 121]
         
+## Dizionari (aggiunte python 3.7)
+
+Python fino alla versione 3.6 non garantiva l'ordinamento delle chiavi, dalla versione 3.7
+lo garantiscono.
+
+Esempio:
+        
+        >>> myDict = { "primo": 10, "secondo": 20, "terzo": 30}
+        
+        >>> myDict["quarto"] = 40
+        
+        >>> print(myDict)
+        
+        {'primo': 10, 'secondo': 20, 'terzo': 30, 'quarto': 40} 
+
+La vera novità di Python 3.7 sta nel fatto che invocando il metodo **keys()** vengono 
+restituite le chiavi in ordine del dizionario, l'ordinamento viene preservato. 
+
+Esempio:
+
+        >>> myDict.keys()
+        
+        dict_keys(['primo', 'secondo', 'terzo', 'quarto'])
+        
+## Le type annotations (python 3.7)
+
+In realtà sono le **Data Classes** la vera novità di Python 3.7, ma per comprendere le data classes, 
+prima dobbiamo fare un passo indietro e parlare delle **Type Annotations** e della loro storia
+attraverso documenti della community chiamati **PEP**.
+
+Le type annotations esistono già in versioni precedenti alla 3.7
+
+### PEP (python enhancement proposal)
+
+Documento sottoposto alla comunità di python, dove qualcuno sottopone nuove caratteristiche del 
+linguaggio da approvare previa decisione della community.
+
+La PEP 3107 riguarda l'adozione delle annotazioni, risale alla versione 3.0 del python.
+
+**Annotazione:** in Python è una qualsiasi espressione valida del linguaggio che segue
+il crattere due punti.
+
+Esempio:
+
+        def foo(a: expression, b: expression = 5):
+        
+        def sum() -> expression:
+        
+        def myFunc(x: "parametro x") -> "ritorno":
+            return x
+            
+        print(myFunc.__annotations__)
+        
+        {'x': 'parametro x, return': 'ritorno'}
+        
+La PEP 484 (Python 3.5 2014) Type Hints
+
+Usa la sintassi delle annotazione per suggerire i data types.
+
+Esempio:
+
+        def myFunc(x, s = "python"):
+            print(x)
+            return s
+            
+        res = myFinc(10)
+        
+        print(res)
+        
+        >>> 10
+        >>> python
+        
+Modifichiamo la funzione con delle **Type Annotations**:
+
+        def myFunc(x: int, s: str = "python"):
+            print(x)
+            return s
+            
+Oppure specificando il tipo di valore di ritorno con l'operatore freccia:
+
+        def myFunc(x: int, s: str = "python") -> str:
+            print(x)
+            return s
+            
+        print(myFunc.__annotations__)
+        
+La funzione print ci ritorna il dizionario con i valori della funzione.
+
+La PEP 526 (python 3,6, 2016)
+
+Estende le annotazioni di tipo dalle funzioni alle variabili.
+
+Esempio:
+
+        a: int = 10
+        print(a)
+        print(__annotations__)
+        
+        {'a': <class 'int'>}
+        
+L'annotazione di tipo può essere usata anche all'interno delle classi. Per annotare levariabili di istanza/classe.
+
+Esempio:
+
+        class MyClass:
+            nome: str
+            cognome: str
+            
+            def __init__(self, nome, cognome):
+                self.nome = nome
+                self.cognome = cognome
+
+        mc = MyClass(nome = "Roberto", cognome = "Gianotto")
+        print(mc)
+        print(mc.nome)
+        print(mc.cognome)
+        
+        <__main__.MyClass object at 0x02F507D0>
+        Roberto
+        Gianotto
+        
+
+## Le Data Classes
+
+Abbiamo visto come già a partire dalla versione 3.6 python può gestire le annotazioni di tipo. Dalla versione
+3.7 gestisce anche le **Data Classes**. Il principio ruota attorno ad un class decorator, che si chiama
+data class definito all'interno del modulo data classes, che fornisce modulo e funzioni per definire le data classes.
+
+Quindi se vogliamo usare le data classes la prima cosa da fare è importare il decoratore!!
+
+Da come si vede nell'esempio si usa anche l'annotazione di tipo nella classe di esempio.
+
+        from dataclasses import dataclass
+        
+        @dataclass
+        class MyClass:
+            nome: str
+            cognome: str
+            
+Praticamente inserendo questo codice viene automaticamente generato un metodo init fatto così:
+
+        def __init__(self, nome: str, cognome: str) -> None:
+            self.nome = nome
+            self.cognome = cognome
+
+Un pò come succede per le annotations di Java (tipo Lombok). Inoltre però viene aggiunta,
+sempre in automatico una implementazione dei seguenti metodi:
+
+        __repr__
+        __eq__ # (==)
+        __ne__ @ (!=)
+        
+Quindi le **data classese** mi servono per implementare in automatico metodi senza doverli definire!!
+
+Esempio:
+        
+        from dataclasses import dataclass
+
+        @dataclass
+        class MyClass:
+            nome: str
+            cognome: str
+
+        mc = MyClass(nome = "Roberto", cognome = "Gianotto")
+        print(mc)
+        print(mc.nome)
+        print(mc.cognome)
+        
+        >>>MyClass(nome='Roberto', cognome='Gianotto')
+        >>>Roberto
+        >>>Gianotto    
+        
+**Importante**
+
+Il decoratore dataclass ammmette parametri che permettono molta personalizzazione.
+Esempio:
+
+       @dataclass(init=True, repr=True, order=True, frozen=False)
+       ...
+       
+- init=True: chiediamo al decoratore di generare il costruttore in automatico, se lo 
+mettiamo a False, non possiamo più generare istanze.
+
+- repr=True: consente di avere una rappresentazione in output dei campi dell'istanza, 
+come espresso qui: MyClass(nome='Roberto', cognome='Gianotto'), se lo metto a False, la rappresentazione
+è di più difficile lettura: <__main__.MyClass object at 0x02F507D0>
+
+- order=True: il valore di default è False, se messo a True vengono genrati dei metodi in automatico, 
+che definiscono una gerarchia di ordine delle istanze sulla base di valori attuali.
+
+- frozen=False: se impostato a False possiamo modificare i valori delle varibili di istanza
+a nostro piacimento, però se impostiamo a True, l'intera classe si "congela" e non possiamo
+alterare il valore dei campi!! Si ottiene un FrozenInstanceError.
+
+## Assignment Expressions (da Python 3.8)
+
+## Parametri Positional Only (da Python 3.8)
+
+Parametri e argomenti di una funzione in Python.
+
+Esempio:
+
+Passaggio posizionale
+
+        def somma(a, b, c):
+            return a + b + c
+        
+        # passaggio di parametri per posizione, 3 argomenti posizionali    
+        x = somma(10,4,2)
+        print(x)
+        >>> 16
+        
+Passaggio "Keyword", liberi di essere passati nell'ordine desiderato.
+        
+        # passaggio di parametri "keyword" argument, per chiave
+        y = somma(a=10, b=4, c=2)
+        print(y) 
+        >>>16
+
+Ci sono dei casi però dove chi definisce una funziona possa decidera di ammettere solo il passaggio
+keyword o solo il passaggio posizionale. A partire dalla versione 3.8 questo è possbile con i parametri
+"positional only". Questa specifica è stata introdotta nella PEP 570.
+
+Esempio:
+
+        def somma(a,/,b,c): # il carattere / dice che a riceve solo argomenti posizionali
+            return a+b+c
+            
+Questo vuol dire che non va più bene scrivere questo:
+
+        y = somma(a=10, b=4, c=2)
+        
+Ma devo mettere:
+
+        y = somma(10, c=4, b=2)
+        
+# Python e RabbitMQ
+
+# Python e MongoDB
 
         
         

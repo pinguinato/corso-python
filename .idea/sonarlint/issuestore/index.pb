@@ -140,3 +140,11 @@ O
 esercizi/iteratore/iteratore.py,f\a\fad2af2fdb18ff81dad9b023ae6160f1f0f32956
 V
 &esercizi/generator_function/esempio.py,0\7\073cc642d799bf9ae3837aff46f87f6c54f11815
+w
+Gtutorials/connessione_db/Lib/site-packages/mysql/connector/errorcode.py,d\9\d96d54216a0a6079c5b61390bd2dac8b62218b57
+j
+:tutorials/connessione_db/Lib/site-packages/easy_install.py,9\d\9dc2a40f62bc78c47fb0892bb3790fc807fbeb9d
+n
+>tutorials/connessione_db/Lib/site-packages/test_connetti_db.py,1\a\1a329f2697672bfc4a2a5d433a2e9359b281adad
+K
+esercizi/connection_test.py,f\0\f09e38498f52965f5ad6482a44290abcef103f4d
