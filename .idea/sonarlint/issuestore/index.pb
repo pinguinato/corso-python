@@ -148,3 +148,7 @@ n
 >tutorials/connessione_db/Lib/site-packages/test_connetti_db.py,1\a\1a329f2697672bfc4a2a5d433a2e9359b281adad
 K
 esercizi/connection_test.py,f\0\f09e38498f52965f5ad6482a44290abcef103f4d
+[
++esercizi/dataclasses/dataclasses_esempio.py,2\3\23bd584c1d779bca2091044c1edf63dd7a875bc1
+T
+$esercizi/type_annotations/myclass.py,2\7\27e54b22a000744d850df1bc9bf862b352725391
