@@ -585,7 +585,7 @@ https://docs.python.org/3/py-modindex.html
 ## 4.3.1 Modules and Packages
 
 - **modulo**: contenitore di funzioni, si possono racchiudere tutte le funzioni che voglio e può essere distribuito ovunque,
-è buona norma non mescolare funzioni di contensto diverso all'interno dello stesso modulo.
+è buona norma non mescolare funzioni di contesto diverso all'interno dello stesso modulo.
 - **fare tanti moduli** crea confuzione ed esiste un contenitore al di sopra dei moduli, questo si chiama **package** e si può 
 vendere esattamente come una **cartella** (o contenitore di moduli).
 

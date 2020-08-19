@@ -3143,6 +3143,32 @@ alterare il valore dei campi!! Si ottiene un FrozenInstanceError.
 
 ## Assignment Expressions (da Python 3.8)
 
+Espressioni con assegnamento: introducono un nuovo operatore del linguaggio, l'operatore 
+**walrus** (tricheco) :=
+
+Uno statement è un comando che forniamo all'interprete Python per ottenere un valore e viene
+valutata a runtime (le più semplici sono i literal e gli operatori). Le invocazioni di metodi anche sono 
+espressioni, perché producono dei valori di ritorno.
+
+Ci sono dei casi in cui non possiamo assegnare dei valori di ritorno ad una variabile.
+
+Esempio:
+
+        def somma(a,b):
+            return a + b
+            
+        x = somma(5,3)
+        
+        print(x)
+        
+        if x = somma(5,3) > 6: # ERRORE!!! Non potevo farlo fino alla versione 3.8
+            print("x maggiore di 6")
+            
+Esempio 3.8:
+
+        if x := somma(5,3) > 6:
+            print("x maggiore di 6")
+            
 ## Parametri Positional Only (da Python 3.8)
 
 Parametri e argomenti di una funzione in Python.
@@ -3183,8 +3209,59 @@ Ma devo mettere:
 
         y = somma(10, c=4, b=2)
         
+**Importante**
+
+**PEP 572** - Assignnment Expression
+        
 # Python e RabbitMQ
 
+Python viene usato per il web e il machine learning, però può venir usato per applicazioni
+scalabili, in grado di supportare un numero massivo di utenze. Si possono realizzare quindi 
+applicazioni server scalabili servendosi di **RabbitMQ** che è un **message brokers** per architetture 
+distribuite.
+
+**Primo esempio di architettura distribuita (il client server)**
+
+La comunicazione avviena tramite un server, che eroga un servizio e una secnoda, il client che richiede
+ l'esecuzione del servizio richiesto, esempio classico sono le web aplpication( es. il browser e il web application server).
+ 
+Il client fa una **request** e il server l'elabora e successivamente produce una **resposnse**, ritornando le inforamzioni 
+richieste al client.
+
+**Architetture vicino ai message brokers**
+
+Producer e Consumer. Applicazioni che producono informazioni e applicazioni che hanno interesse a ricevere le notifiche
+di queste informazioni prodotte.
+
+Il **Producer** notifica l'informazione attraverso un **messaggio**. Una volta prodotto il messaggio, dopo il verificarsi di determinati eventi 
+il **Consumer** puà recepire il messaggio. Al momento della pubblicazione del messaggio non necessariamente, il consumer deve essere attivo, ma non 
+per questo il messaggio viene perduto!! I consumer possono essere molti, non soltanto uno, un certo numero di consumer, magari pure molto diversi tra loro e tutti 
+presenti in linea al momento in cui il messaggio si rende disponibile. Inoltre i consumer non si conoscono in modo da essere sempre 
+totalmente disaccoppiati. Il terzo strato applicativo che **disaccoppia** produttorri e consumatori e il **message brokers**. Non contengono
+ il producer o il consumer, ma sono applicazioni che lavorano da intemediari tra i producer e i consumer, in modo che i consumer forniscano loro il messaggio e il message brokers 
+ lo instradano ai consumer. Nello schema:
+ 
+                                     --> Consumer
+        Producer --> Message Brokers --> Consumer
+                                     --> Consumer
+                                     
+Nel momento in cui un consumer si rende disponibile a leggere il messaggil il message borkers glielo consegna.
+
+Sul mercato esistono vari tipi di message brokers, uno dei più diffusi è **RabbitMQ** è open source e usabile in diversi 
+linguaggi di programmazioni, uno di questi è proprio Python.
+
+## Installazione di RabbitMQ
+
+https://www.rabbitmq.com/download.html
+
+### Docker
+
+        docker run -it --rm --name rabbitmq -p 5672:5672 -p 15672:15672 rabbitmq:3-management
+
+https://registry.hub.docker.com/_/rabbitmq/
+
+
+   
 # Python e MongoDB
 
         
