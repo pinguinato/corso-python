@@ -1,0 +1,7 @@
+pagaOraria = float(input("Inserire la paga oraria normale: "))
+pagaStraordinaria = float((pagaOraria * 1.5) + pagaOraria) 
+oreSettimanali = int(input("Inserire le ore settimanali lavorate: "))
+oreStraordinario = int(input("Inserire le ore di straordinario lavorate in settimana: "))
+print("Paga settimanale senza straordinario: € " + str(oreSettimanali * pagaOraria))
+print("Paga settimanale straordinario: € " + str(oreStraordinario * pagaStraordinaria))
+print("Paga settimanale complessiva: € " + str((oreSettimanali * pagaOraria) + (oreStraordinario * pagaStraordinaria)))
