@@ -3264,5 +3264,65 @@ https://registry.hub.docker.com/_/rabbitmq/
    
 # Python e MongoDB
 
-        
-        
+## JSON
+
+**JSON**: javascript object notation, basato su un sottosistema del linguaggio javascript è un formato di interscambio leggero dei dati
+
+http://www.json.org
+
+**Strutture di base del JSON**
+
+- oggetti (strutture, dizionari, collezioni di associazioni tra nomi, chiavi e valori)
+- array (sono liste ordinate di valori)
+
+        {"stringa/chiave": "stringa"|number|object|array|true|false|null }
+
+Ogni coppia chiave/valore è separata della successiva attraverso il carattere virgola.
+
+Esempio (con oggetto annidato):
+
+        {
+            "nome": "Mario",
+            "cognome": "Rossi",
+            "età": 30,
+            "computer": {
+                "comp1": "Asus",
+                "comp2": "Apple"
+            }
+        }
+
+Esempio (array):
+
+        {
+            "nome": "Mario",
+            "cognome": "Rossi",
+            "età": 30,
+            "computer": ["Asus", "Apple"]
+        }
+
+## BSON
+
+Estensione di JSON. Bson è una forma di serializzazione di documenti JSON espressa non in formato testuale, ma binario.
+
+http://bsonspec.org
+
+Tipi di dati:
+
+- date
+- timestamp
+- int
+- double
+- long
+- binary data
+- boolean
+- ObjectId (12 byte, struttura predefinita) -> specifico per mongo DB
+
+In mongoDB questo formato serve per:
+- archiviare informazioni
+- trasmettere informazioni (interscambio dati)
+
+MongoDB usa BSON.
+
+## Documenti e Collezioni (document e collection)
+
+MongoDB è orientato ai documenti.
