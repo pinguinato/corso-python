@@ -3372,6 +3372,8 @@ Per scrivere il programma ho dovuto installare **pymongo**: da un terminale qual
 
         pip install pymongo
 
+Documentazione: https://pymongo.readthedocs.io/en/stable/
+
 Se non lo si fa non funzionano gli import negli script di Python.
 
 Comandi per la shell:
@@ -3392,7 +3394,7 @@ Comandi per la shell:
 
 Per visualizzare i documenti nelle collection conviene usare il tool grafico **Compass**.
 
-#### Esercizio 1
+#### Esercizio 1 (connect to db and show the first document)
 
         import pymongo
         from pymongo import MongoClient
@@ -3425,7 +3427,7 @@ Per visualizzare i documenti nelle collection conviene usare il tool grafico **C
         p2 = {"nome": "Roberto", "cognome": "Gianotto", "eta": 42, "computer": ["lenovo", "msi"]}
         persone_collection.insert_one(p2)
 
-#### Esercizio 2
+#### Esercizio 2 (find all)
 
         import pymongo
         from pymongo import MongoClient
@@ -3445,7 +3447,7 @@ Per visualizzare i documenti nelle collection conviene usare il tool grafico **C
         for persona in query:
             print(persona)
 
-#### Esercizio 3
+#### Esercizio 3 (update di un documento)
 
         import pymongo
         from pymongo import MongoClient
@@ -3470,3 +3472,21 @@ Per visualizzare i documenti nelle collection conviene usare il tool grafico **C
         res = persone_collection.update_one({"nome": "Mario"}, {"$set": {"eta": 50} })
         p = persone_collection.find_one({"nome":"Mario"}) 
         print(p)
+
+#### Esercizio 4 (filtro)
+
+        '''
+        Esempio di utilizzo di un filtro su query in MongoDB
+        Autore: Gianotto Roberto
+        '''
+
+        import pymongo
+        from pymongo import MongoClient
+
+        client = MongoClient('localhost', 27017)
+        db = client.testdb 
+        persone_collection = db.persone
+
+        print("****")
+        persona = persone_collection.find_one({"nome": {"$gt": "Mario"}})
+        print(persona)
