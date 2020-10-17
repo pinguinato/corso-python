@@ -3392,6 +3392,10 @@ Comandi per la shell:
 
         use collectrion_name
 
+        net start mongodb
+
+        net stop mongodb
+
 Per visualizzare i documenti nelle collection conviene usare il tool grafico **Compass**.
 
 #### Esercizio 1 (connect to db and show the first document)
