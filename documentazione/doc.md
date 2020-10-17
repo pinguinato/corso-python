@@ -3326,3 +3326,101 @@ MongoDB usa BSON.
 ## Documenti e Collezioni (document e collection)
 
 MongoDB è orientato ai documenti.
+
+In un db relazionale i dati sono organizzati in tabelle con dei record che contengono i valori.
+
+Un record in un db relazionale è un documento in un db di mongo db.
+
+Un insieme di **documenti** sono mantenuti in una **collezione**. Collezione si può paragonare ad una tabella.
+
+Un documento in una collection ci consente di archiviare dei dati espressi in JSON/BSON. Un recordo in mongo db è meno rigido rispetto al modello relazionale. Il modello relazionale dei dati è molto rigido.
+
+Es. (di documento)
+
+        {
+            "_id": "987896scd5678",
+            "nome": "Mario",
+            "cognome": "Rossi",
+            "eta": 30
+        },
+        ....
+
+Più documento con lo stesso schema fanno la collection.
+**_id** esiste in ogni documento Mongo DB.
+I documenti in mongo non hanno una struttura predefinita, sono semplicemente degli oggetti Json che vengono archiviati.
+
+Ogni singolo documento di una collezione di Mongo può avere una struttrua differente dagli altri documenti della collezione.
+
+Possiamo archiviare i dati in una forma molto flessibile (array di oggetti).
+
+## Installazione di Mongo DB
+
+- Mongo DB e Pymongo: http.//mongodb.com
+
+I **documenti** in Mongo vengono archiviati all'interno delle **collezioni**. Un insieme di collezioni viene archiviata dentro un **databasae** Mongo e un database viene archiviato in **Cluster**.
+
+- Donwload del **Community Server**, la versione gratuita di Mongo DB.
+- Compass è un tool visuale per accedere ai db di Mongo
+- Pymongo è invece la libreria che permette a Python di accedere ad un db Mongo
+- è ncessario lanciare il processo **mongod** che fa la start in ascolto di Mongo DB. Di default il motore di Mongo è in ascolto in **localhost:27017**
+
+### Esercitazione Mongo DB
+
+Il software di mongo db si scarica da qui: https://www.mongodb.com/try/download/community
+
+Per scrivere il programma ho dovuto installare **pymongo**: da un terminale qualsiasi basta digitare
+
+        pip install pymongo
+
+Se non lo si fa non funzionano gli import negli script di Python.
+
+Comandi per la shell:
+
+        mongo
+
+        mongo --shell
+
+        mongo --version
+
+        show dbs
+
+        use dbname
+
+        show collections
+
+        use collectrion_name
+
+Per visualizzare i documenti nelle collection conviene usare il tool grafico **Compass**.
+
+#### Esercizio 1
+
+        import pymongo
+        from pymongo import MongoClient
+        
+        # eseguo la connessione con Mongo DB
+        
+        client = MongoClient('localhost', 27017)
+        
+        # creo un database
+        
+        db = client.testdb
+        
+        # creo la collection persone
+        
+        persone_collection = db.persone
+        
+        # creo una serie di indici
+        
+        persone_collection.create_index([("nome", pymongo.ASCENDING)])
+        persone_collection.create_index([("cognome", pymongo.ASCENDING)])
+        persone_collection.create_index([("computer", pymongo.ASCENDING)])
+        
+        # creo un documento
+        
+        p1 = {"nome": "Mario", "cognome": "Rossi", "eta": 30, "computer": ["asus", "msi", "acer"]}
+        
+        # inserisco il documento nella collezione
+        persone_collection.insert_one(p1)
+        # inserisco un secondo documento nella collezione
+        p2 = {"nome": "Roberto", "cognome": "Gianotto", "eta": 42, "computer": ["lenovo", "msi"]}
+        persone_collection.insert_one(p2)
