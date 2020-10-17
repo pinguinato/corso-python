@@ -3346,7 +3346,7 @@ Es. (di documento)
         ....
 
 Più documento con lo stesso schema fanno la collection.
-**_id** esiste in ogni documento Mongo DB.
+**_id** esiste in ogni documento Mongo DB, serve per distinguere i documenti.
 I documenti in mongo non hanno una struttura predefinita, sono semplicemente degli oggetti Json che vengono archiviati.
 
 Ogni singolo documento di una collezione di Mongo può avere una struttrua differente dagli altri documenti della collezione.
@@ -3396,31 +3396,51 @@ Per visualizzare i documenti nelle collection conviene usare il tool grafico **C
 
         import pymongo
         from pymongo import MongoClient
-        
+
         # eseguo la connessione con Mongo DB
-        
+
         client = MongoClient('localhost', 27017)
-        
+
         # creo un database
-        
+
         db = client.testdb
-        
+
         # creo la collection persone
-        
+
         persone_collection = db.persone
-        
+
         # creo una serie di indici
-        
+
         persone_collection.create_index([("nome", pymongo.ASCENDING)])
         persone_collection.create_index([("cognome", pymongo.ASCENDING)])
         persone_collection.create_index([("computer", pymongo.ASCENDING)])
-        
+
         # creo un documento
-        
+
         p1 = {"nome": "Mario", "cognome": "Rossi", "eta": 30, "computer": ["asus", "msi", "acer"]}
-        
+
         # inserisco il documento nella collezione
         persone_collection.insert_one(p1)
         # inserisco un secondo documento nella collezione
         p2 = {"nome": "Roberto", "cognome": "Gianotto", "eta": 42, "computer": ["lenovo", "msi"]}
         persone_collection.insert_one(p2)
+
+#### Esercizio 2
+
+        import pymongo
+        from pymongo import MongoClient
+
+        client = MongoClient('localhost', 27017)
+
+        db = client.testdb # se non c'è il db lo crea, se esiste si connette
+
+        persone_collection = db.persone
+
+        p = persone_collection.find_one() # leggo il primo documento nel db persone
+
+        print(p)
+
+        query = persone_collection.find({"computer": "msi"}) # query che richiede tutte le persone che posseggono un computer msi
+
+        for persona in query:
+            print(persona)
