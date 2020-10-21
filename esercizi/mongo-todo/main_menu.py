@@ -44,8 +44,11 @@ def create_new_todo():
 
 # cancella il primo elemento della collection
 def delete_a_todo():
-    todo_collection.delete_one({})
-    print("\nTask rimosso dalla lista.\n")
+    if (todo_collection.find().count() == 0):
+        print("\nNon ci sono cose da fare oggi, non posso eliminare niente...\n")
+    else:
+        todo_collection.delete_one({})
+        print("\nTask rimosso dalla lista.\n")
 
 # TODO: update_one
 # temp = {"titolo": "test"}, {"$set": {"titolo": "nuovo titolo"}}
