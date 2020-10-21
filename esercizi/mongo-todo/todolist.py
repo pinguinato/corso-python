@@ -17,10 +17,9 @@ while True:
         break
     elif choice == '1': # create
         create_new_todo()
-        break
     elif choice == '2': # read
         list_all_todos()
-        break
     elif choice == '4': # delete first
         delete_a_todo()
-        break
+    else:
+        print("\nScelta errata, fai una scelta tra quelle disponibili...\n")

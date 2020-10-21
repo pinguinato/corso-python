@@ -26,8 +26,12 @@ def application_menu():
 def list_all_todos():
     print("\nElenco dei task da fare oggi:\n")
     all_todos = todo_collection.find({})
-    for todo in all_todos:
-        print(todo) 
+    print("\nTotale task = ", str(todo_collection.find().count()))
+    if(todo_collection.find().count() == 0):
+        print("\nNon sono presenti cose da fare oggi...\n")
+    else:
+        for todo in all_todos:
+            print(todo) 
 
 # crea un nuovo document e lo inserisce nella collection
 def create_new_todo():
@@ -42,4 +46,12 @@ def create_new_todo():
 def delete_a_todo():
     todo_collection.delete_one({})
     print("\nTask rimosso dalla lista.\n")
+
+# TODO: update_one
+# temp = {"titolo": "test"}, {"$set": {"titolo": "nuovo titolo"}}
+# todo_collection.update_one(temp)
     
+#def update_a_todo(nuovo_titolo, nuova_descrizione):
+#    titolo = str(input("\nModifica il titolo del task: "))
+#    descrizione = str(input("\nModifica la descrizione del task: "))
+#    modifica_del_todo = 
