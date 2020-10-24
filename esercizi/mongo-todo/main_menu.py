@@ -20,6 +20,8 @@ def application_menu():
     print("\t\t|2| Lista tutti i Todo\n")
     print("\t\t|3| Modifica un Todo\n")
     print("\t\t|4| Elimina un Todo\n")
+    print("\t\t|5| Elimina tutti i Todo\n")
+    print("\t\t|6| Lista tutti i Todo solo con solo i valori\n")
     print("\t\t---------------------")
 
 # fa i listing di tutti i task presneti nella collection
@@ -50,11 +52,26 @@ def delete_a_todo():
         todo_collection.delete_one({})
         print("\nTask rimosso dalla lista.\n")
 
-# TODO: update_one
-# temp = {"titolo": "test"}, {"$set": {"titolo": "nuovo titolo"}}
-# todo_collection.update_one(temp)
-    
-#def update_a_todo(nuovo_titolo, nuova_descrizione):
-#    titolo = str(input("\nModifica il titolo del task: "))
-#    descrizione = str(input("\nModifica la descrizione del task: "))
-#    modifica_del_todo = 
+# cancello tutti i todo - delete all documents in a collection
+def delete_all():
+    #verifico che ci siano documenti e se collection vuota non cacello
+    if (todo_collection.find().count() == 0):
+        print("\nNon ci sono cose da fare oggi, non posso eliminare niente...\n")
+    else:
+        document_deleted = todo_collection.delete_many({})
+        print("\nHo cancellato ", str(int(document_deleted.deleted_count)), " tasks...\n")
+
+# modifica di un todo
+def modify_a_todo():
+    # TODO: implementare metodo per l'update di un todo
+    print("\nModifica di un todo...\n")
+
+# metodo per stampare i singoli campi di un document
+def list_all_todos_only_values():
+    print("\nElenco dei task da fare oggi:\n")
+    all_todos = todo_collection.find({})
+    print("\nTotale task = ", str(todo_collection.find().count()))
+    for todo in all_todos:
+        print("TITOLO: ",todo['titolo'], " DESCRIZIONE: ", todo['descrizione'])
+
+ 
