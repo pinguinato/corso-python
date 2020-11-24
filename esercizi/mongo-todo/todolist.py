@@ -3,7 +3,7 @@ Todo list with mongoDB e Python
 Autore: Gianotto Roberto
 '''
 
-from main_menu import application_menu, modify_a_todo, list_all_todos, create_new_todo, delete_a_todo, delete_all, list_all_todos_only_values 
+from main_menu import application_menu, modify_a_todo, list_all_todos, create_new_todo, delete_a_todo, delete_all, list_all_todos_only_values
 
 while True:
     application_menu()
