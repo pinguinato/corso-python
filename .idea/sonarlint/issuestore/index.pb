@@ -6,7 +6,7 @@ I
 O
 bank_account_01/bank_account.py,1\7\176fe2c09af0e1e5f18d0de2c95d5d7e94760e78
 G
-ContoCorrente/conto1.py,8\5\85f882b2be1b28dc44dd5614f309763a9c7bcfd6
+ContoCorrente/conto1.py,8/5/85f882b2be1b28dc44dd5614f309763a9c7bcfd6
 <
 info-cert.md,f\5\f5fd4348152b505340dc819eb38f109795662182
 F
@@ -27,11 +27,11 @@ H
 D
 esercizi/bodymass.py,f\d\fd62f5b8e73839f6ab9fab2ca156ea3c4133eca7
 ?
-esercizi/bmi.py,8\7\87016a8253d01d898d20d44ef79ecf78cd3d7746
+esercizi/bmi.py,8/7/87016a8253d01d898d20d44ef79ecf78cd3d7746
 @
-esercizi/bmi2.py,1\9\19d2d1f05d20ca46c91dfe256363f70f7e88bcb7
+esercizi/bmi2.py,1/9/19d2d1f05d20ca46c91dfe256363f70f7e88bcb7
 @
-esercizi/bmi3.py,c\d\cddf7e79b1cbb82123658d6583019439183c08e5
+esercizi/bmi3.py,c/d/cddf7e79b1cbb82123658d6583019439183c08e5
 E
 esercizi/fibonacci.py,1\1\1151d97c7b4e38df55b49a942ba708ef7ec68825
 F
@@ -152,3 +152,5 @@ K
 +esercizi/dataclasses/dataclasses_esempio.py,2\3\23bd584c1d779bca2091044c1edf63dd7a875bc1
 T
 $esercizi/type_annotations/myclass.py,2\7\27e54b22a000744d850df1bc9bf862b352725391
+E
+esercizi/anno_luce.py,d/4/d41ddf4b481e301a3681499170d713ed20673511
