@@ -1,7 +1,10 @@
 .idea
-.idea
 .vscode/settings.json
 .idea/corso-python.iml
 .idea/misc.xml
 .idea/sonarlint/issuestore/index.pb
-
+__pychache__
+sonarlint
+misc.xml
+.idea
+esercizi/mongo-todo/__pycache__

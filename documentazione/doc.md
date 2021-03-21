@@ -3372,6 +3372,10 @@ Per scrivere il programma ho dovuto installare **pymongo**: da un terminale qual
 
         pip install pymongo
 
+oppure:
+
+        python -m pip install pymongo
+
 Documentazione: https://pymongo.readthedocs.io/en/stable/
 
 Se non lo si fa non funzionano gli import negli script di Python.
